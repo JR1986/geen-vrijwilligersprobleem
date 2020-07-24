@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from "gatsby";
 
 const NavContainer = styled.div`
     background-color: blue;
@@ -12,19 +13,20 @@ const Navbar = styled.nav`
     text-align: center;
 `;
 
-const NavLink = styled.li`
+const NavLink = styled(Link)`
     display: inline-block;
     padding: 24px 48px;
     color: white;
     margin: 0 auto;
+    text-shadow: none;
 `;
 
 const Navigation = () => (
     <NavContainer>
         <Navbar>
-            <NavLink>Home</NavLink>
-            <NavLink>About</NavLink>
-            <NavLink>Contact</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about/">About</NavLink>
+            <NavLink to="/contact/">Contact</NavLink>
         </Navbar>
     </NavContainer>
 );

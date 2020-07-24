@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
@@ -25,8 +24,6 @@ const IndexPage = () => (
     `}
       render={data => {
 
-        console.log(data)
-
         return (
           <>
             <h1>{data.gcms.algemeensConnection.edges[0].node.title}</h1>
@@ -35,7 +32,6 @@ const IndexPage = () => (
         )
       }}
     />
-    <Link to="/page-2/">Go to page 2</Link> <br />
   </Layout>
 )
 
