@@ -39,5 +39,12 @@ module.exports = {
         url: "https://api-eu-central-1.graphcms.com/v2/ckcyx3yb4184701xu9b6r4w3d/master",
       },
     },
+    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
   ],
 }
