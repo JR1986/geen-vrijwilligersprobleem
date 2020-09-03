@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
+import Hero from "./Hero";
 
 const NavContainer = styled.div`
     background-color: blue;
@@ -22,13 +23,16 @@ const NavLink = styled(Link)`
 `;
 
 const Navigation = () => (
-    <NavContainer>
-        <Navbar>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about/">About</NavLink>
-            <NavLink to="/contact/">Contact</NavLink>
-        </Navbar>
-    </NavContainer>
+    <>
+        <NavContainer>
+            <Navbar>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/about/">About</NavLink>
+                <NavLink to="/contact/">Contact</NavLink>
+            </Navbar>
+        </NavContainer>
+        <Hero></Hero>
+    </>
 );
 
 export default Navigation;
