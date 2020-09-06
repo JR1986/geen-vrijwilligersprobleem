@@ -28,15 +28,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: `gatsby-source-datocms`,
       options: {
-        // The top level query type, can be anything you want!
-        typeName: "GCMS",
-        // The field you'll query against, can also be anything you want.
-        fieldName: "gcms",
-        // Your API endpoint, available from the dashboard and settings window.
-        // You can use this endpoint that features US mountains for now.
-        url: "https://api-eu-central-1.graphcms.com/v2/ckcyx3yb4184701xu9b6r4w3d/master",
+        apiToken: `228a5af0d13392cf62bc951d69030c`,
+        preview: false,
+        disableLiveReload: false,
       },
     },
     `gatsby-plugin-emotion`,

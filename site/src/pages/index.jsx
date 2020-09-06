@@ -10,15 +10,9 @@ const IndexPage = () => (
     <StaticQuery
       query={graphql`
       query {
-        gcms {
-          algemeensConnection {
-          edges {
-            node {
-              title
-              description
-            }
-          }
-          }
+        datoCmsHome {
+          teaser
+          teaserDescription
         }
       }
     `}
@@ -26,8 +20,8 @@ const IndexPage = () => (
 
         return (
           <>
-            <h1>{data.gcms.algemeensConnection.edges[0].node.title}</h1>
-            <p>{data.gcms.algemeensConnection.edges[0].node.description}</p>
+            <h1>{data.datoCmsHome.teaser}</h1>
+            <p>{data.datoCmsHome.teaserDescription}</p>
           </>
         )
       }}
