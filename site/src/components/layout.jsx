@@ -8,17 +8,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Navigation from './Navigation';
+import { ThemeProvider } from 'emotion-theming'
+import theme from '../utils/theme';
 
 const Layout = ({ children }) => {
 
   return (
-    <>
-        <Navigation />
-        <main>{children}</main>
-        <footer>
-          <div>Footer</div>
-        </footer>
-    </>
+    <ThemeProvider theme={theme}>
+      <Navigation />
+      <main>{children}</main>
+      <footer>
+        <div>Footer</div>
+      </footer>
+    </ThemeProvider>
   )
 }
 
