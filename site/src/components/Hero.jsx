@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
-// import { Image } from "react-datocms";
 import Img from 'gatsby-image';
 
 const HeroContainer = styled.div`
@@ -10,7 +9,7 @@ const HeroContainer = styled.div`
   object-fit: cover;
 
   @media (min-width: 840px) {
-    max-height: 500px;
+    max-height: 800px;
   }
 `;
 
@@ -28,11 +27,9 @@ const Drawer = () => {
 `)
 
   return (
-    <>
-      <HeroContainer>
-        <Img fluid={data.datoCmsHome.heroImage.fluid} />
-      </HeroContainer>
-    </>
+    <HeroContainer>
+      <Img fluid={data.datoCmsHome.heroImage.fluid} />
+    </HeroContainer>
   )
 }
 

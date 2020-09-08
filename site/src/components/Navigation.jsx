@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
-import Hero from "./Hero";
+import Theme from "../utils/Theme";
 import { Flex, Text, Box } from "rebass";
 
 const NavContainer = styled.div`
-    background-color: blue;
+    background-color: ${props => props.theme.colors.white};
     width: 100%;
 `;
 
@@ -16,32 +16,41 @@ const Navbar = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-    display: inline-block;
-    padding: 24px 48px;
-    color: white;
-    margin: 0 auto;
-    text-shadow: none;
+    padding: 24px;
+    color: ${props => props.theme.colors.black};
+    text-decoration: none;
+`;
+
+const Logo = styled.img`
+  max-width: 200px;
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  z-index: 10;
+`;
+
+const RelativeContainer = styled.div`
+  position: relative;
 `;
 
 const Navigation = () => (
-  <>
-    <NavContainer>
-      <Navbar>
-        <Flex
-          px={2}
-          color={theme.primary}
-          bg='white'
-          alignItems='center'>
-          <Text p={2} fontWeight='bold'>Rebass</Text>
-          <Box mx='auto' />
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about/">About</NavLink>
-          <NavLink to="/contact/">Contact</NavLink>
-        </Flex>
-      </Navbar>
-    </NavContainer>
-    <Hero></Hero>
-  </>
+  <Theme>
+    <RelativeContainer>
+      <NavContainer>
+        <Navbar>
+          <Flex
+            px={2}
+            alignItems='center'>
+            <Box mx='auto' />
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about/">About</NavLink>
+            <NavLink to="/contact/">Contact</NavLink>
+          </Flex>
+        </Navbar>
+      </NavContainer>
+      <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
+    </RelativeContainer>
+  </Theme>
 );
 
 export default Navigation;

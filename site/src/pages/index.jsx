@@ -1,8 +1,9 @@
-import React from "react"
-import { StaticQuery } from "gatsby"
+import React from "react";
+import { StaticQuery } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/Seo"
+import Layout from "../components/layout";
+import SEO from "../components/Seo";
+import Hero from "../components/Hero";
 
 const IndexPage = () => (
   <Layout>
@@ -20,6 +21,7 @@ const IndexPage = () => (
 
         return (
           <>
+            <Hero />
             <h1>{data.datoCmsHome.teaser}</h1>
             <p>{data.datoCmsHome.teaserDescription}</p>
           </>
