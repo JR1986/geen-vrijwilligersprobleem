@@ -22,11 +22,13 @@ const NavLink = styled(Link)`
 `;
 
 const Logo = styled.img`
-  max-width: 200px;
+  max-width: 150px;
   position: absolute;
   top: 12px;
-  left: 24px;
+  left: 48px;
   z-index: 10;
+  background-color: white;
+  box-shadow: 6px 6px 0px 0px ${props => props.theme.colors.secondary};
 `;
 
 const RelativeContainer = styled.div`
@@ -43,7 +45,8 @@ const Navigation = () => (
             alignItems='center'>
             <Box mx='auto' />
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/about/">About</NavLink>
+            <NavLink to="/pakketten/">Pakketten</NavLink>
+            <NavLink to="/ervaringen/">Ervaringen</NavLink>
             <NavLink to="/contact/">Contact</NavLink>
           </Flex>
         </Navbar>

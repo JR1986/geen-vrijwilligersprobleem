@@ -5,18 +5,13 @@ const typography = new Typography({
     baseLineHeight: 1.666,
     scaleRatio: 2,
     headerFontFamily: ['Josefin Sans', 'sans-serif'],
-    bodyFontFamily: ['Open Sans', 'sans-serif'],
+    bodyFontFamily: ['Josefin Sans', 'sans-serif'],
     googleFonts: [
         {
             name: 'Josefin Sans',
             styles: [
-                '700',
-            ],
-        },
-        {
-            name: 'Open Sans',
-            styles: [
                 '400',
+                '700',
             ],
         },
     ],
