@@ -17,8 +17,8 @@ const HeroContainer = styled.div`
 `;
 
 const Overlay = styled.div`
-  background: -webkit-linear-gradient(to right, rgba(2,27,121, 0.99), rgba(5,117,230,0.5));
-  background: linear-gradient(to right, rgba(2,27,121, 0.99), rgba(5,117,230,0.5));
+  background: -webkit-linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
   position: absolute;
   width: 100%;
   height: 100%;
@@ -37,11 +37,16 @@ const TeaserTextContainer = styled.div`
     color: ${(props) => props.theme.colors.white};
   }
 
+  p {
+    opacity: 0.87;
+  }
+
   h1 {
     background-image: linear-gradient(120deg,${(props) => props.theme.colors.secondary},${(props) => props.theme.colors.secondary});
     background-repeat: no-repeat;
     background-size: 100% .4em;
     background-position: 0 98%;
+    letter-spacing: -1px;
   }
 `;
 
@@ -69,6 +74,7 @@ const Drawer = () => {
           <p>{data.datoCmsHome.teaserDescription}</p>
         </TeaserTextContainer>
         <Overlay />
+        <Button variant='primary' mr={2}>Primary</Button>
       </HeroContainer>
     </Theme>
   )
