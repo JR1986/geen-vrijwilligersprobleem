@@ -7,47 +7,29 @@ import Theme from "../utils/Theme";
 import { Button } from "rebass";
 
 const HeroContainer = styled.div`
-  overflow: hidden;
-  object-fit: cover;
-  position: relative;
-
-  @media (min-width: 840px) {
-    max-height: 800px;
-  }
-`;
-
-const Overlay = styled.div`
-  background: -webkit-linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
-  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const TeaserTextContainer = styled.div`
-  position: absolute;
-  top: 200px;
-  left: 48px;
-  z-index: 10;
-  max-width: 375px;
-
-  h1, p {
-    color: ${(props) => props.theme.colors.white};
-  }
-
-  p {
-    opacity: 0.87;
-  }
+  max-width: 450px;
 
   h1 {
-    background-image: linear-gradient(120deg,${(props) => props.theme.colors.secondary},${(props) => props.theme.colors.secondary});
-    background-repeat: no-repeat;
-    background-size: 100% .4em;
-    background-position: 0 98%;
+    border-bottom: 3px dashed ${(props) => props.theme.colors.secondary};
     letter-spacing: -1px;
+    z-index: 10;
   }
+`;
+
+const ButtonText = styled.span`
+  color: ${(props) => props.theme.colors.fifth}
+`;
+
+const ImageBackgroundColor = styled.div`
+  background-color: ${(props) => props.theme.colors.secondary};
+  height: 600px;
+  width: 75%;
 `;
 
 const Drawer = () => {
@@ -55,12 +37,13 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
-          ...GatsbyDatoCmsFluid
+        fixed(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
+          ...GatsbyDatoCmsFixed
         }
       }
       teaser
       teaserDescription
+      buttonText
     }
   }  
 `)
@@ -68,13 +51,14 @@ const Drawer = () => {
   return (
     <Theme>
       <HeroContainer>
-        <Img fluid={data.datoCmsHome.heroImage.fluid} />
         <TeaserTextContainer>
           <h1>{data.datoCmsHome.teaser}</h1>
           <p>{data.datoCmsHome.teaserDescription}</p>
+          <Button variant='primary' mr={2}><ButtonText>{data.datoCmsHome.buttonText}</ButtonText></Button>
         </TeaserTextContainer>
-        <Overlay />
-        <Button variant='primary' mr={2}>Primary</Button>
+        <ImageBackgroundColor>
+          <Img fixed={data.datoCmsHome.heroImage.fixed} />
+        </ImageBackgroundColor>
       </HeroContainer>
     </Theme>
   )
