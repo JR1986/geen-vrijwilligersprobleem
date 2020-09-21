@@ -2,13 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import Theme from "../utils/Theme";
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: ${(props) => props.flexDirection};
-    padding: 72px 48px;
-    justify-content: space-between;
-    margin: 0 auto;
+    background-color: ${(props) => props.backgroundColor};
 `;
 
 const ImageContainer = styled.div`
@@ -22,10 +19,19 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-    max-width: 400px;
+    max-width: 570px;
 `;
 
-const HomeArticles = ({ flexDirection }) => {
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: ${(props) => props.flexDirection};
+    padding: 72px 0;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
+`;
+
+const HomeArticles = () => {
     const data = useStaticQuery(graphql`
   query HomePageQuery {
     datoCmsHome {
@@ -78,37 +84,46 @@ const HomeArticles = ({ flexDirection }) => {
         }
     } = data;
 
-    console.log(data);
     return (
-        <>
-            <Container>
-                <Img fixed={succesverhaalImage} />
-                <TextContainer>
-                    <h2>{succesverhaal}</h2>
-                    <p>{succesverhaalDescription}</p>
-                </TextContainer>
-            </Container>
-            <Container flexDirection="row-reverse">
-                <Img fixed={overOnsImage} />
-                <TextContainer>
-                    <h2>{overOnsTitle}</h2>
-                    <p>{overOnsDescription}</p>
-                </TextContainer>
+        <Theme>
+            <Container
+                backgroundColor="#f8f8f8"
+            >
+                <ContentContainer>
+                    <Img fixed={succesverhaalImage} />
+                    <TextContainer>
+                        <h2>{succesverhaal}</h2>
+                        <p>{succesverhaalDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
             </Container>
             <Container>
-                <Img fixed={aanpakImage} />
-                <TextContainer>
-                    <h2>{aanpakTitle}</h2>
-                    <p>{aanpakDescription}</p>
-                </TextContainer>
+                <ContentContainer flexDirection="row-reverse">
+                    <Img fixed={overOnsImage} />
+                    <TextContainer>
+                        <h2>{overOnsTitle}</h2>
+                        <p>{overOnsDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+            </Container>
+            <Container backgroundColor="#f8f8f8">
+                <ContentContainer>
+                    <Img fixed={aanpakImage} />
+                    <TextContainer>
+                        <h2>{aanpakTitle}</h2>
+                        <p>{aanpakDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
             </Container>
             <Container>
-                <TextContainer>
-                    <h2>{contactTitle}</h2>
-                    <p>{contactDescription}</p>
-                </TextContainer>
+                <ContentContainer flexDirection="row-reverse">
+                    <TextContainer>
+                        <h2>{contactTitle}</h2>
+                        <p>{contactDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
             </Container>
-        </>
+        </Theme>
     )
 }
 

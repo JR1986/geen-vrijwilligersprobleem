@@ -10,9 +10,9 @@ const NavContainer = styled.div`
 `;
 
 const Navbar = styled.nav`
-    max-width: 1440px;
-    margin: 0 auto;
     text-align: center;
+    max-width: 1024px;
+    margin: 0 auto;
 `;
 
 const NavLink = styled(Link)`
@@ -25,7 +25,6 @@ const Logo = styled.img`
   max-width: 150px;
   position: absolute;
   top: 12px;
-  left: 32px;
   z-index: 10;
 `;
 
