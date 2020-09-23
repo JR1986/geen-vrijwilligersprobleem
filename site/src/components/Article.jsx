@@ -3,32 +3,52 @@ import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
+import Form from "./Form";
 
 const Container = styled.div`
     background-color: ${(props) => props.backgroundColor};
 `;
 
 const ImageContainer = styled.div`
+    padding: 0;
+    width: 375px;
     overflow: hidden;
-    object-fit: cover;
-    position: relative;
+    
+    &&& {
+        picture {
+            img {
+                object-position: 150%;
+            }
+        }
+    }
 
-    @media (min-width: 840px) {
-        max-height: 800px;
+    @media(min-width: 600px) {
+        padding: 16px;
     }
 `;
 
 const TextContainer = styled.div`
-    max-width: 570px;
+    max-width: 480px;
+    padding: 24px 16px;
+
+    @media (min-width: 1024px) {
+        padding: 16px;
+    }
 `;
 
 const ContentContainer = styled.div`
     display: flex;
-    flex-direction: ${(props) => props.flexDirection};
-    padding: 72px 0;
-    justify-content: space-between;
-    max-width: 1024px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 0;
+
+    @media (min-width: 1024px) {
+        flex-direction: ${(props) => props.flexDirection};
+        padding: 72px 48px;
+        justify-content: ${(props) => props.textCenter ? 'center' : 'space-between'};
+        max-width: 1024px;
+        margin: 0 auto;
+        text-align: ${(props) => props.textAlign ? 'center' : 'left'};
+    }
 `;
 
 const HomeArticles = () => {
@@ -90,7 +110,9 @@ const HomeArticles = () => {
                 backgroundColor="#f8f8f8"
             >
                 <ContentContainer>
-                    <Img fixed={succesverhaalImage} />
+                    <ImageContainer>
+                        <Img fixed={succesverhaalImage} />
+                    </ImageContainer>
                     <TextContainer>
                         <h2>{succesverhaal}</h2>
                         <p>{succesverhaalDescription}</p>
@@ -99,7 +121,9 @@ const HomeArticles = () => {
             </Container>
             <Container>
                 <ContentContainer flexDirection="row-reverse">
-                    <Img fixed={overOnsImage} />
+                    <ImageContainer>
+                        <Img fixed={overOnsImage} />
+                    </ImageContainer>
                     <TextContainer>
                         <h2>{overOnsTitle}</h2>
                         <p>{overOnsDescription}</p>
@@ -108,7 +132,9 @@ const HomeArticles = () => {
             </Container>
             <Container backgroundColor="#f8f8f8">
                 <ContentContainer>
-                    <Img fixed={aanpakImage} />
+                    <ImageContainer>
+                        <Img fixed={aanpakImage} />
+                    </ImageContainer>
                     <TextContainer>
                         <h2>{aanpakTitle}</h2>
                         <p>{aanpakDescription}</p>
@@ -116,12 +142,16 @@ const HomeArticles = () => {
                 </ContentContainer>
             </Container>
             <Container>
-                <ContentContainer flexDirection="row-reverse">
+                <ContentContainer
+                    textCenter
+                    textAlign
+                >
                     <TextContainer>
                         <h2>{contactTitle}</h2>
                         <p>{contactDescription}</p>
                     </TextContainer>
                 </ContentContainer>
+                <Form></Form>
             </Container>
         </Theme>
     )

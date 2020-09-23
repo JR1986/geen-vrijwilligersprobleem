@@ -2,11 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
 import Theme from "../utils/Theme";
-import { Flex, Text, Box } from "rebass";
+import { Flex, Box } from "rebass";
 
 const NavContainer = styled.div`
     background-color: ${props => props.theme.colors.white};
     width: 100%;
+    padding: 0 48px;
 `;
 
 const Navbar = styled.nav`
@@ -39,7 +40,9 @@ const Navigation = () => (
         <Navbar>
           <Flex
             px={2}
-            alignItems='center'>
+            alignItems='center'
+            flexWrap='wrap'
+          >
             <Box mx='auto' />
             <NavLink to="/">Home</NavLink>
             <NavLink to="/pakketten/">Pakketten</NavLink>

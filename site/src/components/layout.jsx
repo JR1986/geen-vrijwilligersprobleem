@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from '@emotion/styled';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
 
@@ -9,9 +10,7 @@ const Layout = ({ children }) => {
     <>
       <Navigation />
       <main>{children}</main>
-      <footer>
-        <div>Footer</div>
-      </footer>
+      <Footer />
     </>
   )
 }
