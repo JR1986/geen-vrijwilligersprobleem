@@ -14,8 +14,8 @@ const Form = () => (
     sx={{
       padding: "48px 16px",
       backgroundColor: '#f8f8f8',
-      maxWidth: "480px",
-      margin: "16px",
+      maxWidth: "375px",
+      margin: "16px auto",
       boxShadow: "2px 2px 25px 3px rgba(158,155,158,0.50)"
     }}>
     <Flex flexDirection="column">

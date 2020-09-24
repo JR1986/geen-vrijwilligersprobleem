@@ -11,16 +11,8 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
     padding: 0;
-    width: 375px;
-    overflow: hidden;
-    
-    &&& {
-        picture {
-            img {
-                object-position: 150%;
-            }
-        }
-    }
+    width: 100vw;
+    height: auto;
 
     @media(min-width: 600px) {
         padding: 16px;
@@ -28,10 +20,11 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-    max-width: 480px;
+    margin: 0 auto;
     padding: 24px 16px;
 
     @media (min-width: 1024px) {
+        margin: 0;
         padding: 16px;
     }
 `;
@@ -58,15 +51,15 @@ const HomeArticles = () => {
         succesverhaalDescription
         succesverhaal
         succesverhaalImage {
-            fixed(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
-                ...GatsbyDatoCmsFixed
+            fluid(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
+                ...GatsbyDatoCmsFluid
             }
         }
         overOnsTitle
         overOnsDescription
         overOnsImage {
-            fixed(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
-                ...GatsbyDatoCmsFixed
+            fluid(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
+                ...GatsbyDatoCmsFluid
             }
         }
         contactTitle
@@ -74,8 +67,8 @@ const HomeArticles = () => {
         aanpakTitle
         aanpakDescription
         aanpakImage {
-            fixed(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
-                ...GatsbyDatoCmsFixed
+            fluid(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
+                ...GatsbyDatoCmsFluid
             }
         }
     }
@@ -87,19 +80,19 @@ const HomeArticles = () => {
             succesverhaal,
             succesverhaalDescription,
             succesverhaalImage: {
-                fixed: succesverhaalImage,
+                fluid: succesverhaalImage,
             },
             overOnsTitle,
             overOnsDescription,
             overOnsImage: {
-                fixed: overOnsImage,
+                fluid: overOnsImage,
             },
             contactTitle,
             contactDescription,
             aanpakTitle,
             aanpakDescription,
             aanpakImage: {
-                fixed: aanpakImage,
+                fluid: aanpakImage,
             },
         }
     } = data;
@@ -110,9 +103,7 @@ const HomeArticles = () => {
                 backgroundColor="#f8f8f8"
             >
                 <ContentContainer>
-                    <ImageContainer>
-                        <Img fixed={succesverhaalImage} />
-                    </ImageContainer>
+                    <Img fluid={succesverhaalImage} />
                     <TextContainer>
                         <h2>{succesverhaal}</h2>
                         <p>{succesverhaalDescription}</p>
@@ -121,9 +112,7 @@ const HomeArticles = () => {
             </Container>
             <Container>
                 <ContentContainer flexDirection="row-reverse">
-                    <ImageContainer>
-                        <Img fixed={overOnsImage} />
-                    </ImageContainer>
+                    <Img fluid={overOnsImage} />
                     <TextContainer>
                         <h2>{overOnsTitle}</h2>
                         <p>{overOnsDescription}</p>
@@ -132,9 +121,7 @@ const HomeArticles = () => {
             </Container>
             <Container backgroundColor="#f8f8f8">
                 <ContentContainer>
-                    <ImageContainer>
-                        <Img fixed={aanpakImage} />
-                    </ImageContainer>
+                    <Img fluid={aanpakImage} />
                     <TextContainer>
                         <h2>{aanpakTitle}</h2>
                         <p>{aanpakDescription}</p>
