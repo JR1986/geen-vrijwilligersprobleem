@@ -6,19 +6,6 @@ import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
 import { Button } from "rebass";
 
-const HeroContainer = styled.div`
-
-  @media (min-width: 840px) {
-    max-height: 800px;
-  }
-
-  @media (min-width: 1024px) {
-    overflow: hidden;
-    object-fit: cover;
-    position: relative;
-  }
-`;
-
 const Overlay = styled.div`
 
   @media (min-width: 1024px) {
@@ -78,7 +65,7 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "16:9" }) {
+        fluid(imgixParams: { fm: "jpg", fit:"crop", w: "800", h: "800", }) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -90,17 +77,14 @@ const Drawer = () => {
 
   return (
     <Theme>
-      <HeroContainer>
-        <Img fluid={data.datoCmsHome.heroImage.fluid} />
-        <Container>
-          <TeaserTextContainer>
-            <h1>{data.datoCmsHome.teaser}</h1>
-            <p>{data.datoCmsHome.teaserDescription}</p>
-          </TeaserTextContainer>
-        </Container>
-        <Overlay />
-        <Button variant='primary' mr={2}>Primary</Button>
-      </HeroContainer>
+      <Img fluid={data.datoCmsHome.heroImage.fluid} />
+      <Container>
+        <TeaserTextContainer>
+          <h1>{data.datoCmsHome.teaser}</h1>
+          <p>{data.datoCmsHome.teaserDescription}</p>
+        </TeaserTextContainer>
+      </Container>
+      <Button variant='primary' mr={2}>Primary</Button>
     </Theme>
   )
 }
