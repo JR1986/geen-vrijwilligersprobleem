@@ -7,23 +7,29 @@ import Form from "./Form";
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
-    margin: 0 auto;
-`;
-
-const Container = styled.div`
-    @media (min-width: 720px) {
-        padding: 0 16px;
-    }
 `;
 
 const TextContainer = styled.div`
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 32px 16px;
+    text-align: ${(props) => props.textCenter ? 'center' : 'left'};
+
+    p {
+        margin: 0;
+    }
 
     @media (min-width: 720px) {
         margin: 0;
-        padding: 0 16px;
-        max-width: 400px;
+        padding: 0;
+        max-width: 360px;
+    }
+`;
+
+const SpacingContainer = styled.div`
+    margin: 0;
+
+    @media (min-width: 720px) {
+        margin: 48px;
     }
 `;
 
@@ -33,14 +39,15 @@ const ContentContainer = styled.div`
     @media (min-width: 720px) {
         display: flex;
         justify-content: center;
-        max-width: 1024px;
+        flex-direction: ${(props) => props.flexDirection};
+        padding: 48px 32px;
     }
 `;
 
 const ImageContainer = styled.div`
     @media (min-width: 720px) {
         width: 400px;
-        height: 400px;
+        height: 280px;
     }
 `;
 
@@ -51,14 +58,14 @@ const HomeArticles = () => {
         succesverhaalDescription
         succesverhaal
         succesverhaalImage {
-            fluid(maxWidth: 600, maxHeight: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
                 ...GatsbyDatoCmsFluid
             }
         }
         overOnsTitle
         overOnsDescription
         overOnsImage {
-            fluid(maxWidth: 600, maxHeight: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
                 ...GatsbyDatoCmsFluid
             }
         }
@@ -67,7 +74,7 @@ const HomeArticles = () => {
         aanpakTitle
         aanpakDescription
         aanpakImage {
-            fluid(maxWidth: 600, maxHeight: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
                 ...GatsbyDatoCmsFluid
             }
         }
@@ -99,52 +106,53 @@ const HomeArticles = () => {
 
     return (
         <Theme>
-            <Container>
-                <Background
-                    backgroundColor="#f8f8f8"
-                >
-                    <ContentContainer>
-                        <TextContainer>
-                            <h2>{succesverhaal}</h2>
-                            <p>{succesverhaalDescription}</p>
-                        </TextContainer>
-                        <ImageContainer>
-                            <Img fluid={succesverhaalImage} />
-                        </ImageContainer>
-                    </ContentContainer>
-                </Background>
-                <Background>
-                    <ContentContainer>
-                        <ImageContainer>
-                            <Img fluid={overOnsImage} />
-                        </ImageContainer>
-                        <TextContainer>
-                            <h2>{overOnsTitle}</h2>
-                            <p>{overOnsDescription}</p>
-                        </TextContainer>
-                    </ContentContainer>
-                </Background>
-                <Background backgroundColor="#f8f8f8">
-                    <ContentContainer>
-                        <TextContainer>
-                            <h2>{aanpakTitle}</h2>
-                            <p>{aanpakDescription}</p>
-                        </TextContainer>
-                        <ImageContainer>
-                            <Img fluid={aanpakImage} />
-                        </ImageContainer>
-                    </ContentContainer>
-                </Background>
-                <Background>
-                    <ContentContainer>
-                        <TextContainer>
-                            <h2>{contactTitle}</h2>
-                            <p>{contactDescription}</p>
-                        </TextContainer>
-                    </ContentContainer>
-                    <Form></Form>
-                </Background>
-            </Container>
+            <Background
+                backgroundColor="#f8f8f8"
+            >
+                <ContentContainer>
+                    <ImageContainer>
+                        <Img fluid={succesverhaalImage} />
+                    </ImageContainer>
+                    <SpacingContainer />
+                    <TextContainer>
+                        <h2>{succesverhaal}</h2>
+                        <p>{succesverhaalDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+            </Background>
+            <Background>
+                <ContentContainer flexDirection="row-reverse">
+                    <ImageContainer>
+                        <Img fluid={overOnsImage} />
+                    </ImageContainer>
+                    <SpacingContainer />
+                    <TextContainer>
+                        <h2>{overOnsTitle}</h2>
+                        <p>{overOnsDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+            </Background>
+            <Background backgroundColor="#f8f8f8">
+                <ContentContainer>
+                    <ImageContainer>
+                        <Img fluid={aanpakImage} />
+                    </ImageContainer>
+                    <SpacingContainer />
+                    <TextContainer>
+                        <h2>{aanpakTitle}</h2>
+                        <p>{aanpakDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+            </Background>
+            <Background>
+                <ContentContainer>
+                    <TextContainer textCenter>
+                        <h2>{contactTitle}</h2>
+                        <p>{contactDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+                <Form></Form>
+            </Background>
         </Theme>
     )
 }
