@@ -121,27 +121,27 @@ const HomeArticles = () => {
                 </ContentContainer>
             </Background>
             <Background>
-                <ContentContainer flexDirection="row-reverse">
-                    <ImageContainer>
-                        <Img fluid={overOnsImage} />
-                    </ImageContainer>
-                    <SpacingContainer />
+                <ContentContainer>
                     <TextContainer>
                         <h2>{overOnsTitle}</h2>
                         <p>{overOnsDescription}</p>
                     </TextContainer>
+                    <SpacingContainer />
+                    <ImageContainer>
+                        <Img fluid={overOnsImage} />
+                    </ImageContainer>
                 </ContentContainer>
             </Background>
             <Background backgroundColor="#f8f8f8">
-                <ContentContainer>
-                    <ImageContainer>
-                        <Img fluid={aanpakImage} />
-                    </ImageContainer>
-                    <SpacingContainer />
+                <ContentContainer flexDirection="row-reverse">
                     <TextContainer>
                         <h2>{aanpakTitle}</h2>
                         <p>{aanpakDescription}</p>
                     </TextContainer>
+                    <SpacingContainer />
+                    <ImageContainer>
+                        <Img fluid={aanpakImage} />
+                    </ImageContainer>
                 </ContentContainer>
             </Background>
             <Background>
