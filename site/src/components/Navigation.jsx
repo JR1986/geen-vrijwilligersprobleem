@@ -26,8 +26,12 @@ const Logo = styled.img`
   max-width: 150px;
   position: absolute;
   top: 12px;
-  left: 32px;
+  left: 48px;
   z-index: 10;
+  background-color: ${props => props.theme.colors.white};
+  padding: 8px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 `;
 
 const RelativeContainer = styled.div`

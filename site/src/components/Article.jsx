@@ -109,15 +109,15 @@ const HomeArticles = () => {
             <Background
                 backgroundColor="#f8f8f8"
             >
-                <ContentContainer>
-                    <ImageContainer>
-                        <Img fluid={succesverhaalImage} />
-                    </ImageContainer>
-                    <SpacingContainer />
+                <ContentContainer flexDirection="row-reverse">
                     <TextContainer>
                         <h2>{succesverhaal}</h2>
                         <p>{succesverhaalDescription}</p>
                     </TextContainer>
+                    <SpacingContainer />
+                    <ImageContainer>
+                        <Img fluid={succesverhaalImage} />
+                    </ImageContainer>
                 </ContentContainer>
             </Background>
             <Background>

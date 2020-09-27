@@ -4,10 +4,11 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
 import { Button } from "rebass";
+import { Link } from "gatsby";
 
 const Overlay = styled.div`
-    background: -webkit-linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0.3));
-    background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0.3));
+    background: -webkit-linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
     position: absolute;
     width: 100%;
     height: 100%;
@@ -17,49 +18,36 @@ const Overlay = styled.div`
 
 const RelativeContainer = styled.div`
   position: relative;
+  text-align: center;
 `;
 
-const Container = styled.div`
-  padding: 0 16px;
-  max-width: 375px;
-
-  @media (min-width: 1024px) {
-    max-width: 1024px;
-    padding: 0 48px;
-  }
+const ImageContainer = styled.div`
+  max-height: 550px;
+  overflow: hidden;
 `;
 
 const TeaserTextContainer = styled.div`
-  max-width: 375px;
-  top: 80px;
-  left: 48px;
+  top: 15%;
   position: absolute;
   text-align: center;
   z-index: 10;
+  padding: 24px;
+  left: 0;
+  right: 0;
   h1, p {
     color: ${(props) => props.theme.colors.white};
-    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
-  }
-  h1 {
-    background-position: -20px 98%;
-  }
-  h1 {
-    background-image: linear-gradient(120deg,${(props) => props.theme.colors.secondary},${(props) => props.theme.colors.secondary});
-    background-repeat: no-repeat;
-    background-size: 100% .4em;
     letter-spacing: -1px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
   }
 
   @media (min-width: 1024px) {
-    max-width: 550px;
-    top: 200px;
-
     h1 {
-      background-position: 0 98%;
-      font-size: 56px;
+      font-size: 48px;
     }
     p {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 `;
@@ -69,12 +57,13 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(imgixParams: { fm: "jpg", fit:"crop", w: "800", h: "600", }) {
+        fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "16:9", }) {
           ...GatsbyDatoCmsFluid
         }
       }
       teaser
       teaserDescription
+      buttonText
     }
   }  
 `)
@@ -82,14 +71,29 @@ const Drawer = () => {
   return (
     <Theme>
       <RelativeContainer>
-        <Img fluid={data.datoCmsHome.heroImage.fluid} />
-        <Container>
-          <TeaserTextContainer>
-            <h1>{data.datoCmsHome.teaser}</h1>
-            <p>{data.datoCmsHome.teaserDescription}</p>
-          </TeaserTextContainer>
-        </Container>
-        <Button variant='primary' mr={2}>Primary</Button>
+        <ImageContainer>
+          <Img fluid={data.datoCmsHome.heroImage.fluid} />
+        </ImageContainer>
+        <TeaserTextContainer>
+          <h1>{data.datoCmsHome.teaser}</h1>
+          <p>{data.datoCmsHome.teaserDescription}</p>
+          <Link to="/contact/">
+            <Button
+              sx={{
+                width: "100%",
+                color: '#fff',
+                border: '3px solid #FFED00',
+                boxShadow: "2px 2px 25px 3px rgba(0, 0, 0, 0.5)",
+                maxWidth: "250px",
+                backgroundColor: "#36C9C6",
+                cursor: "pointer"
+              }}
+              mt={24}
+            >
+              {data.datoCmsHome.buttonText}
+            </Button>
+          </Link>
+        </TeaserTextContainer>
         <Overlay></Overlay>
       </RelativeContainer>
     </Theme>

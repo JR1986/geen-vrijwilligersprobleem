@@ -50,9 +50,11 @@ const Form = () => (
       <Box p={16}>
         <Button
           sx={{
-            color: 'rgba(0,0,0,0.87)',
-            border: '1px solid rgba(0,0,0,0.87)',
-            cursor: 'pointer',
+            width: "100%",
+            color: '#fff',
+            border: '3px solid #FFED00',
+            backgroundColor: "#36C9C6",
+            cursor: "pointer"
           }}
           width={1}
         >
