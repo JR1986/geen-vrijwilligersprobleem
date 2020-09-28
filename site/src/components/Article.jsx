@@ -35,7 +35,7 @@ const SpacingContainer = styled.div`
 
 const ContentContainer = styled.div`
     display: block;
-    
+
     @media (min-width: 720px) {
         display: flex;
         justify-content: center;
@@ -46,8 +46,9 @@ const ContentContainer = styled.div`
 
 const ImageContainer = styled.div`
     @media (min-width: 720px) {
-        width: 400px;
-        height: 280px;
+        width: 100%;
+        max-width: 550px;
+        height: auto;
     }
 `;
 
@@ -79,7 +80,7 @@ const HomeArticles = () => {
             }
         }
     }
-  }  
+  }
 `)
 
     const {

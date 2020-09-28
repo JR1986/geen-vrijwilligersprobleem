@@ -6,40 +6,44 @@ import Theme from "../utils/Theme";
 import { Button } from "rebass";
 import { Link } from "gatsby";
 
-const Overlay = styled.div`
-    background: -webkit-linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
-    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+const ImageContainer = styled.div`
+  position: absolute;
+  width: 500px;
+  height: auto;
+  z-index: 2;
+`;
+
+const Background = styled.div`
+  background-color: ${(props) => props.theme.colors.secondary};
+  display: flex;
+  justify-content: center;
+  flex-basis: calc(50% - 72px);
+  align-items: center;
+  height: 100vh;
+`;
+
+const Image = styled(Img)`
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 `;
 
 const RelativeContainer = styled.div`
   position: relative;
-  text-align: center;
 `;
 
-const ImageContainer = styled.div`
-  max-height: 550px;
-  overflow: hidden;
+const Square = styled.div`
+  background-color: ${(props) => props.theme.colors.primary};
+  width: 500px;
+  height: 380px;
+  transform: rotate(-15deg);
 `;
 
 const TeaserTextContainer = styled.div`
-  top: 15%;
-  position: absolute;
-  text-align: center;
-  z-index: 10;
-  padding: 24px;
-  left: 0;
-  right: 0;
+  margin: 0 48px 0 0;
+
   h1, p {
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.black};
     letter-spacing: -1px;
     max-width: 500px;
-    margin: 0 auto;
-    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
   }
 
   @media (min-width: 1024px) {
@@ -57,7 +61,7 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "16:9", }) {
+        fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "1:1", }) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -65,15 +69,12 @@ const Drawer = () => {
       teaserDescription
       buttonText
     }
-  }  
+  }
 `)
 
   return (
     <Theme>
-      <RelativeContainer>
-        <ImageContainer>
-          <Img fluid={data.datoCmsHome.heroImage.fluid} />
-        </ImageContainer>
+      <Background>
         <TeaserTextContainer>
           <h1>{data.datoCmsHome.teaser}</h1>
           <p>{data.datoCmsHome.teaserDescription}</p>
@@ -81,11 +82,9 @@ const Drawer = () => {
             <Button
               sx={{
                 width: "100%",
-                color: '#fff',
-                border: '3px solid #FFED00',
-                boxShadow: "2px 2px 25px 3px rgba(0, 0, 0, 0.5)",
+                color: 'rgba(0,0,0,0.87)',
                 maxWidth: "250px",
-                backgroundColor: "#36C9C6",
+                backgroundColor: "#FFED00",
                 cursor: "pointer"
               }}
               mt={24}
@@ -94,8 +93,13 @@ const Drawer = () => {
             </Button>
           </Link>
         </TeaserTextContainer>
-        <Overlay></Overlay>
-      </RelativeContainer>
+        <RelativeContainer>
+          <ImageContainer>
+            <Image fluid={data.datoCmsHome.heroImage.fluid} />
+          </ImageContainer>
+          <Square />
+        </RelativeContainer>
+      </Background>
     </Theme>
   )
 }

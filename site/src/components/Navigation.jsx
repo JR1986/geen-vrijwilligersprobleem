@@ -5,15 +5,14 @@ import Theme from "../utils/Theme";
 import { Flex, Box } from "rebass";
 
 const NavContainer = styled.div`
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.secondary};
     width: 100%;
-    padding: 0 48px;
+    padding: 0 72px;
+    border-bottom: 1px solid rgba(255,255,255, 0.4);
 `;
 
 const Navbar = styled.nav`
     text-align: center;
-    max-width: 1024px;
-    margin: 0 auto;
 `;
 
 const NavLink = styled(Link)`
@@ -24,14 +23,8 @@ const NavLink = styled(Link)`
 
 const Logo = styled.img`
   max-width: 150px;
-  position: absolute;
-  top: 12px;
-  left: 48px;
-  z-index: 10;
-  background-color: ${props => props.theme.colors.white};
-  padding: 8px;
-  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  margin-bottom: -80px;
+  padding-top: 12px;
 `;
 
 const RelativeContainer = styled.div`
@@ -48,6 +41,7 @@ const Navigation = () => (
             alignItems='center'
             flexWrap='wrap'
           >
+            <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
             <Box mx='auto' />
             <NavLink to="/">Home</NavLink>
             <NavLink to="/pakketten/">Pakketten</NavLink>
@@ -56,7 +50,6 @@ const Navigation = () => (
           </Flex>
         </Navbar>
       </NavContainer>
-      <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
     </RelativeContainer>
   </Theme>
 );
