@@ -7,43 +7,65 @@ import { Button } from "rebass";
 import { Link } from "gatsby";
 
 const ImageContainer = styled.div`
-  position: absolute;
-  width: 500px;
   height: auto;
   z-index: 2;
+  width: 400px;
+  padding: 0 16px;
+
+  @media(min-width: 600px) {
+    width: 500px;
+  }
+
+  @media(min-width: 1024px) {
+    width: 600px;
+  }
+
+  @media(min-width: 1440px) {
+    width: 700px;
+  }
 `;
 
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   display: flex;
-  justify-content: center;
-  flex-basis: calc(50% - 72px);
   align-items: center;
-  height: 100vh;
-`;
+  flex-direction: column;
+  padding: 32px;
+  height: 900px;
+  justify-content: space-around;
 
-const Image = styled(Img)`
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-`;
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+    height: 100vh;
+  }
 
-const RelativeContainer = styled.div`
-  position: relative;
-`;
-
-const Square = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
-  width: 500px;
-  height: 380px;
-  transform: rotate(-15deg);
+  @media (min-width: 1024px) {
+    flex-basis: calc(50%);
+    padding: 0 48px;
+    flex-direction: row;
+  }
 `;
 
 const TeaserTextContainer = styled.div`
-  margin: 0 48px 0 0;
+  text-align: center;
+  max-width: 375px;
+
+  @media (min-width: 600px) {
+    max-width: 500px;
+  }
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    margin: 0 48px 0 0;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 700px;
+  }
 
   h1, p {
     color: ${(props) => props.theme.colors.black};
     letter-spacing: -1px;
-    max-width: 500px;
   }
 
   @media (min-width: 1024px) {
@@ -93,12 +115,9 @@ const Drawer = () => {
             </Button>
           </Link>
         </TeaserTextContainer>
-        <RelativeContainer>
-          <ImageContainer>
-            <Image fluid={data.datoCmsHome.heroImage.fluid} />
-          </ImageContainer>
-          <Square />
-        </RelativeContainer>
+        <ImageContainer>
+          <Img fluid={data.datoCmsHome.heroImage.fluid} />
+        </ImageContainer>
       </Background>
     </Theme>
   )

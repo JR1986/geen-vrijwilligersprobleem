@@ -1,18 +1,16 @@
 import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
 import Theme from "../utils/Theme";
-import { Flex, Box } from "rebass";
 
-const NavContainer = styled.div`
-    background-color: ${props => props.theme.colors.secondary};
-    width: 100%;
-    padding: 0 72px;
-    border-bottom: 1px solid rgba(255,255,255, 0.4);
-`;
-
-const Navbar = styled.nav`
-    text-align: center;
+const Logo = styled.img`
+  max-width: 150px;
+  margin-bottom: -80px;
+  padding-top: 12px;
 `;
 
 const NavLink = styled(Link)`
@@ -21,37 +19,43 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
-const Logo = styled.img`
-  max-width: 150px;
-  margin-bottom: -80px;
-  padding-top: 12px;
+const StyledAppBar = styled(AppBar)`
+
+&&& {
+  background-color: ${props => props.theme.colors.secondary};
+  padding: 0 72px;
+  border-bottom: 1px solid rgba(255,255,255, 0.4);
+}
 `;
 
-const RelativeContainer = styled.div`
-  position: relative;
+const NavLinkContainer = styled.div`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  } 
 `;
 
-const Navigation = () => (
-  <Theme>
-    <RelativeContainer>
-      <NavContainer>
-        <Navbar>
-          <Flex
-            px={2}
-            alignItems='center'
-            flexWrap='wrap'
-          >
+export default function Navigation() {
+
+  return (
+    <Theme>
+      <div>
+        <StyledAppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
             <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
-            <Box mx='auto' />
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/pakketten/">Pakketten</NavLink>
-            <NavLink to="/ervaringen/">Ervaringen</NavLink>
-            <NavLink to="/contact/">Contact</NavLink>
-          </Flex>
-        </Navbar>
-      </NavContainer>
-    </RelativeContainer>
-  </Theme>
-);
-
-export default Navigation;
+            <NavLinkContainer>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/pakketten/">Pakketten</NavLink>
+              <NavLink to="/ervaringen/">Ervaringen</NavLink>
+              <NavLink to="/contact/">Contact</NavLink>
+            </NavLinkContainer>
+          </Toolbar>
+        </StyledAppBar>
+      </div>
+    </Theme>
+  );
+}

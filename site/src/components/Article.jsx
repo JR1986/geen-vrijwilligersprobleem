@@ -29,6 +29,10 @@ const SpacingContainer = styled.div`
     margin: 0;
 
     @media (min-width: 720px) {
+        margin: 16px;
+    }
+
+    @media (min-width: 1024px) {
         margin: 48px;
     }
 `;
