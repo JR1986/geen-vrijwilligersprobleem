@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Theme from "../utils/Theme";
-import theme from "../utils/Theme";
 import { Link } from "gatsby";
 import { Flex, Text } from "rebass";
 
 const FooterContainer = styled.footer`
-    padding: 24px 16px;
+    padding: 16px;
+    background-color: ${props => props.theme.colors.secondary};
     
     @media (min-width: 1024px) {
         padding: 72px 48px;
@@ -15,26 +15,27 @@ const FooterContainer = styled.footer`
 `;
 
 const NavLink = styled(Link)`
-    padding: 24px;
+    margin: 0 24px;
+    padding: 24px 0;
     color: ${props => props.theme.colors.black};
     text-decoration: none;
 `;
 
 const Image = styled.img`
     max-width: 150px;
-    margin: 0;
+    margin: 0 0 24px;
 `;
 
 const Footer = () => (
     <Theme>
         <FooterContainer>
             <Flex
-                px={5}
+                px={2}
                 alignItems='center'
                 justifyContent='center'
                 flexWrap="wrap"
                 sx={{
-                    borderBottom: `1px solid grey`
+                    borderBottom: `1px solid white`
                 }}>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/pakketten/">Pakketten</NavLink>
@@ -47,7 +48,7 @@ const Footer = () => (
             >
                 <Text
                     as="p"
-                    p={16}
+                    p={32}
                 >06 1036 5180</Text>
             </Flex>
             <Flex

@@ -3,10 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 export const PakkettenQuery = () => {
   const data = useStaticQuery(
     graphql`
-    query PakkettenQuery {
-      datoCmsHome {
+    query newQuery {
+      datoCmsPakketten {
         heroImage {
-          fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "16:9", }) {
+          fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "16:9" }) {
             ...GatsbyDatoCmsFluid
           }
         }
@@ -15,5 +15,5 @@ export const PakkettenQuery = () => {
   `
   )
 
-  return data.datoCmsHome;
+  return data.datoCmsPakketten;
 };

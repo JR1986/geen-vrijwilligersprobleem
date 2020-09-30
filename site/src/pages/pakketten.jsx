@@ -11,9 +11,8 @@ const IndexPage = () => {
         <Layout>
             <SEO title="About" />
             <Page
-                imageUrl={heroImage.fluid}
+                heading="Header"
             >
-
             </Page>
         </Layout>
     )

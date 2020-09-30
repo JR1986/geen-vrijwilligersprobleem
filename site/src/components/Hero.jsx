@@ -9,18 +9,18 @@ import { Link } from "gatsby";
 const ImageContainer = styled.div`
   height: auto;
   z-index: 2;
-  width: 400px;
+  width: 375px;
   padding: 0 16px;
 
   @media(min-width: 600px) {
-    width: 500px;
+    width: 450px;
   }
 
   @media(min-width: 1024px) {
     width: 600px;
   }
 
-  @media(min-width: 1440px) {
+  @media(min-width: 1920px) {
     width: 700px;
   }
 `;
@@ -29,19 +29,16 @@ const Background = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding: 32px;
   height: 900px;
   justify-content: space-around;
 
   @media (min-width: 1024px) {
+    flex-basis: calc(50%);
     justify-content: space-between;
     height: 100vh;
-  }
-
-  @media (min-width: 1024px) {
-    flex-basis: calc(50%);
-    padding: 0 48px;
+    padding: 48px;
     flex-direction: row;
   }
 `;
@@ -59,16 +56,12 @@ const TeaserTextContainer = styled.div`
     margin: 0 48px 0 0;
   }
 
-  @media (min-width: 1440px) {
-    max-width: 700px;
-  }
-
   h1, p {
     color: ${(props) => props.theme.colors.black};
     letter-spacing: -1px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 720px) {
     h1 {
       font-size: 48px;
     }
@@ -76,6 +69,17 @@ const TeaserTextContainer = styled.div`
       font-size: 20px;
     }
   }
+
+
+  @media (min-width: 1440px) {
+    h1 {
+      font-size: 56px;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
+
 `;
 
 const Drawer = () => {
@@ -107,7 +111,7 @@ const Drawer = () => {
                 color: 'rgba(0,0,0,0.87)',
                 maxWidth: "250px",
                 backgroundColor: "#FFED00",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
               mt={24}
             >
