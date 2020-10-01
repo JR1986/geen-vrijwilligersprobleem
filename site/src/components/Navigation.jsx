@@ -35,6 +35,7 @@ const StyledAppBar = styled(AppBar)`
   padding-right: 35px;
   max-width: 1440px;
   margin: 0 auto;
+  min-height: 187px;
 
   &&& {
     background-color: ${props => props.theme.colors.white};

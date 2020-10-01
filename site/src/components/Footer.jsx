@@ -15,8 +15,7 @@ const FooterContainer = styled.footer`
 `;
 
 const NavLink = styled(Link)`
-    margin: 0 24px;
-    padding: 24px 0;
+    padding: 24px;
     color: ${props => props.theme.colors.black};
     text-decoration: none;
 `;
@@ -40,7 +39,7 @@ const Footer = () => (
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/pakketten/">Pakketten</NavLink>
                 <Image src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
-                <NavLink to="/ervaringen/">Ervaringen</NavLink>
+                <NavLink to="/over-ons/">Over ons</NavLink>
                 <NavLink to="/contact/">Contact</NavLink>
             </Flex>
             <Flex
