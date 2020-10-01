@@ -27,21 +27,34 @@ const ImageContainer = styled.div`
 
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  padding: 32px;
   height: 900px;
-  justify-content: space-around;
 
   @media (min-width: 1024px) {
-    flex-basis: calc(50%);
-    justify-content: space-between;
     height: 100vh;
-    padding: 48px;
-    flex-direction: row;
+  }
+
+  @media (min-width: 1920px) {
+    height: 70vh;
   }
 `;
+
+const ContentContainer = styled.div`
+max-width: 1440px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+flex-direction: column-reverse;
+padding: 32px;
+height: 100%;
+justify-content: space-around;
+
+@media (min-width: 1024px) {
+  flex-basis: calc(50%);
+  justify-content: space-between;
+  padding: 48px;
+  flex-direction: row;
+}
+`
 
 const TeaserTextContainer = styled.div`
   text-align: center;
@@ -101,27 +114,29 @@ const Drawer = () => {
   return (
     <Theme>
       <Background>
-        <TeaserTextContainer>
-          <h1>{data.datoCmsHome.teaser}</h1>
-          <p>{data.datoCmsHome.teaserDescription}</p>
-          <Link to="/contact/">
-            <Button
-              sx={{
-                width: "100%",
-                color: 'rgba(0,0,0,0.87)',
-                maxWidth: "250px",
-                backgroundColor: "#FFED00",
-                cursor: "pointer",
-              }}
-              mt={24}
-            >
-              {data.datoCmsHome.buttonText}
-            </Button>
-          </Link>
-        </TeaserTextContainer>
-        <ImageContainer>
-          <Img fluid={data.datoCmsHome.heroImage.fluid} />
-        </ImageContainer>
+        <ContentContainer>
+          <TeaserTextContainer>
+            <h1>{data.datoCmsHome.teaser}</h1>
+            <p>{data.datoCmsHome.teaserDescription}</p>
+            <Link to="/contact/">
+              <Button
+                sx={{
+                  width: "100%",
+                  color: 'rgba(0,0,0,0.87)',
+                  maxWidth: "250px",
+                  backgroundColor: "#FFED00",
+                  cursor: "pointer",
+                }}
+                mt={24}
+              >
+                {data.datoCmsHome.buttonText}
+              </Button>
+            </Link>
+          </TeaserTextContainer>
+          <ImageContainer>
+            <Img fluid={data.datoCmsHome.heroImage.fluid} />
+          </ImageContainer>
+        </ContentContainer>
       </Background>
     </Theme>
   )

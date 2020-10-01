@@ -33,10 +33,13 @@ const NavLink = styled(Link)`
 const StyledAppBar = styled(AppBar)`
   padding-left: 16px;
   padding-right: 35px;
+  max-width: 1440px;
+  margin: 0 auto;
 
   &&& {
     background-color: ${props => props.theme.colors.white};
     border-bottom: 1px solid rgba(255,255,255, 0.4);
+    box-shadow: none;
   }
 
   @media (min-width: 1024px) {
@@ -70,7 +73,7 @@ const NavLinkContainer = styled.div`
 
   @media (min-width: 1024px) {
     display: block;
-  } 
+  }
 `;
 
 export default function Navigation() {

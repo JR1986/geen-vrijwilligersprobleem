@@ -23,6 +23,10 @@ const TextContainer = styled.div`
         padding: 0;
         max-width: 360px;
     }
+
+    @media (min-width: 1024px) {
+        max-width: 50%;
+    }
 `;
 
 const SpacingContainer = styled.div`
@@ -46,6 +50,12 @@ const ContentContainer = styled.div`
         flex-direction: ${(props) => props.flexDirection};
         padding: 48px 32px;
     }
+
+    @media (min-width: 1024px) {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 48px;
+    }
 `;
 
 const ImageContainer = styled.div`
@@ -53,6 +63,10 @@ const ImageContainer = styled.div`
         width: 100%;
         max-width: 550px;
         height: auto;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 50%;
     }
 `;
 
