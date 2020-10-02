@@ -54,7 +54,7 @@ const PriceCard = ({ title, price, description }) => (
         </Price>
         <Border />
         <Description>
-            <p>{description}</p>
+            <p dangerouslySetInnerHTML={{ __html: description }} />
         </Description>
     </PricingContainer>
 )
@@ -98,6 +98,7 @@ const IndexPage = () => {
                             price={largePrice}
                             description={largeDescription}
                         />
+
                     </Container>
                 </Page>
             </Layout>
