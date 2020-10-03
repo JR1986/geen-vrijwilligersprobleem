@@ -27,7 +27,10 @@ const Form = () => (
     <RelativeContainer>
       <Box
         as='form'
-        onSubmit={e => e.preventDefault()}
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         sx={{
           padding: "48px 16px",
           backgroundColor: '#f8f8f8',
@@ -36,31 +39,31 @@ const Form = () => (
           boxShadow: "2px 2px 25px 3px rgba(158,155,158,0.50)"
         }}>
         <Flex flexDirection="column">
+          <input type="hidden" name="form-name" value="contact" />
           <Box p={16}>
-            <Label htmlFor='voornaam'>Voornaam</Label>
+            <Label>Voornaam</Label>
             <Input
-              id='voornaam'
+              type='text'
               name='voornaam'
             />
           </Box>
           <Box p={16}>
-            <Label htmlFor='achternaam'>Achternaam</Label>
+            <Label>Achternaam</Label>
             <Input
-              id='achternaam'
+              type='text'
               name='achternaam'
             />
           </Box>
           <Box p={16}>
-            <Label htmlFor='email'>Emailadres</Label>
+            <Label>Emailadres</Label>
             <Input
-              id='email'
+              type='e-mail'
               name='email'
             />
           </Box>
           <Box p={16}>
-            <Label htmlFor='email'>Bericht</Label>
+            <Label>Bericht</Label>
             <Textarea
-              id='bericht'
               name='bericht'
             />
           </Box>
@@ -73,6 +76,7 @@ const Form = () => (
                 cursor: "pointer"
               }}
               width={1}
+              type="submit"
             >
               Verstuur
         </Button>
