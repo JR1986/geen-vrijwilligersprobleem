@@ -17,32 +17,64 @@ const Container = styled.div`
 
 const PricingContainer = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
     box-shadow: 2px 2px 25px 3px rgba(158,155,158,0.50);
-    padding: 48px;
+    padding: 24px;
     margin-bottom: 48px;
-`;
 
-const Border = styled.span`
-    display: flex;
-    align-items: stretch;
-    border-right: 3px solid ${props => props.theme.colors.secondary};
+    @media (min-width: 375px) {
+        padding: 48px;
+    }
+
+    @media (min-width: 720px) {
+        padding: 32px;
+        flex-direction: row;
+        align-items: center;
+    }
 `;
 
 const Price = styled.div`
-    text-align: center;
-    padding-right: 48px;
-    min-width: 200px;
 
-    h1, p {
-        margin: 0;
+    @media (min-width: 720px) {
+        min-width: 200px;
+        text-align: center;
+
+        p {
+            margin: 0;
+        }
     }
 `;
 
 const Description = styled.div`
-    padding-left: 48px;
+
     p {
         margin: 0;
+    }
+
+    table {
+        margin: 0;
+        border-left: 1px solid transparent;
+        border-top: 4px solid ${props => props.theme.colors.secondary};
+        border-bottom: 1px solid transparent;
+        border-right: 1px solid transparent;
+
+        td {
+            padding: 24px 8px 0;
+            border: none;
+
+            @media (min-width: 720px) {
+                padding: 8px 8px 8px 48px;
+            }
+        }
+
+        @media (min-width: 720px) {
+            border-left: 4px solid ${props => props.theme.colors.secondary};
+            border-top: 1px solid transparent;
+        }
+    }
+
+    @media (min-width: 720px) {
+        padding: 0 0 0 48px;
     }
 `;
 
@@ -52,7 +84,6 @@ const PriceCard = ({ title, price, description }) => (
             <h2>{title}</h2>
             <p>{price}</p>
         </Price>
-        <Border />
         <Description>
             <p dangerouslySetInnerHTML={{ __html: description }} />
         </Description>
@@ -71,7 +102,9 @@ const IndexPage = () => {
         mediumDescription,
         largeTitle,
         largePrice,
-        largeDescription
+        largeDescription,
+        begeleidingTitle,
+        begeleidingDescription,
     } = PakkettenQuery();
 
     return (
@@ -98,7 +131,8 @@ const IndexPage = () => {
                             price={largePrice}
                             description={largeDescription}
                         />
-
+                        <h2>{begeleidingTitle}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: begeleidingDescription }} />
                     </Container>
                 </Page>
             </Layout>

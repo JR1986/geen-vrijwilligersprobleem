@@ -16,6 +16,8 @@ export const PakkettenQuery = () => {
         largeTitle
         largePrice
         largeDescription
+        begeleidingTitle
+        begeleidingDescription
       }
     }
   `
