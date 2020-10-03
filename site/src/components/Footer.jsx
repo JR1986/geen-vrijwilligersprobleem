@@ -54,7 +54,7 @@ const Footer = () => (
                 justifyContent='center'
             >
                 <Link
-                    to="#"
+                    to="/privacy"
                 >
                     <Text
                         as="span"

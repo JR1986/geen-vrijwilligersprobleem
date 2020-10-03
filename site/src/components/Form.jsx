@@ -30,6 +30,7 @@ const Form = () => (
         name="contact"
         method="POST"
         data-netlify="true"
+        action='/bedankt/'
         data-netlify-honeypot="bot-field"
         sx={{
           padding: "48px 16px",
