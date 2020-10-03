@@ -1,10 +1,9 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
+import Drawer from "./Drawer";
 import Theme from "../utils/Theme";
 
 const Logo = styled.img`
@@ -17,6 +16,14 @@ const Logo = styled.img`
     margin: 0;
   }
 `;
+
+const StyledDrawer = styled(Drawer)`
+&&& {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+`
 
 const NavLink = styled(Link)`
     margin: 0 24px;
@@ -60,15 +67,6 @@ const StyledToolbar = styled(Toolbar)`
   }
 `;
 
-const StyledIconButton = styled(IconButton)`
-
-  @media (min-width: 1024px) {
-    && {
-      display: none;
-    }
-  }
-`;
-
 const NavLinkContainer = styled.div`
   display: none;
 
@@ -84,9 +82,7 @@ export default function Navigation() {
       <div>
         <StyledAppBar position="static">
           <StyledToolbar>
-            <StyledIconButton edge="start" aria-label="menu">
-              <MenuIcon />
-            </StyledIconButton>
+            <StyledDrawer />
             <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
             <NavLinkContainer>
               <NavLink to="/">Home</NavLink>
