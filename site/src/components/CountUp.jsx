@@ -1,7 +1,5 @@
 import React from "react";
-import { useInView } from 'react-intersection-observer';
 import styled from "@emotion/styled";
-import CountUp from 'react-countup';
 import Theme from "../utils/Theme";
 import { CijfersQuery } from "../utils/queries/cijfers";
 
@@ -22,7 +20,7 @@ const CountContainer = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 0 16px;
+    padding: 32px 16px;
     background-color: ${props => props.theme.colors.white};
     border-radius: 4px;
     box-shadow: 2px 2px 25px 3px rgba(158,155,158,0.50);
@@ -40,7 +38,7 @@ const CountContainer = styled.div`
     }
 `;
 
-const StyledCountUp = styled(CountUp)`
+const Number = styled.span`
     padding: 24px 0;
     font-size: 32px;
     font-weight: bold;
@@ -56,7 +54,6 @@ const SpacingContainer = styled.div`
 `;
 
 const Count = () => {
-  const [ref, inView] = useInView();
   const {
     aantalNieuweLeden,
     aantalNieuweVrijwilligers,
@@ -66,39 +63,27 @@ const Count = () => {
 
   return (
     <Theme>
-      <Container ref={ref}>
+      <Container>
         <CountContainer>
           <h2>Aantal nieuwe vrijwilligers: </h2>
-          <StyledCountUp
-            start={inView ? 0 : null}
-            end={aantalNieuweVrijwilligers}
-            duration={5}
-          />
+          <Number>{aantalNieuweVrijwilligers}</Number>
           <p>
             Bij{' '}
-            <CountUp
-              start={inView ? 0 : null}
-              end={aantalVerenigingenMetNieuweVrijwilligers}
-              duration={5}
-            />
+            <span>
+              {aantalVerenigingenMetNieuweVrijwilligers}
+            </span>
             {' '}verenigingen
         </p>
         </CountContainer>
         <SpacingContainer />
         <CountContainer>
           <h2>Aantal nieuwe leden:</h2>
-          <StyledCountUp
-            start={inView ? 0 : null}
-            end={aantalNieuweLeden}
-            duration={5}
-          />
+          <Number>
+            {aantalNieuweLeden}
+          </Number>
           <p>
             Bij{' '}
-            <CountUp
-              start={inView ? 0 : null}
-              end={aantalVerenigingenMetNieuweLeden}
-              duration={5}
-            />
+            <span>{aantalVerenigingenMetNieuweLeden}</span>
             {' '}verenigingen
         </p>
         </CountContainer>

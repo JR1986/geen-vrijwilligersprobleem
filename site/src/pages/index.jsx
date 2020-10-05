@@ -5,8 +5,6 @@ import Hero from "../components/Hero";
 import Article from "../components/Article";
 import Count from "../components/CountUp";
 
-
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
