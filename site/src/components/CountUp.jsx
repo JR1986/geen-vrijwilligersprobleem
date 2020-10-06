@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Theme from "../utils/Theme";
+import Img from 'gatsby-image';
 import { CijfersQuery } from "../utils/queries/cijfers";
 
 const Container = styled.div`
@@ -23,7 +24,6 @@ const CountContainer = styled.div`
     padding: 32px 16px;
     background-color: ${props => props.theme.colors.white};
     border-radius: 4px;
-    box-shadow: 2px 2px 25px 3px rgba(158,155,158,0.50);
     justify-content: center;
     border: 3px solid ${props => props.theme.colors.secondary};
 
@@ -53,18 +53,25 @@ const SpacingContainer = styled.div`
     }
 `;
 
+const StyledImg = styled(Img)`
+    margin: 0 auto 32px;
+`;
+
 const Count = () => {
   const {
     aantalNieuweLeden,
     aantalNieuweVrijwilligers,
     aantalVerenigingenMetNieuweLeden,
     aantalVerenigingenMetNieuweVrijwilligers,
+    meerVrijwilligersImage,
+    meerLedenImage
   } = CijfersQuery();
 
   return (
     <Theme>
       <Container>
         <CountContainer>
+          <StyledImg fixed={meerVrijwilligersImage.fixed} />
           <h2>Aantal nieuwe vrijwilligers: </h2>
           <Number>{aantalNieuweVrijwilligers}</Number>
           <p>
@@ -77,6 +84,7 @@ const Count = () => {
         </CountContainer>
         <SpacingContainer />
         <CountContainer>
+          <StyledImg fixed={meerLedenImage.fixed} />
           <h2>Aantal nieuwe leden:</h2>
           <Number>
             {aantalNieuweLeden}
