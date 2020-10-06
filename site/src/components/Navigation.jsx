@@ -3,17 +3,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
+import Img from 'gatsby-image';
 import Drawer from "./Drawer";
 import Theme from "../utils/Theme";
+import { LogoQuery } from "../utils/queries/logo";
 
-const Logo = styled.img`
+const Logo = styled(Img)`
   max-width: 150px;
   margin: 16px auto;
 
   @media (min-width: 1024px) {
     max-width: 180px;
-    padding-top: 12px;
-    margin: 0;
+    margin: 16px 0 0;
   }
 `;
 
@@ -77,13 +78,17 @@ const NavLinkContainer = styled.div`
 
 export default function Navigation() {
 
+  const {
+    logo
+  } = LogoQuery();
+
   return (
     <Theme>
       <div>
         <StyledAppBar position="static">
           <StyledToolbar>
             <StyledDrawer />
-            <Logo src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
+            <Logo fixed={logo.fixed} />
             <NavLinkContainer>
               <NavLink to="/">Home</NavLink>
               <NavLink to="/pakketten/">Pakketten</NavLink>
