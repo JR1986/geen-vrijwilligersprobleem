@@ -6,6 +6,10 @@ export const PrivacyQuery = () => {
     query PrivacyQuery {
         datoCmsPrivacyStatement {
                 privacyStatement
+                seo {
+                    title
+                    description
+                  }
             }
         }  
         `

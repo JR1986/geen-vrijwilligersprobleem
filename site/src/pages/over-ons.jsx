@@ -15,11 +15,18 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-    const { pageHeader, pageDescription } = OverGeenVrijwilligersprobleem();
+    const {
+        pageHeader,
+        pageDescription,
+        seo: {
+            title,
+            description
+        }
+    } = OverGeenVrijwilligersprobleem();
 
     return (
         <Layout>
-            <SEO title="Over Geen Vrijwilligersprobleem" />
+            <SEO title={title} description={description} />
             <Page
                 heading={pageHeader}
             >

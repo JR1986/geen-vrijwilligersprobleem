@@ -1,8 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Geen vrijwilligersprobleem`,
-    description: ``,
-    author: `Jelle Rienstra`,
+    author: `Jelmer Knossen`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

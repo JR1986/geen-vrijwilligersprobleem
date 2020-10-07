@@ -13,11 +13,11 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-    const { privacyStatement } = PrivacyQuery();
+    const { privacyStatement, seo: { title, description } } = PrivacyQuery();
 
     return (
         <Layout>
-            <SEO title="Privacy Statement" />
+            <SEO title={title} description={description} />
             <Page
                 heading="Privacy Statement"
             >

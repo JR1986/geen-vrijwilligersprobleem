@@ -14,11 +14,11 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-    const { contactTitle, contactDescription } = ContactQuery();
+    const { contactTitle, contactDescription, seo: { title, description } } = ContactQuery();
 
     return (
         <Layout>
-            <SEO title="Contact" />
+            <SEO title={title} description={description} />
             <Page
                 heading={contactTitle}
             >

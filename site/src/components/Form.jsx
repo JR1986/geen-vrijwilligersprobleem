@@ -42,28 +42,28 @@ const Form = () => (
         <Flex flexDirection="column">
           <input type="hidden" name="form-name" value="contact" />
           <Box p={16}>
-            <Label>Voornaam</Label>
+            <Label for='voornaam'>Voornaam</Label>
             <Input
               type='text'
               name='voornaam'
             />
           </Box>
           <Box p={16}>
-            <Label>Achternaam</Label>
+            <Label for='achternaam'>Achternaam</Label>
             <Input
               type='text'
               name='achternaam'
             />
           </Box>
           <Box p={16}>
-            <Label>Emailadres</Label>
+            <Label for='email'>Emailadres</Label>
             <Input
               type='e-mail'
               name='email'
             />
           </Box>
           <Box p={16}>
-            <Label>Bericht</Label>
+            <Label for='bericht'>Bericht</Label>
             <Textarea
               name='bericht'
             />

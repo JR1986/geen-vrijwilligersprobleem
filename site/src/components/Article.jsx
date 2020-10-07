@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
 import Form from "./Form";
+import SEO from "../components/Seo";
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
@@ -74,6 +75,10 @@ const HomeArticles = () => {
     const data = useStaticQuery(graphql`
   query HomePageQuery {
     datoCmsHome {
+        seo {
+            title
+            description
+        }
         succesverhaalDescription
         succesverhaal
         succesverhaalImage {
@@ -103,6 +108,10 @@ const HomeArticles = () => {
 
     const {
         datoCmsHome: {
+            seo: {
+                title,
+                description,
+            },
             succesverhaal,
             succesverhaalDescription,
             succesverhaalImage: {
@@ -125,6 +134,7 @@ const HomeArticles = () => {
 
     return (
         <Theme>
+            <SEO title={title} description={description} />
             <Background
                 backgroundColor="#f8f8f8"
             >

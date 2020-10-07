@@ -105,12 +105,16 @@ const IndexPage = () => {
         largeDescription,
         begeleidingTitle,
         begeleidingDescription,
+        seo: {
+            title,
+            description
+        }
     } = PakkettenQuery();
 
     return (
         <Theme>
             <Layout>
-                <SEO title="Geen vrijwilligersprobleem - Pakketten" />
+                <SEO title={title} description={description} />
                 <Page
                     heading={pageHeader}
                 >

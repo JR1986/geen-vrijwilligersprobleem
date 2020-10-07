@@ -19,11 +19,14 @@ const Logo = styled(Img)`
 `;
 
 const StyledDrawer = styled(Drawer)`
-&&& {
-  @media (min-width: 1024px) {
-    display: none;
+  line-height: 187px;
+  height: 187px;
+
+  &&& {
+    @media (min-width: 1024px) {
+      display: none;
+    }
   }
-}
 `
 
 const NavLink = styled(Link)`
@@ -31,6 +34,7 @@ const NavLink = styled(Link)`
     padding: 24px 0;
     color: ${props => props.theme.colors.black};
     text-decoration: none;
+    line-height: 187px;
 
     &[aria-current="page"] {
       color: ${props => props.theme.colors.secondary};
@@ -76,6 +80,12 @@ const NavLinkContainer = styled.div`
   }
 `;
 
+const LogoContainer = styled.div`
+  background-color: transparent;
+  height: 187px;
+  width: 20px;
+`;
+
 export default function Navigation() {
 
   const {
@@ -88,7 +98,9 @@ export default function Navigation() {
         <StyledAppBar position="static">
           <StyledToolbar>
             <StyledDrawer />
-            <Logo fixed={logo.fixed} />
+            <LogoContainer>
+              <Logo fixed={logo.fixed} />
+            </LogoContainer>
             <NavLinkContainer>
               <NavLink to="/">Home</NavLink>
               <NavLink to="/pakketten/">Pakketten</NavLink>

@@ -18,6 +18,10 @@ export const PakkettenQuery = () => {
         largeDescription
         begeleidingTitle
         begeleidingDescription
+        seo {
+          title
+          description
+        }
       }
     }
   `
