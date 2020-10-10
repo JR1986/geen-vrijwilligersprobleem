@@ -42,31 +42,35 @@ const Form = () => (
         <Flex flexDirection="column">
           <input type="hidden" name="form-name" value="contact" />
           <Box p={16}>
-            <Label for='voornaam'>Voornaam</Label>
+            <Label for='voornaam'>Voornaam
             <Input
-              type='text'
-              name='voornaam'
-            />
+                type='text'
+                name='voornaam'
+              />
+            </Label>
           </Box>
           <Box p={16}>
-            <Label for='achternaam'>Achternaam</Label>
+            <Label for='achternaam'>Achternaam
             <Input
-              type='text'
-              name='achternaam'
-            />
+                type='text'
+                name='achternaam'
+              />
+            </Label>
           </Box>
           <Box p={16}>
-            <Label for='email'>Emailadres</Label>
+            <Label for='email'>Emailadres
             <Input
-              type='e-mail'
-              name='email'
-            />
+                type='e-mail'
+                name='email'
+              />
+            </Label>
           </Box>
           <Box p={16}>
-            <Label for='bericht'>Bericht</Label>
+            <Label for='bericht'>Bericht
             <Textarea
-              name='bericht'
-            />
+                name='bericht'
+              />
+            </Label>
           </Box>
           <Box p={16}>
             <Button
@@ -78,8 +82,9 @@ const Form = () => (
               }}
               width={1}
               type="submit"
+              aria-label="Verstuur"
             >
-              Verstuur
+              Verstuur bericht
         </Button>
           </Box>
         </Flex>

@@ -81,7 +81,6 @@ const NavLinkContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  background-color: transparent;
   height: 187px;
   width: 20px;
 `;
