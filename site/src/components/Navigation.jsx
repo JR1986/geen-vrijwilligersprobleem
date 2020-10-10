@@ -18,9 +18,11 @@ const Logo = styled(Img)`
   }
 `;
 
+const LogoContainer = styled.div`
+  background-color: #fff;
+`;
+
 const StyledDrawer = styled(Drawer)`
-  line-height: 187px;
-  height: 187px;
 
   &&& {
     @media (min-width: 1024px) {
@@ -43,8 +45,8 @@ const NavLink = styled(Link)`
 `;
 
 const StyledAppBar = styled(AppBar)`
-  padding-left: 16px;
-  padding-right: 35px;
+  padding-left: 0;
+  padding-right: 0;
   max-width: 1440px;
   margin: 0 auto;
   min-height: 187px;
@@ -62,9 +64,11 @@ const StyledAppBar = styled(AppBar)`
 `;
 
 const StyledToolbar = styled(Toolbar)`
+  && {
+    padding-left: 0;
+    padding-right: 0;
 
   @media (min-width: 1024px) {
-    && {
       justify-content: space-between;
       padding-left: 48px;
       padding-right: 48px;
@@ -78,11 +82,6 @@ const NavLinkContainer = styled.div`
   @media (min-width: 1024px) {
     display: block;
   }
-`;
-
-const LogoContainer = styled.div`
-  height: 187px;
-  width: 20px;
 `;
 
 export default function Navigation() {

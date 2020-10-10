@@ -8,8 +8,10 @@ import Page from "../Templates/Page";
 const Container = styled.div`
     max-width: 600px;
     padding: 48px 16px 32px;
-    margin: 0 auto;
-    text-align: center;
+
+    @media (min-width: 1024px) {
+        padding: 48px 48px 32px;
+    }
 `;
 
 const IndexPage = () => {

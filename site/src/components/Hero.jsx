@@ -9,19 +9,18 @@ import { Link } from "gatsby";
 const ImageContainer = styled.div`
   height: auto;
   z-index: 2;
-  width: 375px;
-  padding: 0 16px;
+  width: 85vw;
 
-  @media(min-width: 600px) {
-    width: 450px;
+  @media (min-width: 600px) {
+    width: 70vw;
   }
 
-  @media(min-width: 1024px) {
-    width: 600px;
+  @media (min-width: 720px) {
+    width: 60vw;
   }
 
-  @media(min-width: 1920px) {
-    width: 700px;
+  @media (min-width: 840px) {
+    width: 50vw;
   }
 `;
 
@@ -100,7 +99,7 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(imgixParams: { fm: "jpg", fit:"crop", ar: "1:1", }) {
+        fluid(sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "1:1" }) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -128,6 +127,7 @@ const Drawer = () => {
                   cursor: "pointer",
                 }}
                 mt={24}
+                aria-label={data.datoCmsHome.buttonText}
               >
                 {data.datoCmsHome.buttonText}
               </Button>

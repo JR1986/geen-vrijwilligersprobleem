@@ -22,6 +22,11 @@ const RelativeContainer = styled.div`
   position: relative;
 `;
 
+const StyledLabel = styled(Label)`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Form = () => (
   <Theme>
     <RelativeContainer>
@@ -42,35 +47,35 @@ const Form = () => (
         <Flex flexDirection="column">
           <input type="hidden" name="form-name" value="contact" />
           <Box p={16}>
-            <Label for='voornaam'>Voornaam
+            <StyledLabel for='voornaam'>Voornaam
             <Input
                 type='text'
                 name='voornaam'
               />
-            </Label>
+            </StyledLabel>
           </Box>
           <Box p={16}>
-            <Label for='achternaam'>Achternaam
+            <StyledLabel for='achternaam'>Achternaam
             <Input
                 type='text'
                 name='achternaam'
               />
-            </Label>
+            </StyledLabel>
           </Box>
           <Box p={16}>
-            <Label for='email'>Emailadres
+            <StyledLabel for='email'>Emailadres
             <Input
                 type='e-mail'
                 name='email'
               />
-            </Label>
+            </StyledLabel>
           </Box>
           <Box p={16}>
-            <Label for='bericht'>Bericht
+            <StyledLabel for='bericht'>Bericht
             <Textarea
                 name='bericht'
               />
-            </Label>
+            </StyledLabel>
           </Box>
           <Box p={16}>
             <Button

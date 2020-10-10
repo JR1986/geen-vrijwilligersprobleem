@@ -19,13 +19,9 @@ const TextContainer = styled.div`
         margin: 0;
     }
 
-    @media (min-width: 720px) {
+    @media (min-width: 600px) {
         margin: 0;
         padding: 0;
-        max-width: 360px;
-    }
-
-    @media (min-width: 1024px) {
         max-width: 50%;
     }
 `;
@@ -33,7 +29,7 @@ const TextContainer = styled.div`
 const SpacingContainer = styled.div`
     margin: 0;
 
-    @media (min-width: 720px) {
+    @media (min-width: 600px) {
         margin: 16px;
     }
 
@@ -45,7 +41,7 @@ const SpacingContainer = styled.div`
 const ContentContainer = styled.div`
     display: block;
 
-    @media (min-width: 720px) {
+    @media (min-width: 600px) {
         display: flex;
         justify-content: center;
         flex-direction: ${(props) => props.flexDirection};
@@ -60,13 +56,10 @@ const ContentContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-    @media (min-width: 720px) {
-        width: 100%;
-        max-width: 550px;
-        height: auto;
-    }
+    width: 100%;
+    height: auto;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 600px) {
         max-width: 50%;
     }
 `;
@@ -82,14 +75,16 @@ const HomeArticles = () => {
         succesverhaalDescription
         succesverhaal
         succesverhaalImage {
-            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
+                srcSet
                 ...GatsbyDatoCmsFluid
             }
         }
         overOnsTitle
         overOnsDescription
         overOnsImage {
-            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
+                srcSet
                 ...GatsbyDatoCmsFluid
             }
         }
@@ -98,7 +93,8 @@ const HomeArticles = () => {
         aanpakTitle
         aanpakDescription
         aanpakImage {
-            fluid(maxWidth: 400, maxHeight: 280, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
+                srcSet
                 ...GatsbyDatoCmsFluid
             }
         }
