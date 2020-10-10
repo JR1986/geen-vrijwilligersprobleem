@@ -10,6 +10,7 @@ const ImageContainer = styled.div`
   height: auto;
   z-index: 2;
   width: 85vw;
+  background-color: transparent;
 
   @media (min-width: 600px) {
     width: 70vw;
@@ -20,7 +21,7 @@ const ImageContainer = styled.div`
   }
 
   @media (min-width: 840px) {
-    width: 50vw;
+    width: 45vw;
   }
 `;
 
@@ -99,7 +100,7 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop", ar: "1:1" }) {
+        fluid(sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", imgixParams: { fm: "png", auto: "compress", fit:"crop", q:50, ar: "1:1" }) {
           ...GatsbyDatoCmsFluid
         }
       }

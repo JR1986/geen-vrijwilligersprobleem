@@ -8,23 +8,22 @@ import Drawer from "./Drawer";
 import Theme from "../utils/Theme";
 import { LogoQuery } from "../utils/queries/logo";
 
-const Logo = styled(Img)`
-  max-width: 150px;
-  margin: 16px auto;
+const LogoContainer = styled.div`
+  background-color: #fff;
+  margin: 0 auto;
+  width: 180px;
+  height: 160px;
 
   @media (min-width: 1024px) {
     max-width: 180px;
-    margin: 16px 0 0;
+    margin: 0;
   }
-`;
-
-const LogoContainer = styled.div`
-  background-color: #fff;
 `;
 
 const StyledDrawer = styled(Drawer)`
 
   &&& {
+
     @media (min-width: 1024px) {
       display: none;
     }
@@ -36,7 +35,7 @@ const NavLink = styled(Link)`
     padding: 24px 0;
     color: ${props => props.theme.colors.black};
     text-decoration: none;
-    line-height: 187px;
+    line-height: 160px;
 
     &[aria-current="page"] {
       color: ${props => props.theme.colors.secondary};
@@ -49,7 +48,7 @@ const StyledAppBar = styled(AppBar)`
   padding-right: 0;
   max-width: 1440px;
   margin: 0 auto;
-  min-height: 187px;
+  min-height: 160px;
 
   &&& {
     background-color: ${props => props.theme.colors.white};
@@ -67,6 +66,7 @@ const StyledToolbar = styled(Toolbar)`
   && {
     padding-left: 0;
     padding-right: 0;
+    height: 160px;
 
   @media (min-width: 1024px) {
       justify-content: space-between;
@@ -97,7 +97,7 @@ export default function Navigation() {
           <StyledToolbar>
             <StyledDrawer />
             <LogoContainer>
-              <Logo fixed={logo.fixed} />
+              <Img fixed={logo.fixed} />
             </LogoContainer>
             <NavLinkContainer>
               <NavLink to="/">Home</NavLink>

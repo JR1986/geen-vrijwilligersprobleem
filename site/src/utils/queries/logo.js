@@ -1,19 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 export const LogoQuery = () => {
-    const data = useStaticQuery(
-        graphql`
+  const data = useStaticQuery(
+    graphql`
     query LogoQuery {
     datoCmsHome {
         logo {
-          fixed(width: 180, height: 150) {
+          fixed(width: 180, height: 160) {
             ...GatsbyDatoCmsFixed
           }
         }
       }
     }
   `
-    )
+  )
 
-    return data.datoCmsHome;
+  return data.datoCmsHome;
 };
