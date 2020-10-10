@@ -45,7 +45,6 @@ display: flex;
 align-items: center;
 flex-direction: column-reverse;
 padding: 32px;
-height: 100%;
 justify-content: space-around;
 
 @media (min-width: 1024px) {
