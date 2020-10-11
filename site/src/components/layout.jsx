@@ -3,13 +3,11 @@ import PropTypes from "prop-types"
 import { Global, css } from '@emotion/core'
 import Navigation from './Navigation';
 import Footer from './Footer';
-import Theme from '../utils/Theme';
-
 
 const Layout = ({ children }) => {
 
   return (
-    <Theme>
+    <>
       <Global
         styles={css`
         @font-face {
@@ -18,7 +16,8 @@ const Layout = ({ children }) => {
         }
 
         h1, h2, h3, h4, h5, h6, p, span, div, strong {
-          color: ${props => props.theme.colors.black};
+          color: rgba(0,0,0,0.87);
+
         }
 
         body {
@@ -32,10 +31,6 @@ const Layout = ({ children }) => {
           line-height: 1.75rem;
         }
 
-        h1, h2, {
-          line-height: 1.75 rem;
-        }
-
         button {
           font-family: 'Josefin Sans', sans-serif;
         }
@@ -44,7 +39,7 @@ const Layout = ({ children }) => {
       <Navigation />
       <main>{children}</main>
       <Footer />
-    </Theme>
+    </>
   )
 }
 

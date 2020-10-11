@@ -8,11 +8,12 @@ const HeroContainer = styled.div`
     background-color: ${props => props.theme.colors.primary};
     display: flex;
     align-items: center;
+    word-wrap: break-word;
 
     h1 {
         padding: 16px;
         margin: 0;
-        text-align: center;
+        font-size: 28px;
 
         @media (min-width: 1024px) {
             padding: 0 0 0 48px;

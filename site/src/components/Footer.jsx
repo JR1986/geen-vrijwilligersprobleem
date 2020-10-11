@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Theme from "../utils/Theme";
+import Img from 'gatsby-image';
 import { Link } from "gatsby";
 import { Flex, Text } from "rebass";
+import { LogoQuery } from "../utils/queries/logo";
 
 const FooterContainer = styled.footer`
     padding: 16px;
@@ -20,52 +21,53 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
-const Image = styled.img`
-    max-width: 150px;
-    margin: 0 0 24px;
-`;
+const Footer = () => {
+    const {
+        logo
+    } = LogoQuery();
 
-const Footer = () => (
-    <Theme>
-        <FooterContainer>
-            <Flex
-                px={2}
-                alignItems='center'
-                justifyContent='center'
-                flexWrap="wrap"
-                sx={{
-                    borderBottom: `1px solid white`
-                }}>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/pakketten/">Pakketten</NavLink>
-                <Image src="/logo-geen-vrijwilligers-probleem.svg" alt="Logo Geen Vrijwilligersprobleem" />
-                <NavLink to="/over-ons/">Over ons</NavLink>
-                <NavLink to="/contact/">Contact</NavLink>
-            </Flex>
-            <Flex
-                justifyContent='center'
-            >
-                <Text
-                    as="p"
-                    p={32}
-                >06 1036 5180</Text>
-            </Flex>
-            <Flex
-                justifyContent='center'
-            >
-                <Link
-                    to="/privacy"
+    return (
+        <Theme>
+            <FooterContainer>
+                <Flex
+                    px={2}
+                    alignItems='center'
+                    justifyContent='center'
+                    flexWrap="wrap"
+                    sx={{
+                        borderBottom: `1px solid white`
+                    }}>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/pakketten/">Pakketten</NavLink>
+                    <Img fixed={logo.fixed} />
+                    <NavLink to="/over-ons/">Over ons</NavLink>
+                    <NavLink to="/contact/">Contact</NavLink>
+                </Flex>
+                <Flex
+                    justifyContent='center'
                 >
                     <Text
-                        as="span"
-                        p={16}
+                        as="p"
+                        p={32}
+                    >06 1036 5180</Text>
+                </Flex>
+                <Flex
+                    justifyContent='center'
+                >
+                    <Link
+                        to="/privacy"
                     >
-                        Privacy Statement
+                        <Text
+                            as="span"
+                            p={16}
+                        >
+                            Privacy Statement
                     </Text>
-                </Link>
-            </Flex>
-        </FooterContainer>
-    </Theme>
-)
+                    </Link>
+                </Flex>
+            </FooterContainer>
+        </Theme>
+    )
+}
 
 export default Footer;

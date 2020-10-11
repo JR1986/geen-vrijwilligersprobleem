@@ -53,7 +53,7 @@ justify-content: space-around;
   padding: 48px;
   flex-direction: row;
 }
-`
+`;
 
 const TeaserTextContainer = styled.div`
   text-align: center;
