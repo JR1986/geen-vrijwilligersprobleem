@@ -47,7 +47,7 @@ const Form = () => (
         <Flex flexDirection="column">
           <input type="hidden" name="form-name" value="contact" />
           <Box p={16}>
-            <StyledLabel for='voornaam'>Voornaam
+            <StyledLabel htmlFor='voornaam'>Voornaam
             <Input
                 type='text'
                 name='voornaam'
@@ -55,7 +55,7 @@ const Form = () => (
             </StyledLabel>
           </Box>
           <Box p={16}>
-            <StyledLabel for='achternaam'>Achternaam
+            <StyledLabel htmlFor='achternaam'>Achternaam
             <Input
                 type='text'
                 name='achternaam'
@@ -63,7 +63,7 @@ const Form = () => (
             </StyledLabel>
           </Box>
           <Box p={16}>
-            <StyledLabel for='email'>Emailadres
+            <StyledLabel htmlFor='email'>Emailadres
             <Input
                 type='e-mail'
                 name='email'
@@ -71,7 +71,7 @@ const Form = () => (
             </StyledLabel>
           </Box>
           <Box p={16}>
-            <StyledLabel for='bericht'>Bericht
+            <StyledLabel htmlFor='bericht'>Bericht
             <Textarea
                 name='bericht'
               />
