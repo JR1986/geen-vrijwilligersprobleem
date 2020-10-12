@@ -16,6 +16,7 @@
     "gatsby-plugin-emotion": "^4.3.10",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-offline": "^3.2.13",
+    "gatsby-plugin-preact": "^4.0.15",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-sharp": "^2.6.40",
@@ -25,6 +26,8 @@
     "gatsby-transformer-sharp": "^2.5.17",
     "material-design-icons": "^3.0.1",
     "normalize.css": "^8.0.1",
+    "preact": "^10.5.4",
+    "preact-render-to-string": "^5.1.10",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-countup": "^4.3.3",
@@ -38,6 +41,7 @@
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.13",
     "prettier": "2.0.5"
   },
   "keywords": [

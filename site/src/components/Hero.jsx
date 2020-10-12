@@ -134,7 +134,7 @@ const Drawer = () => {
             </Link>
           </TeaserTextContainer>
           <ImageContainer>
-            <Img fluid={data.datoCmsHome.heroImage.fluid} />
+            <Img fadeIn="false" loading="eager" fluid={data.datoCmsHome.heroImage.fluid} />
           </ImageContainer>
         </ContentContainer>
       </Background>
