@@ -29,5 +29,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `static/logo-geen-vrijwilligers-probleem.svg`,
+      },
+    },
   ],
 }
