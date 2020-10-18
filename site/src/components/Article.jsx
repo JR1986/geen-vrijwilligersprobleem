@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
 import Form from "./Form";
 import SEO from "../components/Seo";
+import FadeInSection from "../utils/FadeInSection";
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
@@ -134,49 +135,57 @@ const HomeArticles = () => {
             <Background
                 backgroundColor="#f8f8f8"
             >
-                <ContentContainer flexDirection="row-reverse">
-                    <TextContainer>
-                        <h2>{succesverhaal}</h2>
-                        <p>{succesverhaalDescription}</p>
-                    </TextContainer>
-                    <SpacingContainer />
-                    <ImageContainer>
-                        <Img fluid={succesverhaalImage} />
-                    </ImageContainer>
-                </ContentContainer>
+                <FadeInSection>
+                    <ContentContainer flexDirection="row-reverse">
+                        <TextContainer>
+                            <h2>{succesverhaal}</h2>
+                            <p>{succesverhaalDescription}</p>
+                        </TextContainer>
+                        <SpacingContainer />
+                        <ImageContainer>
+                            <Img fluid={succesverhaalImage} />
+                        </ImageContainer>
+                    </ContentContainer>
+                </FadeInSection>
             </Background>
             <Background>
-                <ContentContainer>
-                    <TextContainer>
-                        <h2>{overOnsTitle}</h2>
-                        <p>{overOnsDescription}</p>
-                    </TextContainer>
-                    <SpacingContainer />
-                    <ImageContainer>
-                        <Img fluid={overOnsImage} />
-                    </ImageContainer>
-                </ContentContainer>
+                <FadeInSection>
+                    <ContentContainer>
+                        <TextContainer>
+                            <h2>{overOnsTitle}</h2>
+                            <p>{overOnsDescription}</p>
+                        </TextContainer>
+                        <SpacingContainer />
+                        <ImageContainer>
+                            <Img fluid={overOnsImage} />
+                        </ImageContainer>
+                    </ContentContainer>
+                </FadeInSection>
             </Background>
             <Background backgroundColor="#f8f8f8">
-                <ContentContainer flexDirection="row-reverse">
-                    <TextContainer>
-                        <h2>{aanpakTitle}</h2>
-                        <p>{aanpakDescription}</p>
-                    </TextContainer>
-                    <SpacingContainer />
-                    <ImageContainer>
-                        <Img fluid={aanpakImage} />
-                    </ImageContainer>
-                </ContentContainer>
+                <FadeInSection>
+                    <ContentContainer flexDirection="row-reverse">
+                        <TextContainer>
+                            <h2>{aanpakTitle}</h2>
+                            <p>{aanpakDescription}</p>
+                        </TextContainer>
+                        <SpacingContainer />
+                        <ImageContainer>
+                            <Img fluid={aanpakImage} />
+                        </ImageContainer>
+                    </ContentContainer>
+                </FadeInSection>
             </Background>
             <Background>
-                <ContentContainer>
-                    <TextContainer textCenter>
-                        <h2>{contactTitle}</h2>
-                        <p>{contactDescription}</p>
-                    </TextContainer>
-                </ContentContainer>
-                <Form></Form>
+                <FadeInSection>
+                    <ContentContainer>
+                        <TextContainer textCenter>
+                            <h2>{contactTitle}</h2>
+                            <p>{contactDescription}</p>
+                        </TextContainer>
+                    </ContentContainer>
+                    <Form></Form>
+                </FadeInSection>
             </Background>
         </Theme>
     )
