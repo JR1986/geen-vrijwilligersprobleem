@@ -5,6 +5,7 @@ import SEO from "../components/Seo"
 import Form from "../components/Form"
 import { ContactQuery } from "../utils/queries/contact"
 import Page from "../Templates/Page";
+import Theme from "../utils/Theme";
 
 const Container = styled.div`
     max-width: 600px;
@@ -13,21 +14,31 @@ const Container = styled.div`
     text-align: center;
 `;
 
+const Background = styled.div`
+  background-color: ${props => props.theme.colors.secondary};
+  height: 200px;
+  width: 100%;
+  margin-top: -120px;
+`;
+
 const IndexPage = () => {
     const { contactTitle, contactDescription, seo: { title, description } } = ContactQuery();
 
     return (
-        <Layout>
-            <SEO title={title} description={description} />
-            <Page
-                heading={contactTitle}
-            >
-                <Container>
-                    <p>{contactDescription}</p>
-                </Container>
-                <Form></Form>
-            </Page>
-        </Layout>
+        <Theme>
+            <Layout>
+                <SEO title={title} description={description} />
+                <Page
+                    heading={contactTitle}
+                >
+                    <Container>
+                        <p>{contactDescription}</p>
+                    </Container>
+                    <Form />
+                </Page>
+                <Background />
+            </Layout>
+        </Theme>
     )
 }
 

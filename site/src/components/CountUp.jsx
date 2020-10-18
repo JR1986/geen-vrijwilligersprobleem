@@ -9,7 +9,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props => props.theme.colors.primaryBackground};
 
     @media (min-width: 720px) {
         padding: 72px 48px;
@@ -22,10 +22,15 @@ const CountContainer = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 32px 16px;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.secondaryBackground};
     border-radius: 4px;
     justify-content: center;
     border: 3px solid ${props => props.theme.colors.secondary};
+    box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
+              0 2px 2px rgba(0,0,0,0.08), 
+              0 4px 4px rgba(0,0,0,0.08), 
+              0 8px 8px rgba(0,0,0,0.08),
+              0 16px 16px rgba(0,0,0,0.08);
 
     h2,p {
         margin: 0;

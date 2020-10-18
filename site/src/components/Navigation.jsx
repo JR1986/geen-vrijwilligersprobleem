@@ -70,8 +70,8 @@ const StyledToolbar = styled(Toolbar)`
 
   @media (min-width: 1024px) {
       justify-content: space-between;
-      padding-left: 48px;
-      padding-right: 48px;
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 `;

@@ -8,16 +8,6 @@ import {
 import { Flex, Box, Button, } from "rebass";
 import Theme from "../utils/Theme";
 
-const Background = styled.div`
-  background-color: ${props => props.theme.colors.secondary};
-  height: 200px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  z-index: -1;
-`;
-
 const RelativeContainer = styled.div`
   position: relative;
 `;
@@ -94,7 +84,6 @@ const Form = () => (
           </Box>
         </Flex>
       </Box>
-      <Background />
     </RelativeContainer>
   </Theme>
 );

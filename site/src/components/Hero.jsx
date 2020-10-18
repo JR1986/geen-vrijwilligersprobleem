@@ -30,29 +30,34 @@ const Background = styled.div`
   height: 900px;
 
   @media (min-width: 1024px) {
+    height: 70vh;
+  }
+
+  @media (min-width: 1200px) {
     height: 100vh;
   }
 
-  @media (min-width: 1920px) {
-    height: 70vh;
+  @media (min-width: 1600px) {
+    height: 60vh;
   }
 `;
 
 const ContentContainer = styled.div`
-max-width: 1440px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-flex-direction: column-reverse;
-padding: 32px;
-justify-content: space-around;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  padding: 32px;
+  justify-content: space-around;
 
-@media (min-width: 1024px) {
-  flex-basis: calc(50%);
-  justify-content: space-between;
-  padding: 48px;
-  flex-direction: row;
-}
+  @media (min-width: 1024px) {
+    flex-basis: calc(50%);
+    justify-content: space-between;
+    padding: 0 48px;
+    flex-direction: row;
+    height: 100%;
+  }
 `;
 
 const TeaserTextContainer = styled.div`
