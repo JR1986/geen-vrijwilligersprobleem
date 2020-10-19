@@ -1,36 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from '@emotion/styled';
-
-const Section = styled.div`
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 2s ease-out, transform 2s ease-out;
-    will-change: opacity, visibility;
-
-    ${(props) => props.isVisible ?
-        `opacity: 1;
-        transform: none;
-        visibility: visible;` : null
-    }
-`;
+import React from "react";
+import { useInView } from 'react-intersection-observer';
 
 function FadeInSection(props) {
-    const [isVisible, setVisible] = useState(true);
-    const domRef = useRef();
-    useEffect(() => {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => setVisible(entry.isIntersecting));
-        });
-        observer.observe(domRef.current);
-        return () => observer.unobserve(domRef.current);
-    }, []);
+    const { ref, inView } = useInView({
+        rootMargin: '-200px 0px',
+        triggerOnce: true,
+    });
+
     return (
-        <Section
-            isVisible={isVisible}
-            ref={domRef}
-        >
+        <div ref={ref} style={{ opacity: inView ? 1 : 0, transition: 'all 1.5s', willChange: 'opacity', }}>
             {props.children}
-        </Section>
+        </div>
     );
 }
 

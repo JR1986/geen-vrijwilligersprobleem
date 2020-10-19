@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
 import { Button } from "rebass";
 import { Link } from "gatsby";
+import FadeInSection from '../utils/FadeInSection';
 
 const ImageContainer = styled.div`
   height: auto;
@@ -54,7 +55,7 @@ const ContentContainer = styled.div`
   @media (min-width: 1024px) {
     flex-basis: calc(50%);
     justify-content: space-between;
-    padding: 0 48px;
+    padding: 24px 48px;
     flex-direction: row;
     height: 100%;
   }
@@ -118,32 +119,39 @@ const Drawer = () => {
   return (
     <Theme>
       <Background>
-        <ContentContainer>
-          <TeaserTextContainer>
-            <h1>{data.datoCmsHome.teaser}</h1>
-            <p>{data.datoCmsHome.teaserDescription}</p>
-            <Link to="/contact/">
-              <Button
-                sx={{
-                  width: "100%",
-                  color: 'rgba(0,0,0,0.87)',
-                  maxWidth: "250px",
-                  backgroundColor: "#FFED00",
-                  cursor: "pointer",
-                }}
-                mt={24}
-                aria-label={data.datoCmsHome.buttonText}
-              >
-                {data.datoCmsHome.buttonText}
-              </Button>
-            </Link>
-          </TeaserTextContainer>
-          <ImageContainer>
-            <Img fadeIn="false" loading="eager" fluid={data.datoCmsHome.heroImage.fluid} />
-          </ImageContainer>
-        </ContentContainer>
+        <FadeInSection>
+          <ContentContainer>
+            <TeaserTextContainer>
+              <h1>{data.datoCmsHome.teaser}</h1>
+              <p>{data.datoCmsHome.teaserDescription}</p>
+              <Link to="/contact/">
+                <Button
+                  sx={{
+                    width: "100%",
+                    color: 'rgba(0,0,0,0.87)',
+                    maxWidth: "250px",
+                    backgroundColor: "#FFED00",
+                    cursor: "pointer",
+                    transition: 'all 0.3s ease',
+                    transform: "none",
+                    '&:hover': {
+                      transform: 'scale(1.15)'
+                    },
+                  }}
+                  mt={24}
+                  aria-label={data.datoCmsHome.buttonText}
+                >
+                  {data.datoCmsHome.buttonText}
+                </Button>
+              </Link>
+            </TeaserTextContainer>
+            <ImageContainer>
+              <Img fluid={data.datoCmsHome.heroImage.fluid} />
+            </ImageContainer>
+          </ContentContainer>
+        </FadeInSection>
       </Background>
-    </Theme>
+    </Theme >
   )
 }
 

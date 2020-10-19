@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Theme from "../utils/Theme";
 import Img from 'gatsby-image';
 import { CijfersQuery } from "../utils/queries/cijfers";
+import FadeInSection from "../utils/FadeInSection";
 
 const Container = styled.div`
     padding: 32px 16px;
@@ -25,6 +26,8 @@ const CountContainer = styled.div`
     background-color: ${props => props.theme.colors.secondaryBackground};
     border-radius: 4px;
     justify-content: center;
+    height: 100%;
+    max-height: 80%;
     border: 3px solid ${props => props.theme.colors.secondary};
     box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
               0 2px 2px rgba(0,0,0,0.08), 
@@ -75,31 +78,35 @@ const Count = () => {
   return (
     <Theme>
       <Container>
-        <CountContainer>
-          <StyledImg fixed={meerVrijwilligersImage.fixed} />
-          <h2>Aantal nieuwe vrijwilligers: </h2>
-          <Number>{aantalNieuweVrijwilligers}</Number>
-          <p>
-            Bij{' '}
-            <span>
-              {aantalVerenigingenMetNieuweVrijwilligers}
-            </span>
-            {' '}verenigingen
+        <FadeInSection>
+          <CountContainer>
+            <StyledImg fixed={meerVrijwilligersImage.fixed} />
+            <h2>Aantal nieuwe vrijwilligers: </h2>
+            <Number>{aantalNieuweVrijwilligers}</Number>
+            <p>
+              Bij{' '}
+              <span>
+                {aantalVerenigingenMetNieuweVrijwilligers}
+              </span>
+              {' '}verenigingen
         </p>
-        </CountContainer>
+          </CountContainer>
+        </FadeInSection>
         <SpacingContainer />
-        <CountContainer>
-          <StyledImg fixed={meerLedenImage.fixed} />
-          <h2>Aantal nieuwe leden:</h2>
-          <Number>
-            {aantalNieuweLeden}
-          </Number>
-          <p>
-            Bij{' '}
-            <span>{aantalVerenigingenMetNieuweLeden}</span>
-            {' '}verenigingen
+        <FadeInSection>
+          <CountContainer>
+            <StyledImg fixed={meerLedenImage.fixed} />
+            <h2>Aantal nieuwe leden:</h2>
+            <Number>
+              {aantalNieuweLeden}
+            </Number>
+            <p>
+              Bij{' '}
+              <span>{aantalVerenigingenMetNieuweLeden}</span>
+              {' '}verenigingen
         </p>
-        </CountContainer>
+          </CountContainer>
+        </FadeInSection>
       </Container>
     </Theme>
   )
