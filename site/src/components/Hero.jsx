@@ -23,24 +23,13 @@ const ImageContainer = styled.div`
 
   @media (min-width: 840px) {
     width: 45vw;
+    margin-left: 48px;
   }
 `;
 
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
-  height: 900px;
-
-  @media (min-width: 1024px) {
-    height: 70vh;
-  }
-
-  @media (min-width: 1200px) {
-    height: 100vh;
-  }
-
-  @media (min-width: 1600px) {
-    height: 60vh;
-  }
+  padding: 48px 0;
 `;
 
 const ContentContainer = styled.div`
@@ -135,10 +124,11 @@ const Drawer = () => {
                     transition: 'all 0.3s ease',
                     transform: "none",
                     '&:hover': {
-                      transform: 'scale(1.15)'
+                      transform: 'scale(1.2)'
                     },
                   }}
                   mt={24}
+                  p={16}
                   aria-label={data.datoCmsHome.buttonText}
                 >
                   {data.datoCmsHome.buttonText}

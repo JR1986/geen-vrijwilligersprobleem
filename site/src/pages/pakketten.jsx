@@ -9,7 +9,7 @@ import Theme from "../utils/Theme";
 const Container = styled.div`
     max-width: 1024px;
     padding: 24px 16px;
-    
+
     @media (min-width: 1024px) {
         padding: 48px;
     }

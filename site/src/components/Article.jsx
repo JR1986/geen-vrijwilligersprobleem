@@ -177,15 +177,13 @@ const HomeArticles = () => {
                 </FadeInSection>
             </Background>
             <Background>
-                <FadeInSection>
-                    <ContentContainer>
-                        <TextContainer textCenter>
-                            <h2>{contactTitle}</h2>
-                            <p>{contactDescription}</p>
-                        </TextContainer>
-                    </ContentContainer>
-                    <Form></Form>
-                </FadeInSection>
+                <ContentContainer>
+                    <TextContainer textCenter>
+                        <h2>{contactTitle}</h2>
+                        <p>{contactDescription}</p>
+                    </TextContainer>
+                </ContentContainer>
+                <Form></Form>
             </Background>
         </Theme>
     )

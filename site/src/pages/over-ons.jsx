@@ -8,9 +8,9 @@ import Page from '../Templates/Page';
 const Container = styled.div`
     max-width: 700px;
     padding: 24px 16px;
-    
+
     @media (min-width: 1024px) {
-        padding: 48px 48px 72px;
+        padding: 48px;
     }
 `;
 
