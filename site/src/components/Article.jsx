@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from "../utils/Theme";
+import {theme} from "../utils/Theme";
 import Form from "./Form";
 import SEO from "../components/Seo";
 import FadeInSection from "../utils/FadeInSection";
@@ -18,6 +19,7 @@ const TextContainer = styled.div`
 
     p {
         margin: 0;
+        color: ${props => props.theme.colors.blackMedium};
     }
 
     @media (min-width: 600px) {
@@ -133,7 +135,7 @@ const HomeArticles = () => {
         <Theme>
             <SEO title={title} description={description} />
             <Background
-                backgroundColor="#f8f8f8"
+                backgroundColor={theme.colors.primaryBackground}
             >
                 <FadeInSection>
                     <ContentContainer flexDirection="row-reverse">
@@ -148,7 +150,9 @@ const HomeArticles = () => {
                     </ContentContainer>
                 </FadeInSection>
             </Background>
-            <Background>
+            <Background
+                backgroundColor={theme.colors.secondaryBackground}
+            >
                 <FadeInSection>
                     <ContentContainer>
                         <TextContainer>
@@ -162,7 +166,7 @@ const HomeArticles = () => {
                     </ContentContainer>
                 </FadeInSection>
             </Background>
-            <Background backgroundColor="#f8f8f8">
+            <Background backgroundColor={theme.colors.primaryBackground}>
                 <FadeInSection>
                     <ContentContainer flexDirection="row-reverse">
                         <TextContainer>
@@ -176,7 +180,9 @@ const HomeArticles = () => {
                     </ContentContainer>
                 </FadeInSection>
             </Background>
-            <Background>
+            <Background 
+                backgroundColor={theme.colors.secondaryBackground}
+            >
                 <ContentContainer>
                     <TextContainer textCenter>
                         <h2>{contactTitle}</h2>

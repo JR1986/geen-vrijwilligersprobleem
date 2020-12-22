@@ -4,12 +4,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-preact`,
-    {
-      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
-      options: {
-        devMode: true,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

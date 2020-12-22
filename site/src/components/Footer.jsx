@@ -7,7 +7,7 @@ import { LogoQuery } from "../utils/queries/logo";
 
 const FooterContainer = styled.footer`
     padding: 0 0 48px;
-    background-color: ${props => props.theme.colors.secondary};
+    background-color: ${props => props.theme.colors.white};
 
     @media (min-width: 1024px) {
         padding: 72px 48px;
@@ -18,7 +18,7 @@ const Links = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-bottom: 1px solid ${props => props.theme.colors.white};
+    border-bottom: 1px solid ${props => props.theme.colors.primary};
 
     @media (min-width: 600px) {
         flex-direction: row;

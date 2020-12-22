@@ -10,7 +10,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: ${props => props.theme.colors.primaryBackground};
+    background-color: ${props => props.theme.colors.secondaryBackground};
 
     @media (min-width: 720px) {
         padding: 72px 48px;
@@ -28,7 +28,7 @@ const CountContainer = styled.div`
     justify-content: center;
     height: 100%;
     max-height: 80%;
-    border: 3px solid ${props => props.theme.colors.secondary};
+    border: 2px solid ${props => props.theme.colors.primary};
     box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
               0 2px 2px rgba(0,0,0,0.08), 
               0 4px 4px rgba(0,0,0,0.08), 

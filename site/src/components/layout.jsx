@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Global, css } from '@emotion/core'
+import { theme } from "../utils/Theme";
 import Navigation from './Navigation';
 import Footer from './Footer';
 
@@ -11,18 +12,21 @@ const Layout = ({ children }) => {
       <Global
         styles={css`
         @font-face {
-          font-family: 'Josefin Sans';
+          font-family: 'Ubuntu';
           font-display: swap;
         }
 
-        h1, h2, h3, h4, h5, h6, p, span, div, strong {
+        h1, h2, h3, h4, h5, h6, span, div, strong {
           color: rgba(0,0,0,0.87);
+        }
 
+        p {
+          color: ${theme.colors.blackMedium};
         }
 
         body {
           font-size: 18px;
-          font-family: 'Josefin Sans', sans-serif;
+          font-family: 'Ubuntu', sans-serif;
           margin: 0;
         }
 
@@ -32,7 +36,7 @@ const Layout = ({ children }) => {
         }
 
         button {
-          font-family: 'Josefin Sans', sans-serif;
+          font-family: 'Ubuntu', sans-serif;
         }
       `}
       />

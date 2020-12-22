@@ -9,6 +9,7 @@ import { LogoQuery } from "../utils/queries/logo";
 
 const LogoContainer = styled.div`
   margin: 0 auto;
+  max-width: 130px;
 
   @media (min-width: 1024px) {
     margin: 0;
@@ -33,8 +34,8 @@ const NavLink = styled(Link)`
     line-height: 160px;
 
     &[aria-current="page"] {
-      color: ${props => props.theme.colors.secondary};
-      border-bottom: 2px solid ${props => props.theme.colors.secondary};
+      color: ${props => props.theme.colors.primary};
+      border-bottom: 2px solid ${props => props.theme.colors.primary};
     }
 `;
 
@@ -62,6 +63,7 @@ const StyledToolbar = styled(Toolbar)`
     padding-left: 0;
     padding-right: 0;
     height: 160px;
+    border-bottom: 1px solid #EDEDED;
 
   @media (min-width: 1024px) {
       justify-content: space-between;

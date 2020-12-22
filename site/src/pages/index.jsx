@@ -7,10 +7,10 @@ import Count from "../components/CountUp";
 import Theme from "../utils/Theme";
 
 const Background = styled.div`
-  background-color: ${props => props.theme.colors.secondary};
-  height: 200px;
+  background-color: ${props => props.theme.colors.primary};
+  height: 250px;
   width: 100%;
-  margin-top: -120px;
+  margin-top: -135px;
 `;
 
 const IndexPage = () => (

@@ -3,13 +3,11 @@ import { ThemeProvider } from "emotion-theming";
 
 export const theme = {
   colors: {
-    primary: "#FFED00",
-    secondary: "#37C1FF",
-    third: "#ED6A5A",
-    fourth: "#0C6291",
-    fifth: "#191923",
+    primary: "#9FC131",
+    secondary: "#191923",
     white: "#ffffff",
     black: "rgba(0,0,0,0.87)",
+    blackMedium: "rgba(0,0,0,0.60)",
     primaryBackground: "#ffffff",
     secondaryBackground: "#f8f8f8",
   }

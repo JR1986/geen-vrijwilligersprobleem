@@ -49,12 +49,13 @@ const Description = styled.div`
 
     p {
         margin: 0;
+        color: ${props => props.theme.colors.blackMedium};
     }
 
     table {
         margin: 0;
         border-left: 1px solid transparent;
-        border-top: 4px solid ${props => props.theme.colors.secondary};
+        border-top: 4px solid ${props => props.theme.colors.primary};
         border-bottom: 1px solid transparent;
         border-right: 1px solid transparent;
 
@@ -68,7 +69,7 @@ const Description = styled.div`
         }
 
         @media (min-width: 720px) {
-            border-left: 4px solid ${props => props.theme.colors.secondary};
+            border-left: 4px solid ${props => props.theme.colors.primary};
             border-top: 1px solid transparent;
         }
     }

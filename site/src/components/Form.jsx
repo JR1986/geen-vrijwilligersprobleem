@@ -7,6 +7,7 @@ import {
 } from '@rebass/forms';
 import { Flex, Box, Button, } from "rebass";
 import Theme from "../utils/Theme";
+import { theme } from "../utils/Theme";
 
 const RelativeContainer = styled.div`
   position: relative;
@@ -71,9 +72,12 @@ const Form = () => (
             <Button
               sx={{
                 width: "100%",
-                color: "rgba(0,0,0,0.87)",
-                backgroundColor: "#FFED00",
-                cursor: "pointer"
+                color: `${theme.colors.black}`,
+                backgroundColor: `${theme.colors.white}`,
+                border: `2px solid ${theme.colors.primary}`,
+                cursor: "pointer",
+                height: '50px',
+                marginTop: "24px",
               }}
               width={1}
               type="submit"

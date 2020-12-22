@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import Theme from "../utils/Theme";
+import Theme, { theme } from "../utils/Theme";
 import { Button } from "rebass";
 import { Link } from "gatsby";
 import FadeInSection from '../utils/FadeInSection';
@@ -28,7 +28,7 @@ const ImageContainer = styled.div`
 `;
 
 const Background = styled.div`
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.white};
   padding: 48px 0;
 `;
 
@@ -63,9 +63,12 @@ const TeaserTextContainer = styled.div`
     margin: 0 48px 0 0;
   }
 
-  h1, p {
+  h1 {
     color: ${(props) => props.theme.colors.black};
-    letter-spacing: -1px;
+  }
+
+  p {
+    color: ${(props) => props.theme.colors.blackMedium};
   }
 
   @media (min-width: 720px) {
@@ -117,9 +120,9 @@ const Drawer = () => {
                 <Button
                   sx={{
                     width: "100%",
-                    color: 'rgba(0,0,0,0.87)',
+                    color: `${theme.colors.white}`,
                     maxWidth: "250px",
-                    backgroundColor: "#FFED00",
+                    backgroundColor: `${theme.colors.primary}`,
                     cursor: "pointer",
                     transition: 'all 0.3s ease',
                     transform: "none",
