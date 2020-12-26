@@ -8,60 +8,34 @@ import { Link } from "gatsby";
 import FadeInSection from '../utils/FadeInSection';
 
 const ImageContainer = styled.div`
-  height: auto;
-  z-index: 2;
-  width: 85vw;
-  background-color: transparent;
-
-  @media (min-width: 600px) {
-    width: 70vw;
-  }
-
-  @media (min-width: 720px) {
-    width: 60vw;
-  }
-
-  @media (min-width: 840px) {
-    width: 45vw;
-    margin-left: 48px;
-  }
+  width: 100%;
 `;
 
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.white};
-  padding: 48px 0;
+  padding: 48px 32px;
+
+  @media (min-width: 1024px) {
+    padding: 56px 32px;
+  }
 `;
 
 const ContentContainer = styled.div`
   max-width: 1440px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
-  padding: 32px;
-  justify-content: space-around;
+  height: 100%;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 600px) {
     flex-basis: calc(50%);
     justify-content: space-between;
-    padding: 24px 48px;
     flex-direction: row;
-    height: 100%;
   }
 `;
 
 const TeaserTextContainer = styled.div`
-  text-align: center;
-  max-width: 375px;
-
-  @media (min-width: 600px) {
-    max-width: 500px;
-  }
-
-  @media (min-width: 1024px) {
-    text-align: left;
-    margin: 0 48px 0 0;
-  }
+  margin: 0 48px 0 0;
 
   h1 {
     color: ${(props) => props.theme.colors.black};
@@ -73,7 +47,7 @@ const TeaserTextContainer = styled.div`
 
   @media (min-width: 720px) {
     h1 {
-      font-size: 48px;
+      font-size: 42px;
     }
     p {
       font-size: 20px;
@@ -127,7 +101,7 @@ const Drawer = () => {
                     transition: 'all 0.3s ease',
                     transform: "none",
                     '&:hover': {
-                      transform: 'scale(1.2)'
+                      transform: 'scale(1.15)'
                     },
                   }}
                   mt={24}

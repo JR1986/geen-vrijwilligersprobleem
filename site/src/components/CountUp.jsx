@@ -71,7 +71,6 @@ const Count = () => {
     aantalNieuweVrijwilligers,
     aantalVerenigingenMetNieuweLeden,
     aantalVerenigingenMetNieuweVrijwilligers,
-    meerVrijwilligersImage,
     meerLedenImage
   } = CijfersQuery();
 
@@ -80,7 +79,6 @@ const Count = () => {
       <Container>
         <FadeInSection>
           <CountContainer>
-            <StyledImg fixed={meerVrijwilligersImage.fixed} />
             <h2>Aantal nieuwe vrijwilligers: </h2>
             <Number>{aantalNieuweVrijwilligers}</Number>
             <p>
@@ -95,7 +93,6 @@ const Count = () => {
         <SpacingContainer />
         <FadeInSection>
           <CountContainer>
-            <StyledImg fixed={meerLedenImage.fixed} />
             <h2>Aantal nieuwe leden:</h2>
             <Number>
               {aantalNieuweLeden}

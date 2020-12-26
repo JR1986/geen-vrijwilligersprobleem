@@ -9,16 +9,6 @@ export const CijfersQuery = () => {
           aantalNieuweVrijwilligers
           aantalVerenigingenMetNieuweLeden
           aantalVerenigingenMetNieuweVrijwilligers
-          meerVrijwilligersImage {
-            fixed(width: 200, height: 200) {
-              ...GatsbyDatoCmsFixed
-            }
-          }
-          meerLedenImage {
-            fixed(width: 200, height: 200) {
-              ...GatsbyDatoCmsFixed
-            }
-          }
         }
       }  
     `
