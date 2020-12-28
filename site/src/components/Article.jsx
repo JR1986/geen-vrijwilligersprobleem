@@ -21,6 +21,12 @@ const TextContainer = styled.div`
         color: ${(props) => props.theme.colors.blackMedium};
     }
 
+    ul, li {
+      font-weight: 400;
+      line-height: 1.75rem;
+      color: ${(props) => props.theme.colors.blackMedium};
+    }
+
     @media (min-width: 600px) {
         margin: 0;
         padding: 0;
@@ -140,7 +146,7 @@ const HomeArticles = () => {
           <ContentContainer flexDirection="row-reverse">
             <TextContainer>
               <h2>{succesverhaal}</h2>
-              <p dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
+              <div dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
             </TextContainer>
             <SpacingContainer />
             <ImageContainer>

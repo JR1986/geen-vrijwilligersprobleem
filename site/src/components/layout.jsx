@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
           color: rgba(0,0,0,0.87);
         }
 
-        p {
+        p, ul, li {
           color: ${theme.colors.blackMedium};
         }
 
