@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const CijfersQuery = () => {
+export default function CijfersQuery() {
   const data = useStaticQuery(
     graphql`
     query CijfersQuery {
@@ -11,8 +11,8 @@ export const CijfersQuery = () => {
           aantalVerenigingenMetNieuweVrijwilligers
         }
       }  
-    `
-  )
+    `,
+  );
 
   return data.datoCmsHome;
-};
+}

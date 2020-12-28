@@ -2,10 +2,9 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import styled from '@emotion/styled';
-import { Link } from "gatsby";
-import Drawer from "./Drawer";
-import Theme from "../utils/Theme";
-import { LogoQuery } from "../utils/queries/logo";
+import { Link } from 'gatsby';
+import Drawer from './Drawer';
+import Theme from '../utils/Theme';
 
 const LogoContainer = styled.div`
   margin: 0 auto;
@@ -24,30 +23,29 @@ const StyledDrawer = styled(Drawer)`
       display: none;
     }
   }
-`
+`;
 
 const NavLink = styled(Link)`
     margin: 0 24px;
     padding: 24px 0;
-    color: ${props => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
     text-decoration: none;
     line-height: 160px;
 
     &[aria-current="page"] {
-      color: ${props => props.theme.colors.primary};
-      border-bottom: 2px solid ${props => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
+      border-bottom: 2px solid ${(props) => props.theme.colors.primary};
     }
 `;
 
 const StyledAppBar = styled(AppBar)`
   padding-left: 0;
   padding-right: 0;
-  max-width: 1440px;
   margin: 0 auto;
   min-height: 160px;
 
   &&& {
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.white};
     border-bottom: 1px solid rgba(255,255,255, 0.4);
     box-shadow: none;
   }
@@ -81,30 +79,25 @@ const NavLinkContainer = styled.div`
   }
 `;
 
-export default function Navigation() {
+const Navigation = () => (
+  <Theme>
+    <div>
+      <StyledAppBar position="static">
+        <StyledToolbar>
+          <StyledDrawer />
+          <LogoContainer>
+            <img src="/logo-geen-vrijwilligers-probleem.svg" alt="Geen Vrijwilligersprobleem" />
+          </LogoContainer>
+          <NavLinkContainer>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/pakketten/">Pakketten</NavLink>
+            <NavLink to="/over-ons/">Over ons</NavLink>
+            <NavLink to="/contact/">Contact</NavLink>
+          </NavLinkContainer>
+        </StyledToolbar>
+      </StyledAppBar>
+    </div>
+  </Theme>
+);
 
-  const {
-    logo
-  } = LogoQuery();
-
-  return (
-    <Theme>
-      <div>
-        <StyledAppBar position="static">
-          <StyledToolbar>
-            <StyledDrawer />
-            <LogoContainer>
-              <img src="/logo-geen-vrijwilligers-probleem.svg" alt="Geen Vrijwilligersprobleem" />
-            </LogoContainer>
-            <NavLinkContainer>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/pakketten/">Pakketten</NavLink>
-              <NavLink to="/over-ons/">Over ons</NavLink>
-              <NavLink to="/contact/">Contact</NavLink>
-            </NavLinkContainer>
-          </StyledToolbar>
-        </StyledAppBar>
-      </div>
-    </Theme>
-  );
-}
+export default Navigation;

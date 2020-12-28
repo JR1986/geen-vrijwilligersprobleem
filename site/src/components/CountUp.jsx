@@ -1,16 +1,15 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Theme from "../utils/Theme";
-import Img from 'gatsby-image';
-import { CijfersQuery } from "../utils/queries/cijfers";
-import FadeInSection from "../utils/FadeInSection";
+import React from 'react';
+import styled from '@emotion/styled';
+import Theme from '../utils/Theme';
+import CijfersQuery from '../utils/queries/cijfers';
+import FadeInSection from '../utils/FadeInSection';
 
 const Container = styled.div`
     padding: 32px 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: ${props => props.theme.colors.secondaryBackground};
+    background-color: ${(props) => props.theme.colors.secondaryBackground};
 
     @media (min-width: 720px) {
         padding: 72px 48px;
@@ -23,12 +22,12 @@ const CountContainer = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 32px 16px;
-    background-color: ${props => props.theme.colors.secondaryBackground};
+    background-color: ${(props) => props.theme.colors.secondaryBackground};
     border-radius: 4px;
     justify-content: center;
     height: 100%;
     max-height: 80%;
-    border: 2px solid ${props => props.theme.colors.primary};
+    border: 2px solid ${(props) => props.theme.colors.primary};
     box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
               0 2px 2px rgba(0,0,0,0.08), 
               0 4px 4px rgba(0,0,0,0.08), 
@@ -50,7 +49,7 @@ const Number = styled.span`
     padding: 24px 0;
     font-size: 32px;
     font-weight: bold;
-    color: ${props => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
 `;
 
 const SpacingContainer = styled.div`
@@ -61,17 +60,12 @@ const SpacingContainer = styled.div`
     }
 `;
 
-const StyledImg = styled(Img)`
-    margin: 0 auto 32px;
-`;
-
 const Count = () => {
   const {
     aantalNieuweLeden,
     aantalNieuweVrijwilligers,
     aantalVerenigingenMetNieuweLeden,
     aantalVerenigingenMetNieuweVrijwilligers,
-    meerLedenImage
   } = CijfersQuery();
 
   return (
@@ -82,12 +76,14 @@ const Count = () => {
             <h2>Aantal nieuwe vrijwilligers: </h2>
             <Number>{aantalNieuweVrijwilligers}</Number>
             <p>
-              Bij{' '}
+              Bij
+              {' '}
               <span>
                 {aantalVerenigingenMetNieuweVrijwilligers}
               </span>
-              {' '}verenigingen
-        </p>
+              {' '}
+              verenigingen
+            </p>
           </CountContainer>
         </FadeInSection>
         <SpacingContainer />
@@ -98,15 +94,17 @@ const Count = () => {
               {aantalNieuweLeden}
             </Number>
             <p>
-              Bij{' '}
+              Bij
+              {' '}
               <span>{aantalVerenigingenMetNieuweLeden}</span>
-              {' '}verenigingen
-        </p>
+              {' '}
+              verenigingen
+            </p>
           </CountContainer>
         </FadeInSection>
       </Container>
     </Theme>
-  )
+  );
 };
 
 export default Count;

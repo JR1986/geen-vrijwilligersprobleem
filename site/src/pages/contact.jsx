@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react';
 import styled from '@emotion/styled';
-import Layout from "../components/layout"
-import SEO from "../components/Seo"
-import Form from "../components/Form"
-import { ContactQuery } from "../utils/queries/contact"
-import Page from "../Templates/Page";
-import Theme from "../utils/Theme";
+import Layout from '../components/layout';
+import SEO from '../components/Seo';
+import Form from '../components/Form';
+import ContactQuery from '../utils/queries/contact';
+import Page from '../Templates/Page';
+import Theme from '../utils/Theme';
 
 const Container = styled.div`
     max-width: 600px;
@@ -15,31 +15,31 @@ const Container = styled.div`
 `;
 
 const Background = styled.div`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
   height: 250px;
   width: 100%;
   margin-top: -135px;
 `;
 
 const IndexPage = () => {
-    const { contactTitle, contactDescription, seo: { title, description } } = ContactQuery();
+  const { contactTitle, contactDescription, seo: { title, description } } = ContactQuery();
 
-    return (
-        <Theme>
-            <Layout>
-                <SEO title={title} description={description} />
-                <Page
-                    heading={contactTitle}
-                >
-                    <Container>
-                        <p>{contactDescription}</p>
-                    </Container>
-                    <Form />
-                </Page>
-                <Background />
-            </Layout>
-        </Theme>
-    )
-}
+  return (
+    <Theme>
+      <Layout>
+        <SEO title={title} description={description} />
+        <Page
+          heading={contactTitle}
+        >
+          <Container>
+            <p>{contactDescription}</p>
+          </Container>
+          <Form />
+        </Page>
+        <Background />
+      </Layout>
+    </Theme>
+  );
+};
 
-export default IndexPage
+export default IndexPage;

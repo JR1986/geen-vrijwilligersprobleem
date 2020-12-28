@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const PrivacyQuery = () => {
-    const data = useStaticQuery(
-        graphql`
+export default function PrivacyQuery() {
+  const data = useStaticQuery(
+    graphql`
     query PrivacyQuery {
         datoCmsPrivacyStatement {
                 privacyStatement
@@ -12,8 +12,8 @@ export const PrivacyQuery = () => {
                   }
             }
         }  
-        `
-    )
+        `,
+  );
 
-    return data.datoCmsPrivacyStatement;
-};
+  return data.datoCmsPrivacyStatement;
+}

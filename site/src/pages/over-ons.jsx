@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react';
 import styled from '@emotion/styled';
-import Layout from "../components/layout"
-import SEO from "../components/Seo"
-import { OverGeenVrijwilligersprobleem } from "../utils/queries/overOns"
+import Layout from '../components/layout';
+import SEO from '../components/Seo';
+import OverGeenVrijwilligersprobleem from '../utils/queries/overOns';
 import Page from '../Templates/Page';
 
 const Container = styled.div`
@@ -15,27 +15,27 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-    const {
-        pageHeader,
-        pageDescription,
-        seo: {
-            title,
-            description
-        }
-    } = OverGeenVrijwilligersprobleem();
+  const {
+    pageHeader,
+    pageDescription,
+    seo: {
+      title,
+      description,
+    },
+  } = OverGeenVrijwilligersprobleem();
 
-    return (
-        <Layout>
-            <SEO title={title} description={description} />
-            <Page
-                heading={pageHeader}
-            >
-                <Container>
-                    <p>{pageDescription}</p>
-                </Container>
-            </Page>
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <SEO title={title} description={description} />
+      <Page
+        heading={pageHeader}
+      >
+        <Container>
+          <p>{pageDescription}</p>
+        </Container>
+      </Page>
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;

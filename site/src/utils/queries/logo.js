@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const LogoQuery = () => {
+export default function LogoQuery() {
   const data = useStaticQuery(
     graphql`
     query LogoQuery {
@@ -12,8 +12,8 @@ export const LogoQuery = () => {
         }
       }
     }
-  `
-  )
+  `,
+  );
 
   return data.datoCmsHome;
-};
+}

@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const PakkettenQuery = () => {
+export default function PakkettenQuery() {
   const data = useStaticQuery(
     graphql`
     query PakkettenQuery {
@@ -24,8 +24,8 @@ export const PakkettenQuery = () => {
         }
       }
     }
-  `
-  )
+  `,
+  );
 
   return data.datoCmsPakketten;
-};
+}

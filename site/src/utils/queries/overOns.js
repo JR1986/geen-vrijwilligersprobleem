@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const OverGeenVrijwilligersprobleem = () => {
+export default function OverGeenVrijwilligersprobleem() {
   const data = useStaticQuery(
     graphql`
         query overGeenVrijwilligersprobleem {
@@ -13,8 +13,8 @@ export const OverGeenVrijwilligersprobleem = () => {
             }
       }
     }
-  `
+  `,
   );
 
   return data.datoCmsOverGeenVrijwilligersprobleem;
-};
+}

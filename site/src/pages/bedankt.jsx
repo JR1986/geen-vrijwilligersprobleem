@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react';
 import styled from '@emotion/styled';
-import Layout from "../components/layout"
-import SEO from "../components/Seo"
-import Page from "../Templates/Page";
+import Layout from '../components/layout';
+import SEO from '../components/Seo';
+import Page from '../Templates/Page';
 
 const Container = styled.div`
     max-width: 600px;
@@ -17,24 +17,20 @@ const Card = styled.div`
     min-height: 300px;
 `;
 
+const IndexPage = () => (
+  <Layout>
+    <SEO title="Bedankt voor je bericht" />
+    <Page
+      heading="Bedankt!"
+    >
+      <Container>
+        <Card>
+          <h2>Bedankt voor je bericht!</h2>
+          <p>Geen Vrijwilligersprobleem neemt zo spoedig mogelijk contact met je op</p>
+        </Card>
+      </Container>
+    </Page>
+  </Layout>
+);
 
-const IndexPage = () => {
-
-    return (
-        <Layout>
-            <SEO title="Bedankt voor je bericht" />
-            <Page
-                heading="Bedankt!"
-            >
-                <Container>
-                    <Card>
-                        <h2>Bedankt voor je bericht!</h2>
-                        <p>Geen Vrijwilligersprobleem neemt zo spoedig mogelijk contact met je op</p>
-                    </Card>
-                </Container>
-            </Page>
-        </Layout>
-    )
-}
-
-export default IndexPage
+export default IndexPage;

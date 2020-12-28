@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import Theme, { theme } from "../utils/Theme";
-import { Button } from "rebass";
-import { Link } from "gatsby";
+import { Button } from 'rebass';
+import Theme, { theme } from '../utils/Theme';
+
 import FadeInSection from '../utils/FadeInSection';
 
 const ImageContainer = styled.div`
   width: 100%;
+  flex-basis: calc(50%);
 `;
 
 const Background = styled.div`
@@ -26,10 +27,9 @@ const ContentContainer = styled.div`
   align-items: center;
   flex-direction: column-reverse;
   height: 100%;
+  margin: 0 auto;
 
   @media (min-width: 600px) {
-    flex-basis: calc(50%);
-    justify-content: space-between;
     flex-direction: row;
   }
 `;
@@ -46,6 +46,8 @@ const TeaserTextContainer = styled.div`
   }
 
   @media (min-width: 720px) {
+    flex-basis: calc(50%);
+
     h1 {
       font-size: 42px;
     }
@@ -80,7 +82,7 @@ const Drawer = () => {
       buttonText
     }
   }
-`)
+`);
 
   return (
     <Theme>
@@ -93,15 +95,15 @@ const Drawer = () => {
               <Link to="/contact/">
                 <Button
                   sx={{
-                    width: "100%",
+                    width: '100%',
                     color: `${theme.colors.white}`,
-                    maxWidth: "250px",
+                    maxWidth: '250px',
                     backgroundColor: `${theme.colors.primary}`,
-                    cursor: "pointer",
+                    cursor: 'pointer',
                     transition: 'all 0.3s ease',
-                    transform: "none",
+                    transform: 'none',
                     '&:hover': {
-                      transform: 'scale(1.15)'
+                      transform: 'scale(1.15)',
                     },
                   }}
                   mt={24}
@@ -118,8 +120,8 @@ const Drawer = () => {
           </ContentContainer>
         </FadeInSection>
       </Background>
-    </Theme >
-  )
-}
+    </Theme>
+  );
+};
 
 export default Drawer;

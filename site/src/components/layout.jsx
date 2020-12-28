@@ -1,19 +1,21 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Global, css } from '@emotion/core'
-import { theme } from "../utils/Theme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Global, css } from '@emotion/core';
+import { theme } from '../utils/Theme';
 import Navigation from './Navigation';
 import Footer from './Footer';
 
-const Layout = ({ children }) => {
-
-  return (
-    <>
-      <Global
-        styles={css`
+const Layout = ({ children }) => (
+  <>
+    <Global
+      styles={css`
         @font-face {
           font-family: 'Ubuntu';
           font-display: swap;
+        }
+
+        html {
+          overflow-y: scroll;
         }
 
         h1, h2, h3, h4, h5, h6, span, div, strong {
@@ -39,16 +41,15 @@ const Layout = ({ children }) => {
           font-family: 'Ubuntu', sans-serif;
         }
       `}
-      />
-      <Navigation />
-      <main>{children}</main>
-      <Footer />
-    </>
-  )
-}
+    />
+    <Navigation />
+    <main>{children}</main>
+    <Footer />
+  </>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

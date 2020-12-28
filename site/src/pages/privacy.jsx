@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react';
 import styled from '@emotion/styled';
-import Layout from "../components/layout"
-import SEO from "../components/Seo"
-import { PrivacyQuery } from "../utils/queries/privacy"
-import Page from "../Templates/Page";
+import Layout from '../components/layout';
+import SEO from '../components/Seo';
+import PrivacyQuery from '../utils/queries/privacy';
+import Page from '../Templates/Page';
 
 const Container = styled.div`
     max-width: 600px;
@@ -15,20 +15,20 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-    const { privacyStatement, seo: { title, description } } = PrivacyQuery();
+  const { privacyStatement, seo: { title, description } } = PrivacyQuery();
 
-    return (
-        <Layout>
-            <SEO title={title} description={description} />
-            <Page
-                heading="Privacy Statement"
-            >
-                <Container>
-                    <p dangerouslySetInnerHTML={{ __html: privacyStatement }} />
-                </Container>
-            </Page>
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <SEO title={title} description={description} />
+      <Page
+        heading="Privacy Statement"
+      >
+        <Container>
+          <p dangerouslySetInnerHTML={{ __html: privacyStatement }} />
+        </Container>
+      </Page>
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;

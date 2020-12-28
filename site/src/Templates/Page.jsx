@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import Theme from "../utils/Theme";
+import Theme from '../utils/Theme';
 
 const HeroContainer = styled.div`
     height: 250px;
     width: 100%;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     display: flex;
     align-items: center;
     word-wrap: break-word;
@@ -29,19 +30,20 @@ const MainContainer = styled.div`
     margin: 0 auto;
 `;
 
+const Page = ({ heading, children }) => (
+  <Theme>
+    <HeroContainer>
+      <h1>{heading}</h1>
+    </HeroContainer>
+    <MainContainer>
+      {children}
+    </MainContainer>
+  </Theme>
+);
 
-
-const Page = ({ heading, children }) => {
-    return (
-        <Theme>
-            <HeroContainer>
-                <h1>{heading}</h1>
-            </HeroContainer>
-            <MainContainer>
-                {children}
-            </MainContainer>
-        </Theme>
-    )
-}
+Page.propTypes = {
+  heading: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Page;

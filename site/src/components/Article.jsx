@@ -2,11 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import Theme from "../utils/Theme";
-import {theme} from "../utils/Theme";
-import Form from "./Form";
-import SEO from "../components/Seo";
-import FadeInSection from "../utils/FadeInSection";
+import Theme, { theme } from '../utils/Theme';
+import Form from './Form';
+import SEO from './Seo';
+import FadeInSection from '../utils/FadeInSection';
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
@@ -15,11 +14,11 @@ const Background = styled.div`
 const TextContainer = styled.div`
     margin: 0 auto;
     padding: 32px 16px;
-    text-align: ${(props) => props.textCenter ? 'center' : 'left'};
+    text-align: ${(props) => (props.textCenter ? 'center' : 'left')};
 
     p {
         margin: 0;
-        color: ${props => props.theme.colors.blackMedium};
+        color: ${(props) => props.theme.colors.blackMedium};
     }
 
     @media (min-width: 600px) {
@@ -68,7 +67,7 @@ const ImageContainer = styled.div`
 `;
 
 const HomeArticles = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
   query HomePageQuery {
     datoCmsHome {
         seo {
@@ -103,97 +102,96 @@ const HomeArticles = () => {
         }
     }
   }
-`)
+`);
 
-    const {
-        datoCmsHome: {
-            seo: {
-                title,
-                description,
-            },
-            succesverhaal,
-            succesverhaalDescription,
-            succesverhaalImage: {
-                fluid: succesverhaalImage,
-            },
-            overOnsTitle,
-            overOnsDescription,
-            overOnsImage: {
-                fluid: overOnsImage,
-            },
-            contactTitle,
-            contactDescription,
-            aanpakTitle,
-            aanpakDescription,
-            aanpakImage: {
-                fluid: aanpakImage,
-            },
-        }
-    } = data;
+  const {
+    datoCmsHome: {
+      seo: {
+        title,
+        description,
+      },
+      succesverhaal,
+      succesverhaalDescription,
+      succesverhaalImage: {
+        fluid: succesverhaalImage,
+      },
+      overOnsTitle,
+      overOnsDescription,
+      overOnsImage: {
+        fluid: overOnsImage,
+      },
+      contactTitle,
+      contactDescription,
+      aanpakTitle,
+      aanpakDescription,
+      aanpakImage: {
+        fluid: aanpakImage,
+      },
+    },
+  } = data;
 
-    return (
-        <Theme>
-            <SEO title={title} description={description} />
-            <Background
-                backgroundColor={theme.colors.primaryBackground}
-            >
-                <FadeInSection>
-                    <ContentContainer flexDirection="row-reverse">
-                        <TextContainer>
-                            <h2>{succesverhaal}</h2>
-                            <p>{succesverhaalDescription}</p>
-                        </TextContainer>
-                        <SpacingContainer />
-                        <ImageContainer>
-                            <Img fluid={succesverhaalImage} />
-                        </ImageContainer>
-                    </ContentContainer>
-                </FadeInSection>
-            </Background>
-            <Background
-                backgroundColor={theme.colors.secondaryBackground}
-            >
-                <FadeInSection>
-                    <ContentContainer>
-                        <TextContainer>
-                            <h2>{overOnsTitle}</h2>
-                            <p>{overOnsDescription}</p>
-                        </TextContainer>
-                        <SpacingContainer />
-                        <ImageContainer>
-                            <Img fluid={overOnsImage} />
-                        </ImageContainer>
-                    </ContentContainer>
-                </FadeInSection>
-            </Background>
-            <Background backgroundColor={theme.colors.primaryBackground}>
-                <FadeInSection>
-                    <ContentContainer flexDirection="row-reverse">
-                        <TextContainer>
-                            <h2>{aanpakTitle}</h2>
-                            <p>{aanpakDescription}</p>
-                        </TextContainer>
-                        <SpacingContainer />
-                        <ImageContainer>
-                            <Img fluid={aanpakImage} />
-                        </ImageContainer>
-                    </ContentContainer>
-                </FadeInSection>
-            </Background>
-            <Background 
-                backgroundColor={theme.colors.secondaryBackground}
-            >
-                <ContentContainer>
-                    <TextContainer textCenter>
-                        <h2>{contactTitle}</h2>
-                        <p>{contactDescription}</p>
-                    </TextContainer>
-                </ContentContainer>
-                <Form></Form>
-            </Background>
-        </Theme>
-    )
-}
-
+  return (
+    <Theme>
+      <SEO title={title} description={description} />
+      <Background
+        backgroundColor={theme.colors.primaryBackground}
+      >
+        <FadeInSection>
+          <ContentContainer flexDirection="row-reverse">
+            <TextContainer>
+              <h2>{succesverhaal}</h2>
+              <p dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
+            </TextContainer>
+            <SpacingContainer />
+            <ImageContainer>
+              <Img fluid={succesverhaalImage} />
+            </ImageContainer>
+          </ContentContainer>
+        </FadeInSection>
+      </Background>
+      <Background
+        backgroundColor={theme.colors.secondaryBackground}
+      >
+        <FadeInSection>
+          <ContentContainer>
+            <TextContainer>
+              <h2>{overOnsTitle}</h2>
+              <p>{overOnsDescription}</p>
+            </TextContainer>
+            <SpacingContainer />
+            <ImageContainer>
+              <Img fluid={overOnsImage} />
+            </ImageContainer>
+          </ContentContainer>
+        </FadeInSection>
+      </Background>
+      <Background backgroundColor={theme.colors.primaryBackground}>
+        <FadeInSection>
+          <ContentContainer flexDirection="row-reverse">
+            <TextContainer>
+              <h2>{aanpakTitle}</h2>
+              <p>{aanpakDescription}</p>
+            </TextContainer>
+            <SpacingContainer />
+            <ImageContainer>
+              <Img fluid={aanpakImage} />
+            </ImageContainer>
+          </ContentContainer>
+        </FadeInSection>
+      </Background>
+      <Background
+        backgroundColor={theme.colors.secondaryBackground}
+      >
+        <ContentContainer>
+          <TextContainer textCenter>
+            <h2>{contactTitle}</h2>
+            <p>{contactDescription}</p>
+          </TextContainer>
+        </ContentContainer>
+        <Form />
+      </Background>
+    </Theme>
+  );
+};
 
 export default HomeArticles;
