@@ -36,7 +36,6 @@ const IndexPage = () => {
           </Container>
           <Form />
         </Page>
-        <Background />
       </Layout>
     </Theme>
   );

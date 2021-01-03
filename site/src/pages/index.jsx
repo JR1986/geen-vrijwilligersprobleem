@@ -6,20 +6,12 @@ import Article from '../components/Article';
 import Count from '../components/CountUp';
 import Theme from '../utils/Theme';
 
-const Background = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
-  height: 250px;
-  width: 100%;
-  margin-top: -135px;
-`;
-
 const IndexPage = () => (
   <Theme>
     <Layout>
       <Hero />
       <Count />
       <Article />
-      <Background />
     </Layout>
   </Theme>
 );

@@ -8,8 +8,12 @@ import {
 import { Flex, Box, Button } from 'rebass';
 import Theme, { theme } from '../utils/Theme';
 
-const RelativeContainer = styled.div`
-  position: relative;
+const FormContainer = styled.div`
+  padding-bottom: 32px;
+
+  @media (min-width: 600px) {
+    padding-bottom: 48px;
+  }
 `;
 
 const StyledLabel = styled(Label)`
@@ -19,7 +23,7 @@ const StyledLabel = styled(Label)`
 
 const Form = () => (
   <Theme>
-    <RelativeContainer>
+    <FormContainer>
       <Box
         as="form"
         name="contact"
@@ -92,7 +96,7 @@ const Form = () => (
           </Box>
         </Flex>
       </Box>
-    </RelativeContainer>
+    </FormContainer>
   </Theme>
 );
 

@@ -4,8 +4,25 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { Button } from 'rebass';
 import Theme, { theme } from '../utils/Theme';
-
 import FadeInSection from '../utils/FadeInSection';
+
+const TriangleContainer = styled.div`
+  position: absolute;
+  left: calc(50% - 22px);
+  right: calc(50% - 22px);
+  top: -6px;
+  width: 0;
+  height: 0;
+`;
+
+const BorderTriangle = () => (
+  <TriangleContainer>
+    <svg width="45" height="34" viewBox="0 0 45 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M42.0533 5.40476H3.93678L22.5122 33.1201L38.0898 11.2141L42.0533 5.40476Z" stroke="#EDEDED" />
+      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill="white" />
+    </svg>
+  </TriangleContainer>
+);
 
 const ImageContainer = styled.div`
   width: 100%;
@@ -15,6 +32,7 @@ const ImageContainer = styled.div`
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   padding: 48px 32px;
+  position: relative;
 
   @media (min-width: 1024px) {
     padding: 56px 32px;
@@ -87,6 +105,7 @@ const Drawer = () => {
   return (
     <Theme>
       <Background>
+        <BorderTriangle />
         <FadeInSection>
           <ContentContainer>
             <TeaserTextContainer>

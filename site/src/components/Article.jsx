@@ -6,9 +6,11 @@ import Theme, { theme } from '../utils/Theme';
 import Form from './Form';
 import SEO from './Seo';
 import FadeInSection from '../utils/FadeInSection';
+import Triangle from './Triangle';
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
+    position: relative;
 `;
 
 const TextContainer = styled.div`
@@ -158,6 +160,7 @@ const HomeArticles = () => {
       <Background
         backgroundColor={theme.colors.secondaryBackground}
       >
+        <Triangle backgroundColor={theme.colors.white} />
         <FadeInSection>
           <ContentContainer>
             <TextContainer>
@@ -188,6 +191,7 @@ const HomeArticles = () => {
       <Background
         backgroundColor={theme.colors.secondaryBackground}
       >
+        <Triangle backgroundColor={theme.colors.white} />
         <ContentContainer>
           <TextContainer textCenter>
             <h2>{contactTitle}</h2>

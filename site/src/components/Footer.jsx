@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import Theme from '../utils/Theme';
-import LogoQuery from '../utils/queries/logo';
 
 const FooterContainer = styled.footer`
-    padding: 0 0 48px;
-    background-color: ${(props) => props.theme.colors.white};
+    padding: 48px 0;
+    background-color: ${(props) => props.theme.colors.blackBackground};
 
     @media (min-width: 1024px) {
         padding: 72px 48px;
@@ -31,50 +29,42 @@ const Links = styled.div`
 
 const NavLink = styled(Link)`
     padding: 24px;
-    color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
 `;
 
-const StyledImg = styled(Img)`
-    margin: 0 auto;
-
-    @media (min-width: 600px) {
-        margin: 0;
-    }
-`;
-
 const BottomContainer = styled.div`
+  &&& {
     text-align: center;
+
+    p, span {
+      color: ${(props) => props.theme.colors.white};
+    }
+  }
 `;
 
-const Footer = () => {
-  const {
-    logo,
-  } = LogoQuery();
-
-  return (
-    <Theme>
-      <FooterContainer>
-        <Links>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/pakketten/">Pakketten</NavLink>
-          <img src="/logo-geen-vrijwilligers-probleem.svg" alt="Geen Vrijwilligersprobleem" />
-          <NavLink to="/over-ons/">Over ons</NavLink>
-          <NavLink to="/contact/">Contact</NavLink>
-        </Links>
-        <BottomContainer>
-          <p>06 1036 5180</p>
-          <Link
-            to="/privacy"
-          >
-            <span>
-              Privacy Statement
-            </span>
-          </Link>
-        </BottomContainer>
-      </FooterContainer>
-    </Theme>
-  );
-};
+const Footer = () => (
+  <Theme>
+    <FooterContainer>
+      <Links>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/pakketten/">Pakketten</NavLink>
+        <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
+        <NavLink to="/over-ons/">Over ons</NavLink>
+        <NavLink to="/contact/">Contact</NavLink>
+      </Links>
+      <BottomContainer>
+        <p>06 1036 5180</p>
+        <Link
+          to="/privacy"
+        >
+          <span>
+            Privacy Statement
+          </span>
+        </Link>
+      </BottomContainer>
+    </FooterContainer>
+  </Theme>
+);
 
 export default Footer;

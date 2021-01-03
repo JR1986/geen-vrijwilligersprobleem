@@ -4,13 +4,15 @@ import { ThemeProvider } from 'emotion-theming';
 
 export const theme = {
   colors: {
-    primary: '#2EC4B6',
+    primary: '#00ad9f',
     secondary: '#191923',
     white: '#ffffff',
     black: 'rgba(0,0,0,0.87)',
     blackMedium: 'rgba(0,0,0,0.60)',
+    blackBackground: '#0e1e25',
     primaryBackground: '#ffffff',
-    secondaryBackground: '#f8f8f8',
+    secondaryBackground: '#F6F6FF',
+    thirdBackground: '#EF476F',
   },
 };
 
