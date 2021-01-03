@@ -58,7 +58,7 @@ const Footer = () => {
         <Links>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/pakketten/">Pakketten</NavLink>
-          <StyledImg fixed={logo.fixed} />
+          <img src="/logo-geen-vrijwilligers-probleem.svg" alt="Geen Vrijwilligersprobleem" />
           <NavLink to="/over-ons/">Over ons</NavLink>
           <NavLink to="/contact/">Contact</NavLink>
         </Links>
