@@ -20,7 +20,7 @@
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-sharp": "^2.6.40",
-    "gatsby-source-datocms": "^2.4.0",
+    "gatsby-source-datocms": "^2.5.7",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-graphql": "^2.7.2",
     "gatsby-transformer-sharp": "^2.5.17",

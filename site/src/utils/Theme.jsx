@@ -11,7 +11,7 @@ export const theme = {
     blackMedium: 'rgba(0,0,0,0.60)',
     blackBackground: '#0e1e25',
     primaryBackground: '#ffffff',
-    secondaryBackground: '#F6F6FF',
+    secondaryBackground: '#f8f8f8',
     thirdBackground: '#EF476F',
   },
 };

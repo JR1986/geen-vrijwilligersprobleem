@@ -10,50 +10,36 @@ const TriangleContainer = styled.div`
   position: absolute;
   left: calc(50% - 22px);
   right: calc(50% - 22px);
-  top: -6px;
+  top: -7px;
   width: 0;
   height: 0;
+  z-index: 5;
 `;
 
 const BorderTriangle = () => (
   <TriangleContainer>
-    <svg width="45" height="34" viewBox="0 0 45 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M42.0533 5.40476H3.93678L22.5122 33.1201L38.0898 11.2141L42.0533 5.40476Z" stroke="#EDEDED" />
-      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill="white" />
+    <svg width="45" height="34" viewBox="0 0 45 34" fill="black" xmlns="http://www.w3.org/2000/svg">
+      <path d="M42.0533 5.40476H3.93678L22.5122 33.1201L38.0898 11.2141L42.0533 5.40476Z" stroke="#00ad9f" />
+      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill="black" />
     </svg>
   </TriangleContainer>
 );
 
 const ImageContainer = styled.div`
-  width: 100%;
-  flex-basis: calc(50%);
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
 `;
 
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   padding: 48px 32px;
-  position: relative;
-
-  @media (min-width: 1024px) {
-    padding: 56px 32px;
-  }
-`;
-
-const ContentContainer = styled.div`
-  max-width: 1440px;
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  height: 100%;
-  margin: 0 auto;
-
-  @media (min-width: 600px) {
-    flex-direction: row;
-  }
 `;
 
 const TeaserTextContainer = styled.div`
-  margin: 0 48px 0 0;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
 
   h1 {
     color: ${(props) => props.theme.colors.black};
@@ -64,10 +50,9 @@ const TeaserTextContainer = styled.div`
   }
 
   @media (min-width: 720px) {
-    flex-basis: calc(50%);
 
     h1 {
-      font-size: 42px;
+      font-size: 36px;
     }
     p {
       font-size: 20px;
@@ -91,8 +76,18 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", imgixParams: { fm: "png", auto: "compress", fit:"crop", q:50, ar: "1:1" }) {
-          ...GatsbyDatoCmsFluid
+        fluid(
+          sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", 
+          imgixParams: { 
+            fm: "png",
+            auto: "compress", 
+            fit:"crop", 
+            q:50, 
+            ar: "16:9", 
+          }
+        ) 
+        {
+        ...GatsbyDatoCmsFluid
         }
       }
       teaser
@@ -104,40 +99,38 @@ const Drawer = () => {
 
   return (
     <Theme>
+      <FadeInSection>
+        <ImageContainer>
+          <BorderTriangle />
+          <Img fluid={data.datoCmsHome.heroImage.fluid} />
+        </ImageContainer>
+      </FadeInSection>
       <Background>
-        <BorderTriangle />
-        <FadeInSection>
-          <ContentContainer>
-            <TeaserTextContainer>
-              <h1>{data.datoCmsHome.teaser}</h1>
-              <p>{data.datoCmsHome.teaserDescription}</p>
-              <Link to="/contact/">
-                <Button
-                  sx={{
-                    width: '100%',
-                    color: `${theme.colors.white}`,
-                    maxWidth: '250px',
-                    backgroundColor: `${theme.colors.primary}`,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    transform: 'none',
-                    '&:hover': {
-                      transform: 'scale(1.15)',
-                    },
-                  }}
-                  mt={24}
-                  p={16}
-                  aria-label={data.datoCmsHome.buttonText}
-                >
-                  {data.datoCmsHome.buttonText}
-                </Button>
-              </Link>
-            </TeaserTextContainer>
-            <ImageContainer>
-              <Img fluid={data.datoCmsHome.heroImage.fluid} />
-            </ImageContainer>
-          </ContentContainer>
-        </FadeInSection>
+        <TeaserTextContainer>
+          <h1>{data.datoCmsHome.teaser}</h1>
+          <p>{data.datoCmsHome.teaserDescription}</p>
+          <Link to="/contact/">
+            <Button
+              sx={{
+                width: '100%',
+                color: `${theme.colors.white}`,
+                maxWidth: '250px',
+                backgroundColor: `${theme.colors.primary}`,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                transform: 'none',
+                '&:hover': {
+                  transform: 'scale(1.15)',
+                },
+              }}
+              mt={24}
+              p={16}
+              aria-label={data.datoCmsHome.buttonText}
+            >
+              {data.datoCmsHome.buttonText}
+            </Button>
+          </Link>
+        </TeaserTextContainer>
       </Background>
     </Theme>
   );

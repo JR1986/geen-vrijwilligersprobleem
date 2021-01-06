@@ -4,11 +4,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Drawer from './Drawer';
-import Theme from '../utils/Theme';
+import Theme, { theme } from '../utils/Theme';
 
 const LogoContainer = styled.div`
   margin: 0 auto;
-  max-width: 130px;
+  max-width: 100px;
 
   @media (min-width: 1024px) {
     margin: 0;
@@ -26,27 +26,30 @@ const StyledDrawer = styled(Drawer)`
 `;
 
 const NavLink = styled(Link)`
-    margin: 0 24px;
-    padding: 24px 0;
-    color: ${(props) => props.theme.colors.black};
+  && {
+    margin: 0 32px;
+    padding: 12px 0;
+    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    line-height: 160px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
     &[aria-current="page"] {
-      color: ${(props) => props.theme.colors.primary};
-      border-bottom: 2px solid ${(props) => props.theme.colors.primary};
+      font-weight: bold;
+      border-bottom: 2px solid ${(props) => props.theme.colors.white};
     }
+  }
 `;
 
 const StyledAppBar = styled(AppBar)`
   padding-left: 0;
   padding-right: 0;
   margin: 0 auto;
-  min-height: 160px;
+  min-height: 120px;
 
   &&& {
-    background-color: ${(props) => props.theme.colors.white};
-    border-bottom: 1px solid rgba(255,255,255, 0.4);
+    background-color: ${(props) => props.theme.colors.blackBackground};
     box-shadow: none;
   }
 
@@ -60,11 +63,11 @@ const StyledToolbar = styled(Toolbar)`
   && {
     padding-left: 0;
     padding-right: 0;
-    height: 160px;
-    border-bottom: 1px solid #EDEDED;
+    height: 120px;
+    border-bottom: 1px solid ${theme.colors.primary};
 
   @media (min-width: 1024px) {
-      justify-content: space-between;
+      justify-content: center;
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -85,15 +88,13 @@ const Navigation = () => (
       <StyledAppBar position="static">
         <StyledToolbar>
           <StyledDrawer />
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/pakketten/">Pakketten</NavLink>
           <LogoContainer>
-            <img src="/logo-geen-vrijwilligers-probleem.svg" alt="Geen Vrijwilligersprobleem" />
+            <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
           </LogoContainer>
-          <NavLinkContainer>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/pakketten/">Pakketten</NavLink>
-            <NavLink to="/over-ons/">Over ons</NavLink>
-            <NavLink to="/contact/">Contact</NavLink>
-          </NavLinkContainer>
+          <NavLink to="/over-ons/">Over ons</NavLink>
+          <NavLink to="/contact/">Contact</NavLink>
         </StyledToolbar>
       </StyledAppBar>
     </div>
