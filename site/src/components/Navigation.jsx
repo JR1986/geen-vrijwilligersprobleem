@@ -48,8 +48,12 @@ const StyledAppBar = styled(AppBar)`
   margin: 0 auto;
   min-height: 120px;
 
+  && { 
+    position: absolute;
+  }
+
   &&& {
-    background-color: ${(props) => props.theme.colors.blackBackground};
+    background-color: ${(props) => props.theme.colors.blackBackgroundAlpha};
     box-shadow: none;
   }
 

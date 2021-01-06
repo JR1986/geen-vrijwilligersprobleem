@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { keyframes } from '@emotion/react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { Button } from 'rebass';
 import Theme, { theme } from '../utils/Theme';
 import FadeInSection from '../utils/FadeInSection';
 
@@ -18,28 +18,42 @@ const TriangleContainer = styled.div`
 
 const BorderTriangle = () => (
   <TriangleContainer>
-    <svg width="45" height="34" viewBox="0 0 45 34" fill="black" xmlns="http://www.w3.org/2000/svg">
+    <svg width="45" height="34" viewBox="0 0 45 34" fill={theme.colors.blackBackground} xmlns="http://www.w3.org/2000/svg">
       <path d="M42.0533 5.40476H3.93678L22.5122 33.1201L38.0898 11.2141L42.0533 5.40476Z" stroke="#00ad9f" />
-      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill="black" />
+      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill={theme.colors.blackBackground} />
     </svg>
   </TriangleContainer>
 );
 
-const ImageContainer = styled.div`
-  height: 70vh;
-  overflow: hidden;
-  position: relative;
+const imageAnimation = keyframes`
+    from {
+        transform: scale(1,1);
+    }
+    to {
+        transform:  scale(1.2,1.2);
+    }
 `;
 
-const Background = styled.div`
-  background-color: ${(props) => props.theme.colors.white};
-  padding: 48px 32px;
+const ImageContainer = styled.div`
+  height: 100vh;
+  position: relative;
+
+  img {
+    animation: ${imageAnimation} 25s infinite;
+  }
 `;
 
 const TeaserTextContainer = styled.div`
+  background-color: rgba(255,255,255,0.6);
   margin: 0 auto;
   max-width: 400px;
+  width: 100%;
   text-align: center;
+  top: 35%;
+  position: absolute;
+  left: calc(50% - 224px);
+  right: calc(50% - 224px);
+  padding: 24px;
 
   h1 {
     color: ${(props) => props.theme.colors.black};
@@ -105,33 +119,10 @@ const Drawer = () => {
           <Img fluid={data.datoCmsHome.heroImage.fluid} />
         </ImageContainer>
       </FadeInSection>
-      <Background>
-        <TeaserTextContainer>
-          <h1>{data.datoCmsHome.teaser}</h1>
-          <p>{data.datoCmsHome.teaserDescription}</p>
-          <Link to="/contact/">
-            <Button
-              sx={{
-                width: '100%',
-                color: `${theme.colors.white}`,
-                maxWidth: '250px',
-                backgroundColor: `${theme.colors.primary}`,
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                transform: 'none',
-                '&:hover': {
-                  transform: 'scale(1.15)',
-                },
-              }}
-              mt={24}
-              p={16}
-              aria-label={data.datoCmsHome.buttonText}
-            >
-              {data.datoCmsHome.buttonText}
-            </Button>
-          </Link>
-        </TeaserTextContainer>
-      </Background>
+      <TeaserTextContainer>
+        <h1>{data.datoCmsHome.teaser}</h1>
+        <p>{data.datoCmsHome.teaserDescription}</p>
+      </TeaserTextContainer>
     </Theme>
   );
 };
