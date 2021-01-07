@@ -65,24 +65,18 @@ const StyledAppBar = styled(AppBar)`
 
 const StyledToolbar = styled(Toolbar)`
   && {
+    display: none;
     padding-left: 0;
     padding-right: 0;
     height: 120px;
     border-bottom: 1px solid ${theme.colors.primary};
+    justify-content: center;
 
   @media (min-width: 1024px) {
-      justify-content: center;
+      display: flex;
       padding-left: 24px;
       padding-right: 24px;
     }
-  }
-`;
-
-const NavLinkContainer = styled.div`
-  display: none;
-
-  @media (min-width: 1024px) {
-    display: block;
   }
 `;
 
@@ -90,8 +84,8 @@ const Navigation = () => (
   <Theme>
     <div>
       <StyledAppBar position="static">
+        <StyledDrawer />
         <StyledToolbar>
-          <StyledDrawer />
           <NavLink to="/">Home</NavLink>
           <NavLink to="/pakketten/">Pakketten</NavLink>
           <LogoContainer>

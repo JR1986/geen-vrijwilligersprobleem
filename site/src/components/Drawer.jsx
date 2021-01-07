@@ -28,7 +28,7 @@ const links = [
 const StyledButton = styled(Button)`
 &&& {
     position: absolute;
-    height: 160px;
+    height: 120px;
     width: 64px;
   
     @media (min-width: 1024px) {
@@ -79,7 +79,7 @@ export default function MobileDrawer() {
     <Theme>
       {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon /></StyledButton>
+          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ color: 'white' }} /></StyledButton>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>

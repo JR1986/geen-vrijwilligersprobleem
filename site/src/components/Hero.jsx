@@ -26,11 +26,14 @@ const BorderTriangle = () => (
 );
 
 const imageAnimation = keyframes`
-    from {
+    0% {
         transform: scale(1,1);
     }
-    to {
+    50% {
         transform:  scale(1.2,1.2);
+    }
+    100% {
+      transform: scale(1,1);
     }
 `;
 
@@ -40,6 +43,12 @@ const ImageContainer = styled.div`
 
   img {
     animation: ${imageAnimation} 25s infinite;
+  }
+`;
+
+const StyledImg = styled(Img)`
+  &&& {
+    position: static !important;
   }
 `;
 
@@ -96,8 +105,7 @@ const Drawer = () => {
             fm: "png",
             auto: "compress", 
             fit:"crop", 
-            q:50, 
-            ar: "16:9", 
+            q:50,
           }
         ) 
         {
@@ -116,7 +124,7 @@ const Drawer = () => {
       <FadeInSection>
         <ImageContainer>
           <BorderTriangle />
-          <Img fluid={data.datoCmsHome.heroImage.fluid} />
+          <StyledImg fluid={data.datoCmsHome.heroImage.fluid} />
         </ImageContainer>
       </FadeInSection>
       <TeaserTextContainer>
