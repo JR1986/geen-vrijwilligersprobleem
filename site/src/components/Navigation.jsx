@@ -128,13 +128,23 @@ const Navigation = ({ homeNavbar }) => (
       <StyledAppBar position="static" homeNavbar={homeNavbar}>
         <StyledDrawer />
         <LogoContainerMobile>
-          <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
+          <img
+            src="/logo-geen-vrijwilligers-probleem-white.svg"
+            alt="Geen Vrijwilligersprobleem"
+            width={150}
+            height={150}
+          />
         </LogoContainerMobile>
         <StyledToolbar>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/pakketten/">Pakketten</NavLink>
           <LogoContainer>
-            <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
+            <img
+              src="/logo-geen-vrijwilligers-probleem-white.svg"
+              alt="Geen Vrijwilligersprobleem"
+              width={150}
+              height={150}
+            />
           </LogoContainer>
           <NavLink to="/over-ons/">Over ons</NavLink>
           <NavLink to="/contact/">Contact</NavLink>

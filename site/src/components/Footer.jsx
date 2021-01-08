@@ -57,7 +57,12 @@ const Footer = () => (
       <Links>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/pakketten/">Pakketten</NavLink>
-        <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
+        <img
+          src="/logo-geen-vrijwilligers-probleem-white.svg"
+          alt="Geen Vrijwilligersprobleem"
+          width={150}
+          height={150}
+        />
         <NavLink to="/over-ons/">Over ons</NavLink>
         <NavLink to="/contact/">Contact</NavLink>
       </Links>

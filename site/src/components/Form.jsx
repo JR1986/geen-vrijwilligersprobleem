@@ -88,6 +88,7 @@ const Form = () => (
                 cursor: 'pointer',
                 height: '50px',
                 marginTop: '24px',
+                fontWeight: '700',
               }}
               width={1}
               type="submit"
