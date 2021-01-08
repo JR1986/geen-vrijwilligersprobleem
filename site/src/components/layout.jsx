@@ -5,12 +5,12 @@ import { theme } from '../utils/Theme';
 import Navigation from './Navigation';
 import Footer from './Footer';
 
-const Layout = ({ children }) => (
+const Layout = ({ homeNavbar, children }) => (
   <>
     <Global
       styles={css`
         @font-face {
-          font-family: 'Ubuntu';
+          font-family: 'Lato';
           font-display: swap;
         }
 
@@ -24,25 +24,25 @@ const Layout = ({ children }) => (
 
         p, ul, li {
           color: ${theme.colors.blackMedium};
+          line-height: 2.25rem;
         }
 
         body {
           font-size: 18px;
-          font-family: 'Ubuntu', sans-serif;
+          font-family: 'Lato', sans-serif;
           margin: 0;
         }
 
         p {
           font-weight: 400;
-          line-height: 1.75rem;
         }
 
         button {
-          font-family: 'Ubuntu', sans-serif;
+          font-family: 'Lato', sans-serif;
         }
       `}
     />
-    <Navigation />
+    <Navigation homeNavbar={homeNavbar} />
     <main>{children}</main>
     <Footer />
   </>

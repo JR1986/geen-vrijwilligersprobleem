@@ -24,8 +24,6 @@ const TextContainer = styled.div`
     }
 
     ul, li {
-      font-weight: 400;
-      line-height: 1.75rem;
       color: ${(props) => props.theme.colors.blackMedium};
     }
 
@@ -68,9 +66,19 @@ const ContentContainer = styled.div`
 const ImageContainer = styled.div`
     width: 100%;
     height: auto;
+    position: relative;
 
     @media (min-width: 600px) {
         max-width: 50%;
+    }
+
+    &:before {
+      background-color: ${(props) => props.theme.colors.secondaryBackground};
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: -20px;
+      left: -20px;
     }
 `;
 

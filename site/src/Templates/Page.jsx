@@ -6,7 +6,7 @@ import Theme from '../utils/Theme';
 const HeroContainer = styled.div`
     height: 250px;
     width: 100%;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.secondaryBackground};
     display: flex;
     align-items: center;
     word-wrap: break-word;

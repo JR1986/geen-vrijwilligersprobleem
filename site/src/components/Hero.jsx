@@ -3,27 +3,9 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import Theme, { theme } from '../utils/Theme';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import Theme from '../utils/Theme';
 import FadeInSection from '../utils/FadeInSection';
-
-const TriangleContainer = styled.div`
-  position: absolute;
-  left: calc(50% - 22px);
-  right: calc(50% - 22px);
-  top: -7px;
-  width: 0;
-  height: 0;
-  z-index: 5;
-`;
-
-const BorderTriangle = () => (
-  <TriangleContainer>
-    <svg width="45" height="34" viewBox="0 0 45 34" fill={theme.colors.blackBackground} xmlns="http://www.w3.org/2000/svg">
-      <path d="M42.0533 5.40476H3.93678L22.5122 33.1201L38.0898 11.2141L42.0533 5.40476Z" stroke="#00ad9f" />
-      <path d="M3.99998 4.90883L4.94762 6H41L42 4.5L45 0H0L3.99998 4.90883Z" fill={theme.colors.blackBackground} />
-    </svg>
-  </TriangleContainer>
-);
 
 const imageAnimation = keyframes`
     0% {
@@ -37,13 +19,58 @@ const imageAnimation = keyframes`
     }
 `;
 
+const arrowAnimation = keyframes`
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.05;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+`;
+
+const DownIcon = styled(ArrowDownwardIcon)`
+  animation: ${arrowAnimation} ease 2s infinite;
+  position: absolute;
+  bottom: 5%;
+  left: calc(50% - 2em);
+  right: calc(50% - 2em);
+  z-index: 10;
+
+  &.MuiSvgIcon-root {
+    width: 3em;
+    height: 3em;
+
+    @media (min-width: 720px) {
+      width: 4em;
+      height: 5em;
+    }
+  }
+`;
+
 const ImageContainer = styled.div`
-  height: 100vh;
+  height: calc(100vh - 100px);
   position: relative;
+  overflow: hidden;
 
   img {
-    animation: ${imageAnimation} 25s infinite;
+    animation: ${imageAnimation} 45s infinite;
   }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  opacity: .55;
+  background-color: #212529;
+  width: 100%;
+  height: 100%;
+  top: 0;
 `;
 
 const StyledImg = styled(Img)`
@@ -52,30 +79,56 @@ const StyledImg = styled(Img)`
   }
 `;
 
+const animateFromTop = keyframes`
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+`;
+const animateFromLeft = keyframes`
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`;
+
 const TeaserTextContainer = styled.div`
-  background-color: rgba(255,255,255,0.6);
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 700px;
   width: 100%;
   text-align: center;
-  top: 35%;
+  top: 30%;
+  left: calc(50% - 350px);
+  right: calc(50% - 350px);
   position: absolute;
-  left: calc(50% - 224px);
-  right: calc(50% - 224px);
   padding: 24px;
 
   h1 {
-    color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.white};
+    padding: 0 24px;
+    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
+    letter-spacing: -2px;
+    animation: ${animateFromTop} 2s;
   }
 
   p {
-    color: ${(props) => props.theme.colors.blackMedium};
+    color: ${(props) => props.theme.colors.white};
+    padding: 0 24px;
+    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
+    animation: ${animateFromLeft} 2s;
   }
 
   @media (min-width: 720px) {
-
     h1 {
-      font-size: 36px;
+      font-size: 32px;
     }
     p {
       font-size: 20px;
@@ -98,16 +151,16 @@ const Drawer = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
     datoCmsHome {
-      heroImage {
+      heroImages {
         fluid(
-          sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px", 
-          imgixParams: { 
+          sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px",
+          imgixParams: {
             fm: "png",
-            auto: "compress", 
-            fit:"crop", 
+            auto: "compress",
+            fit:"crop",
             q:50,
           }
-        ) 
+        )
         {
         ...GatsbyDatoCmsFluid
         }
@@ -123,8 +176,9 @@ const Drawer = () => {
     <Theme>
       <FadeInSection>
         <ImageContainer>
-          <BorderTriangle />
-          <StyledImg fluid={data.datoCmsHome.heroImage.fluid} />
+          <StyledImg fluid={data.datoCmsHome.heroImages[0].fluid} />
+          <DownIcon style={{ color: 'white' }} />
+          <Overlay />
         </ImageContainer>
       </FadeInSection>
       <TeaserTextContainer>

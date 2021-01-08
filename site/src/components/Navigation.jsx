@@ -8,10 +8,18 @@ import Theme, { theme } from '../utils/Theme';
 
 const LogoContainer = styled.div`
   margin: 0 auto;
-  max-width: 100px;
 
   @media (min-width: 1024px) {
     margin: 0;
+  }
+`;
+
+const LogoContainerMobile = styled(LogoContainer)`
+  display: block;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -27,17 +35,41 @@ const StyledDrawer = styled(Drawer)`
 
 const NavLink = styled(Link)`
   && {
-    margin: 0 32px;
+    margin: 0 40px;
     padding: 12px 0;
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    position: relative;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.primary};
+      transition: color 0.3s;
+    }
+
+    &:hover:after {
+      height: 3px;
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    &:after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: ${(props) => props.theme.colors.primary};
+      content: '';
+      opacity: 0;
+      transition: height 0.3s, opacity 0.3s, transform 0.3s;
+      transform: translateY(-10px);
+    }
 
     &[aria-current="page"] {
-      font-weight: bold;
-      border-bottom: 2px solid ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.primary};
     }
   }
 `;
@@ -46,14 +78,26 @@ const StyledAppBar = styled(AppBar)`
   padding-left: 0;
   padding-right: 0;
   margin: 0 auto;
-  min-height: 120px;
 
-  && { 
-    position: absolute;
-  }
+  ${(props) => (props.homeNavbar
+    ? `
+    && {
+      position: absolute;
+      background-color: transparent;
+      z-index: 1;
+    }
+    `
+    : `
+    && {
+      position: static;
+      background-color: ${theme.colors.blackBackgroundAlpha};
+      z-index: 0;
+    }
+    `
+  )
+}
 
   &&& {
-    background-color: ${(props) => props.theme.colors.blackBackgroundAlpha};
     box-shadow: none;
   }
 
@@ -68,8 +112,6 @@ const StyledToolbar = styled(Toolbar)`
     display: none;
     padding-left: 0;
     padding-right: 0;
-    height: 120px;
-    border-bottom: 1px solid ${theme.colors.primary};
     justify-content: center;
 
   @media (min-width: 1024px) {
@@ -80,11 +122,14 @@ const StyledToolbar = styled(Toolbar)`
   }
 `;
 
-const Navigation = () => (
+const Navigation = ({ homeNavbar }) => (
   <Theme>
     <div>
-      <StyledAppBar position="static">
+      <StyledAppBar position="static" homeNavbar={homeNavbar}>
         <StyledDrawer />
+        <LogoContainerMobile>
+          <img src="/logo-geen-vrijwilligers-probleem-white.svg" alt="Geen Vrijwilligersprobleem" />
+        </LogoContainerMobile>
         <StyledToolbar>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/pakketten/">Pakketten</NavLink>

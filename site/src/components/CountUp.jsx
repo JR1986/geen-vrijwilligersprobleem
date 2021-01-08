@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Theme, { theme } from '../utils/Theme';
+import Theme from '../utils/Theme';
 import CijfersQuery from '../utils/queries/cijfers';
 import FadeInSection from '../utils/FadeInSection';
-import Triangle from './Triangle';
 
 const Container = styled.div`
     position: relative;
@@ -30,9 +29,9 @@ const CountContainer = styled.div`
     height: 100%;
     max-height: 80%;
     border: 2px solid ${(props) => props.theme.colors.primary};
-    box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
-              0 2px 2px rgba(0,0,0,0.08), 
-              0 4px 4px rgba(0,0,0,0.08), 
+    box-shadow: 0 1px 1px rgba(0,0,0,0.08),
+              0 2px 2px rgba(0,0,0,0.08),
+              0 4px 4px rgba(0,0,0,0.08),
               0 8px 8px rgba(0,0,0,0.08),
               0 16px 16px rgba(0,0,0,0.08);
 
@@ -73,7 +72,6 @@ const Count = () => {
   return (
     <Theme>
       <Container>
-        <Triangle backgroundColor={theme.colors.white} />
         <FadeInSection>
           <CountContainer>
             <h2>Aantal nieuwe vrijwilligers: </h2>

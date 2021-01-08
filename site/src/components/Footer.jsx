@@ -16,14 +16,15 @@ const Links = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+    border-bottom: 3px solid ${(props) => props.theme.colors.primary};
+    text-transform: uppercase;
 
     @media (min-width: 600px) {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 16px;
-        margin-bottom: 24px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
     }
 `;
 
