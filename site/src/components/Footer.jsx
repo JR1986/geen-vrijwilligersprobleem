@@ -14,6 +14,7 @@ const FooterContainer = styled.footer`
 
 const Links = styled.div`
     display: flex;
+    font-size: 14px;
     flex-direction: column;
     text-align: center;
     border-bottom: 3px solid ${(props) => props.theme.colors.primary};
@@ -37,9 +38,15 @@ const NavLink = styled(Link)`
 const BottomContainer = styled.div`
   &&& {
     text-align: center;
+    font-size: 14px;
+    
 
     p, span {
       color: ${(props) => props.theme.colors.white};
+    }
+    
+    a {
+      text-decoration: none;
     }
   }
 `;

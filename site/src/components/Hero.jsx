@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Theme from '../utils/Theme';
 import FadeInSection from '../utils/FadeInSection';
 
@@ -35,7 +35,7 @@ const arrowAnimation = keyframes`
   }
 `;
 
-const DownIcon = styled(ArrowDownwardIcon)`
+const DownIcon = styled(ExpandMoreIcon)`
   animation: ${arrowAnimation} ease 2s infinite;
   position: absolute;
   bottom: 5%;
@@ -48,14 +48,14 @@ const DownIcon = styled(ArrowDownwardIcon)`
     height: 3em;
 
     @media (min-width: 720px) {
-      width: 4em;
-      height: 5em;
+      width: 3em;
+      height: 3em;
     }
   }
 `;
 
 const ImageContainer = styled.div`
-  height: calc(100vh - 100px);
+  height: calc(100vh);
   position: relative;
   overflow: hidden;
 
@@ -102,21 +102,33 @@ const animateFromLeft = keyframes`
 
 const TeaserTextContainer = styled.div`
   margin: 0 auto;
-  max-width: 700px;
-  width: 100%;
+  max-width: 400px;
   text-align: center;
-  top: 30%;
-  left: calc(50% - 350px);
-  right: calc(50% - 350px);
   position: absolute;
   padding: 24px;
+  top: 25%;
+
+  @media (min-width: 720px) {
+    max-width: 500px;
+    left: calc(50% - 250px);
+    right: calc(50% - 250px);
+    top: 30%;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 700px;
+    left: calc(50% - 350px);
+    right: calc(50% - 350px);
+    top: 30%;
+  }
 
   h1 {
     color: ${(props) => props.theme.colors.white};
     padding: 0 24px;
     text-shadow: 1px 1px ${(props) => props.theme.colors.black};
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     animation: ${animateFromTop} 2s;
+    font-size: 40px;
   }
 
   p {
@@ -124,17 +136,9 @@ const TeaserTextContainer = styled.div`
     padding: 0 24px;
     text-shadow: 1px 1px ${(props) => props.theme.colors.black};
     animation: ${animateFromLeft} 2s;
+    font-size: 20px;
+    line-height: 1.75rem;
   }
-
-  @media (min-width: 720px) {
-    h1 {
-      font-size: 32px;
-    }
-    p {
-      font-size: 20px;
-    }
-  }
-
 
   @media (min-width: 1440px) {
     h1 {
@@ -151,7 +155,7 @@ const Drawer = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
     datoCmsHome {
-      heroImages {
+      heroImage {
         fluid(
           sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px",
           imgixParams: {
@@ -176,7 +180,7 @@ const Drawer = () => {
     <Theme>
       <FadeInSection>
         <ImageContainer>
-          <StyledImg fluid={data.datoCmsHome.heroImages[0].fluid} />
+          <StyledImg fluid={data.datoCmsHome.heroImage.fluid} />
           <DownIcon style={{ color: 'white' }} />
           <Overlay />
         </ImageContainer>

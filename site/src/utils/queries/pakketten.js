@@ -9,13 +9,10 @@ export default function PakkettenQuery() {
         pageDescription
         smallTitle
         smallPrice
-        smallDescription
         mediumTitle
         mediumPrice
-        mediumDescription
         largeTitle
         largePrice
-        largeDescription
         begeleidingTitle
         begeleidingDescription
         seo {

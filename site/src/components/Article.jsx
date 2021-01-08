@@ -15,7 +15,7 @@ const Background = styled.div`
 
 const TextContainer = styled.div`
     margin: 0 auto;
-    padding: 32px 16px;
+    padding: 32px;
     text-align: ${(props) => (props.textCenter ? 'center' : 'left')};
 
     p {
@@ -23,11 +23,15 @@ const TextContainer = styled.div`
         color: ${(props) => props.theme.colors.blackMedium};
     }
 
+    h1, h2, h3, h4 {
+      margin: 0 0 24px;
+    }
+
     ul, li {
       color: ${(props) => props.theme.colors.blackMedium};
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 1024px) {
         margin: 0;
         padding: 0;
         max-width: 50%;
@@ -50,36 +54,90 @@ const ContentContainer = styled.div`
     display: block;
 
     @media (min-width: 600px) {
-        display: flex;
-        justify-content: center;
-        flex-direction: ${(props) => props.flexDirection};
         padding: 48px 32px;
     }
 
     @media (min-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: ${(props) => props.flexDirection};
         max-width: 1440px;
         margin: 0 auto;
-        padding: 48px;
+        padding: 92px 48px;
     }
 `;
 
-const ImageContainer = styled.div`
-    width: 100%;
-    height: auto;
-    position: relative;
+const FormContainer = styled.div`
 
-    @media (min-width: 600px) {
-        max-width: 50%;
+  @media (min-width: 600px) {
+    padding: 48px 32px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 0 auto;
+    padding: 92px 48px;
+  }
+
+  h2, p {
+    text-align: center;
+  }
+
+  p {
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+`;
+
+const StyledImg = styled(Img)`
+  &&& {
+    width: 100%;
+  }
+`;
+
+const ImgBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: opacity 1s !important;
+
+  @media (min-width: 1024px) {
+    &:after {
+      position: absolute;
+      content: "";
+      right: -20px;
+      bottom: -20px;
+      width: 150px;
+      height: 150px;
+      background: #fff;
+      z-index: -1;
+      box-shadow: 0px 0px 20px #eee;
     }
 
     &:before {
-      background-color: ${(props) => props.theme.colors.secondaryBackground};
       position: absolute;
-      width: 100px;
-      height: 100px;
-      top: -20px;
+      content: "";
       left: -20px;
+      top: -20px;
+      width: 150px;
+      height: 150px;
+      background: #fff;
+      z-index: -1;
+      box-shadow: 0px 0px 20px #eee;
     }
+
+    img {
+      transition: transform 1s ease !important;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 `;
 
 const HomeArticles = () => {
@@ -159,9 +217,9 @@ const HomeArticles = () => {
               <div dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
             </TextContainer>
             <SpacingContainer />
-            <ImageContainer>
-              <Img fluid={succesverhaalImage} />
-            </ImageContainer>
+            <ImgBackground>
+              <StyledImg fluid={succesverhaalImage} />
+            </ImgBackground>
           </ContentContainer>
         </FadeInSection>
       </Background>
@@ -176,9 +234,9 @@ const HomeArticles = () => {
               <p>{overOnsDescription}</p>
             </TextContainer>
             <SpacingContainer />
-            <ImageContainer>
-              <Img fluid={overOnsImage} />
-            </ImageContainer>
+            <ImgBackground>
+              <StyledImg fluid={overOnsImage} />
+            </ImgBackground>
           </ContentContainer>
         </FadeInSection>
       </Background>
@@ -190,9 +248,9 @@ const HomeArticles = () => {
               <p>{aanpakDescription}</p>
             </TextContainer>
             <SpacingContainer />
-            <ImageContainer>
-              <Img fluid={aanpakImage} />
-            </ImageContainer>
+            <ImgBackground>
+              <StyledImg fluid={aanpakImage} />
+            </ImgBackground>
           </ContentContainer>
         </FadeInSection>
       </Background>
@@ -200,13 +258,11 @@ const HomeArticles = () => {
         backgroundColor={theme.colors.secondaryBackground}
       >
         <Triangle backgroundColor={theme.colors.white} />
-        <ContentContainer>
-          <TextContainer textCenter>
-            <h2>{contactTitle}</h2>
-            <p>{contactDescription}</p>
-          </TextContainer>
-        </ContentContainer>
-        <Form />
+        <FormContainer>
+          <h2>{contactTitle}</h2>
+          <p>{contactDescription}</p>
+          <Form />
+        </FormContainer>
       </Background>
     </Theme>
   );

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import Theme from '../utils/Theme';
 
 const HeroContainer = styled.div`
-    height: 250px;
+    height: 200px;
     width: 100%;
     background-color: ${(props) => props.theme.colors.secondaryBackground};
     display: flex;

@@ -39,7 +39,7 @@ const NavLink = styled(Link)`
     padding: 12px 0;
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;

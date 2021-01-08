@@ -6,14 +6,14 @@ import FadeInSection from '../utils/FadeInSection';
 
 const Container = styled.div`
     position: relative;
-    padding: 32px 16px;
+    padding: 48px 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: ${(props) => props.theme.colors.secondaryBackground};
 
-    @media (min-width: 720px) {
-        padding: 72px 48px;
+    @media (min-width: 1024px) {
+        padding: 90px 48px;
         flex-direction: row;
     }
 `;
@@ -22,7 +22,7 @@ const CountContainer = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 32px 16px;
+    padding: 48px;
     background-color: ${(props) => props.theme.colors.white};
     border-radius: 4px;
     justify-content: center;
@@ -39,7 +39,7 @@ const CountContainer = styled.div`
         margin: 0;
     }
 
-    @media (min-width: 720px) {
+    @media (min-width: 1024px) {
         padding: 32px;
         width: 320px;
         margin: 0 16px;
@@ -56,7 +56,7 @@ const Number = styled.span`
 const SpacingContainer = styled.div`
     padding: 24px;
 
-    @media (min-width: 720px) {
+    @media (min-width: 1024px) {
         display: none;
     }
 `;

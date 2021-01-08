@@ -1,122 +1,112 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { Box, Button } from 'rebass';
+import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/Seo';
 import Page from '../Templates/Page';
 import PakkettenQuery from '../utils/queries/pakketten';
-import Theme from '../utils/Theme';
-
-const Container = styled.div`
-    max-width: 1024px;
-    padding: 24px 16px;
-
-    @media (min-width: 1024px) {
-        padding: 48px;
-    }
-`;
+import Theme, { theme } from '../utils/Theme';
 
 const PricingContainer = styled.div`
-    display: flex;
-    flex-direction: column;
     box-shadow: 2px 2px 25px 3px rgba(158,155,158,0.50);
-    padding: 24px;
-    margin-bottom: 48px;
+    padding: 0 0 24px;
+    background-color: ${(props) => props.theme.colors.secondaryBackground};
+    margin: 0 16px 48px;
+    width: 100%;
 
-    @media (min-width: 375px) {
-        padding: 48px;
+    @media (min-width: 600px) {
+      width: 300px;
     }
 
-    @media (min-width: 720px) {
-        padding: 32px;
-        flex-direction: row;
-        align-items: center;
+    @media (min-width: 1280px) {
+      width: 350px;
     }
 `;
 
 const Price = styled.div`
+  text-align: center;
 
-    @media (min-width: 720px) {
-        min-width: 200px;
-        text-align: center;
+  p {
+      margin: 0;
+      font-weight: 700;
+      font-size: 40px;
+  }
 
-        p {
-            margin: 0;
-        }
-    }
+  h2 {
+    margin: 0 0 48px;
+    color: ${(props) => props.theme.colors.white};
+    padding: 24px;
+    font-size: 32px;
+    background-color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
-const Description = styled.div`
-
-    p {
-        margin: 0;
-        color: ${(props) => props.theme.colors.blackMedium};
-    }
-
-    table {
-        margin: 0;
-        border-left: 1px solid transparent;
-        border-top: 4px solid ${(props) => props.theme.colors.primary};
-        border-bottom: 1px solid transparent;
-        border-right: 1px solid transparent;
-
-        td {
-            padding: 24px 8px 0;
-            border: none;
-
-            @media (min-width: 720px) {
-                padding: 8px 8px 8px 48px;
-            }
-        }
-
-        @media (min-width: 720px) {
-            border-left: 4px solid ${(props) => props.theme.colors.primary};
-            border-top: 1px solid transparent;
-        }
-    }
-
-    @media (min-width: 720px) {
-        padding: 0 0 0 48px;
-    }
-`;
-
-const PriceCard = ({ title, price, description }) => (
+const PriceCard = ({ title, price }) => (
   <PricingContainer>
     <Price>
       <h2>{title}</h2>
       <p>{price}</p>
     </Price>
-    <Description>
-      <p dangerouslySetInnerHTML={{ __html: description }} />
-    </Description>
+    <Box p={16}>
+      <Link to="/contact/">
+        <Button
+          sx={{
+            width: '100%',
+            color: `${theme.colors.black}`,
+            backgroundColor: `${theme.colors.white}`,
+            border: `2px solid ${theme.colors.primary}`,
+            cursor: 'pointer',
+            height: '50px',
+            marginTop: '24px',
+          }}
+          width={1}
+          type="submit"
+          aria-label="Verstuur"
+        >
+          Vrijblijvende kennismaking
+        </Button>
+      </Link>
+    </Box>
   </PricingContainer>
 );
 
 PriceCard.propTypes = {
   title: PropTypes.string,
   price: PropTypes.string,
-  description: PropTypes.string,
 };
 
 PriceCard.defaultProps = {
   title: null,
   price: null,
-  description: null,
 };
+
+const CardsContainer = styled.div`
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+`;
+
+const Description = styled.p`
+  margin: 24px;
+
+  @media (min-width: 1024px) {
+    margin: 48px;
+  }
+`;
 
 const IndexPage = () => {
   const {
     smallTitle,
     smallPrice,
-    smallDescription,
     pageHeader,
     pageDescription,
     mediumTitle,
     mediumPrice,
-    mediumDescription,
     largeTitle,
     largePrice,
-    largeDescription,
     begeleidingTitle,
     begeleidingDescription,
     seo: {
@@ -132,26 +122,25 @@ const IndexPage = () => {
         <Page
           heading={pageHeader}
         >
-          <Container>
-            <p>{pageDescription}</p>
+          <Description>{pageDescription}</Description>
+          <CardsContainer>
             <PriceCard
               title={smallTitle}
               price={smallPrice}
-              description={smallDescription}
             />
             <PriceCard
               title={mediumTitle}
               price={mediumPrice}
-              description={mediumDescription}
             />
             <PriceCard
               title={largeTitle}
               price={largePrice}
-              description={largeDescription}
             />
+          </CardsContainer>
+          <Description>
             <h2>{begeleidingTitle}</h2>
             <div dangerouslySetInnerHTML={{ __html: begeleidingDescription }} />
-          </Container>
+          </Description>
         </Page>
       </Layout>
     </Theme>

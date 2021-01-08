@@ -9,16 +9,19 @@ import { Flex, Box, Button } from 'rebass';
 import Theme, { theme } from '../utils/Theme';
 
 const FormContainer = styled.div`
-  padding-bottom: 32px;
+  padding-bottom: 48px;
+  margin: 32px;
 
   @media (min-width: 600px) {
-    padding-bottom: 48px;
+    padding-bottom: 90px;
+    margin: 0;
   }
 `;
 
 const StyledLabel = styled(Label)`
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 `;
 
 const Form = () => (
@@ -80,9 +83,8 @@ const Form = () => (
             <Button
               sx={{
                 width: '100%',
-                color: `${theme.colors.black}`,
-                backgroundColor: `${theme.colors.white}`,
-                border: `2px solid ${theme.colors.primary}`,
+                color: `${theme.colors.white}`,
+                backgroundColor: `${theme.colors.primary}`,
                 cursor: 'pointer',
                 height: '50px',
                 marginTop: '24px',
