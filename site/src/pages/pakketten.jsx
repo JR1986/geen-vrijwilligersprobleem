@@ -43,23 +43,38 @@ const Price = styled.div`
   }
 `;
 
-const PriceCard = ({ title, price }) => (
+const CardDescription = styled.p`
+  &&& {
+    padding: 0 16px;
+  }
+`;
+
+const PriceCard = ({ title, price, description }) => (
   <PricingContainer>
     <Price>
       <h2>{title}</h2>
       <p>{price}</p>
     </Price>
+    <CardDescription>{description}</CardDescription>
     <Box p={16}>
       <Link to="/contact/">
         <Button
           sx={{
-            width: '100%',
             color: `${theme.colors.black}`,
+            width: '100%',
             backgroundColor: `${theme.colors.white}`,
             border: `2px solid ${theme.colors.primary}`,
             cursor: 'pointer',
             height: '50px',
-            marginTop: '24px',
+            background: `linear-gradient(to right,  ${theme.colors.primary} 50%, white 50%)`,
+            backgroundSize: '200% 100%',
+            backgroundPosition: 'right bottom',
+            borderRadius: 0,
+            transition: 'all .3s ease-out',
+            '&:hover': {
+              backgroundPosition: 'left bottom',
+              color: `${theme.colors.white}`,
+            },
           }}
           width={1}
           type="submit"
@@ -75,11 +90,13 @@ const PriceCard = ({ title, price }) => (
 PriceCard.propTypes = {
   title: PropTypes.string,
   price: PropTypes.string,
+  description: PropTypes.string,
 };
 
 PriceCard.defaultProps = {
   title: null,
   price: null,
+  description: null,
 };
 
 const CardsContainer = styled.div`
@@ -101,12 +118,15 @@ const IndexPage = () => {
   const {
     smallTitle,
     smallPrice,
+    smallDescription,
     pageHeader,
     pageDescription,
     mediumTitle,
     mediumPrice,
+    mediumDescription,
     largeTitle,
     largePrice,
+    largeDescription,
     begeleidingTitle,
     begeleidingDescription,
     seo: {
@@ -127,14 +147,17 @@ const IndexPage = () => {
             <PriceCard
               title={smallTitle}
               price={smallPrice}
+              description={<div dangerouslySetInnerHTML={{ __html: smallDescription }} />}
             />
             <PriceCard
               title={mediumTitle}
               price={mediumPrice}
+              description={<div dangerouslySetInnerHTML={{ __html: mediumDescription }} />}
             />
             <PriceCard
               title={largeTitle}
               price={largePrice}
+              description={<div dangerouslySetInnerHTML={{ __html: largeDescription }} />}
             />
           </CardsContainer>
           <Description>

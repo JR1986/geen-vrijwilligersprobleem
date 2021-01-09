@@ -51,13 +51,19 @@ const BottomContainer = styled.div`
   }
 `;
 
+const Logo = styled.img`
+  @media (max-width: 599px) { 
+    margin: 0 auto;
+  }
+`;
+
 const Footer = () => (
   <Theme>
     <FooterContainer>
       <Links>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/pakketten/">Pakketten</NavLink>
-        <img
+        <Logo
           src="/logo-geen-vrijwilligers-probleem-white.svg"
           alt="Geen Vrijwilligersprobleem"
           width={150}
