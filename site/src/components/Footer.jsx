@@ -5,7 +5,7 @@ import Theme from '../utils/Theme';
 
 const FooterContainer = styled.footer`
     padding: 48px 0;
-    background-color: ${(props) => props.theme.colors.blackBackground};
+    background-color: ${(props) => props.theme.colors.secondary};
 
     @media (min-width: 1024px) {
         padding: 72px 48px;
@@ -14,18 +14,18 @@ const FooterContainer = styled.footer`
 
 const Links = styled.div`
     display: flex;
-    font-size: 14px;
+    font-size: 13px;
     flex-direction: column;
     text-align: center;
-    border-bottom: 3px solid ${(props) => props.theme.colors.primary};
+    border-bottom: 1px solid ${(props) => props.theme.colors.primary};
     text-transform: uppercase;
 
     @media (min-width: 600px) {
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      padding-bottom: 32px;
+      margin-bottom: 36px;
     }
 `;
 
@@ -66,8 +66,8 @@ const Footer = () => (
         <Logo
           src="/logo-geen-vrijwilligers-probleem-white.svg"
           alt="Geen Vrijwilligersprobleem"
-          width={150}
-          height={150}
+          width={130}
+          height={130}
         />
         <NavLink to="/over-ons/">Over ons</NavLink>
         <NavLink to="/contact/">Contact</NavLink>

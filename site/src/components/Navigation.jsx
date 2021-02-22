@@ -7,10 +7,10 @@ import Drawer from './Drawer';
 import Theme, { theme } from '../utils/Theme';
 
 const LogoContainer = styled.div`
-  margin: 0 auto;
+  margin: 12px auto;
 
   @media (min-width: 1024px) {
-    margin: 0;
+    margin: 16px 0;
   }
 `;
 
@@ -39,7 +39,7 @@ const NavLink = styled(Link)`
     padding: 12px 0;
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
@@ -50,7 +50,7 @@ const NavLink = styled(Link)`
     }
 
     &:hover:after {
-      height: 3px;
+      height: 1px;
       opacity: 1;
       transform: translateY(0px);
     }
@@ -90,7 +90,7 @@ const StyledAppBar = styled(AppBar)`
     : `
     && {
       position: static;
-      background-color: ${theme.colors.blackBackgroundAlpha};
+      background-color: ${theme.colors.secondary};
       z-index: 0;
     }
     `
@@ -131,8 +131,8 @@ const Navigation = ({ homeNavbar }) => (
           <img
             src="/logo-geen-vrijwilligers-probleem-white.svg"
             alt="Geen Vrijwilligersprobleem"
-            width={150}
-            height={150}
+            width={130}
+            height={130}
           />
         </LogoContainerMobile>
         <StyledToolbar>
@@ -142,8 +142,8 @@ const Navigation = ({ homeNavbar }) => (
             <img
               src="/logo-geen-vrijwilligers-probleem-white.svg"
               alt="Geen Vrijwilligersprobleem"
-              width={150}
-              height={150}
+              width={120}
+              height={120}
             />
           </LogoContainer>
           <NavLink to="/over-ons/">Over ons</NavLink>
