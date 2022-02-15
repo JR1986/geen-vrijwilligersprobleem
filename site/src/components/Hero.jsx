@@ -127,7 +127,6 @@ const TeaserTextContainer = styled.div`
   h1 {
     color: ${(props) => props.theme.colors.white};
     padding: 0 24px;
-    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
     letter-spacing: 0px;
     animation: ${animateFromTop} 2s;
     font-size: 48px;
@@ -140,18 +139,14 @@ const TeaserTextContainer = styled.div`
   p {
     color: ${(props) => props.theme.colors.white};
     padding: 0 24px;
-    text-shadow: 1px 1px ${(props) => props.theme.colors.black};
     animation: ${animateFromLeft} 2s;
     font-size: 20px;
-    line-height: 1.75rem;
+    line-height: 2rem;
   }
 
   @media (min-width: 1440px) {
     h1 {
       font-size: 56px;
-    }
-    p {
-      font-size: 24px;
     }
   }
 

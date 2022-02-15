@@ -30,13 +30,14 @@ const Layout = ({ homeNavbar, children }) => (
         }
 
         body {
-          font-size: 18px;
+          font-size: 20px;
           font-family: 'Lato', sans-serif;
           margin: 0;
         }
 
         p {
           font-weight: 400;
+          font-size: 18px;
         }
 
         button {

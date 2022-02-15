@@ -129,7 +129,7 @@ const Navigation = ({ homeNavbar }) => (
   <Theme>
     <div>
       <StyledAppBar position="static" homeNavbar={homeNavbar}>
-        <StyledDrawer />
+        <StyledDrawer homeNavbar={homeNavbar} />
         <LogoContainerMobile>
           <img
             src={homeNavbar ? '/logo-geen-vrijwilligers-probleem-white.svg' : '/logo-geen-vrijwilligers-probleem.svg'}
@@ -149,9 +149,9 @@ const Navigation = ({ homeNavbar }) => (
           </LogoContainer>
           <div>
             <NavLink homeNavbar={homeNavbar} to="/">Home</NavLink>
-            <NavLink homeNavbar={homeNavbar} to="/pakketten/">Pakketten</NavLink>
-            <NavLink homeNavbar={homeNavbar} to="/over-geen-vrijwilligersprobleem/">Over Geen Vrijwilligersprobleem</NavLink>
-            <NavLink homeNavbar={homeNavbar} to="/contact/">Contact</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/pakketten">Pakketten</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/over-geen-vrijwilligersprobleem">Over Geen Vrijwilligersprobleem</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/contact">Contact</NavLink>
           </div>
         </StyledToolbar>
       </StyledAppBar>

@@ -16,8 +16,8 @@ const links = [
     href: '/pakketten',
   },
   {
-    title: 'Over ons',
-    href: 'over-geen-vrijwilligersprobleem',
+    title: 'Over Geen Vrijwilligersprobleem',
+    href: '/over-geen-vrijwilligersprobleem',
   },
   {
     title: 'Contact',
@@ -48,7 +48,7 @@ const StyledLink = styled(Link)`
     text-decoration: none;
 `;
 
-export default function MobileDrawer() {
+export default function MobileDrawer({ homeNavbar }) {
   const [state, setState] = React.useState({
     top: false,
   });
@@ -75,7 +75,7 @@ export default function MobileDrawer() {
     <Theme>
       {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ color: 'white' }} /></StyledButton>
+          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ color: homeNavbar ? 'color: white' : 'color: black' }} /></StyledButton>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>
