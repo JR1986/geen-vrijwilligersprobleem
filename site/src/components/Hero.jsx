@@ -103,6 +103,8 @@ const animateFromLeft = keyframes`
 const TeaserTextContainer = styled.div`
   margin: 0 auto;
   max-width: 400px;
+  left: 0;
+  right: 0;
   text-align: center;
   position: absolute;
   padding: 24px;
@@ -126,9 +128,13 @@ const TeaserTextContainer = styled.div`
     color: ${(props) => props.theme.colors.white};
     padding: 0 24px;
     text-shadow: 1px 1px ${(props) => props.theme.colors.black};
-    letter-spacing: -1px;
+    letter-spacing: 0px;
     animation: ${animateFromTop} 2s;
-    font-size: 40px;
+    font-size: 48px;
+
+    @media (min-width: 840px) {
+      font-size: 64px;
+    }
   }
 
   p {
@@ -171,7 +177,6 @@ const Drawer = () => {
       }
       teaser
       teaserDescription
-      buttonText
     }
   }
 `);

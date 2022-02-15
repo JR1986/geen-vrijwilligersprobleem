@@ -7,6 +7,7 @@ import Form from './Form';
 import SEO from './Seo';
 import FadeInSection from '../utils/FadeInSection';
 import Triangle from './Triangle';
+import Video from './Video';
 
 const Background = styled.div`
     background-color: ${(props) => props.backgroundColor};
@@ -140,6 +141,17 @@ const ImgBackground = styled.div`
   }
 `;
 
+const MaxWidth = styled.div`
+  padding: 32px;
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+
+  @media(min-width: 1024px) {
+    padding: 64px 0;
+  }
+`;
+
 const HomeArticles = () => {
   const data = useStaticQuery(graphql`
   query HomePageQuery {
@@ -158,12 +170,6 @@ const HomeArticles = () => {
         }
         overOnsTitle
         overOnsDescription
-        overOnsImage {
-            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
-                srcSet
-                ...GatsbyDatoCmsFluid
-            }
-        }
         contactTitle
         contactDescription
         aanpakTitle
@@ -191,9 +197,6 @@ const HomeArticles = () => {
       },
       overOnsTitle,
       overOnsDescription,
-      overOnsImage: {
-        fluid: overOnsImage,
-      },
       contactTitle,
       contactDescription,
       aanpakTitle,
@@ -208,35 +211,31 @@ const HomeArticles = () => {
     <Theme>
       <SEO title={title} description={description} />
       <Background
-        backgroundColor={theme.colors.primaryBackground}
+        backgroundColor={theme.colors.white}
       >
         <FadeInSection>
-          <ContentContainer flexDirection="row-reverse">
-            <TextContainer>
-              <h2>{succesverhaal}</h2>
-              <div dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
-            </TextContainer>
+          <MaxWidth>
+            <h2>{overOnsTitle}</h2>
+            <p>{overOnsDescription}</p>
             <SpacingContainer />
-            <ImgBackground>
-              <StyledImg fluid={succesverhaalImage} />
-            </ImgBackground>
-          </ContentContainer>
+            <Video />
+          </MaxWidth>
         </FadeInSection>
       </Background>
       <Background
         backgroundColor={theme.colors.secondaryBackground}
       >
-        <Triangle backgroundColor={theme.colors.white} />
+        <Triangle backgroundColor={theme.colors.primaryBackground} />
         <FadeInSection>
-          <ContentContainer>
-            <TextContainer>
-              <h2>{overOnsTitle}</h2>
-              <p>{overOnsDescription}</p>
-            </TextContainer>
-            <SpacingContainer />
+          <ContentContainer flexDirection="row-reverse">
             <ImgBackground>
-              <StyledImg fluid={overOnsImage} />
+              <StyledImg fluid={succesverhaalImage} />
             </ImgBackground>
+            <SpacingContainer />
+            <TextContainer>
+              <h2>{succesverhaal}</h2>
+              <div dangerouslySetInnerHTML={{ __html: succesverhaalDescription }} />
+            </TextContainer>
           </ContentContainer>
         </FadeInSection>
       </Background>

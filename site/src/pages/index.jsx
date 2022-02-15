@@ -9,7 +9,6 @@ const IndexPage = () => (
   <Theme>
     <Layout homeNavbar>
       <Hero />
-      <Count />
       <Article />
     </Layout>
   </Theme>

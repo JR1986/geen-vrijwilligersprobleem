@@ -17,7 +17,7 @@ const links = [
   },
   {
     title: 'Over ons',
-    href: '/over-ons',
+    href: 'over-geen-vrijwilligersprobleem',
   },
   {
     title: 'Contact',
@@ -46,10 +46,6 @@ const StyledLink = styled(Link)`
     padding: 24px 0;
     color: ${(props) => props.theme.colors.black};
     text-decoration: none;
-
-    &[aria-current="page"] {
-        color: ${(props) => props.theme.colors.secondary};
-    }
 `;
 
 export default function MobileDrawer() {

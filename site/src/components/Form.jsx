@@ -83,12 +83,13 @@ const Form = () => (
             <Button
               sx={{
                 width: '100%',
-                color: `${theme.colors.white}`,
+                color: `${theme.colors.black}`,
                 backgroundColor: `${theme.colors.primary}`,
                 cursor: 'pointer',
                 height: '50px',
                 marginTop: '24px',
                 fontWeight: '700',
+                border: '2px dashed grey',
               }}
               width={1}
               type="submit"

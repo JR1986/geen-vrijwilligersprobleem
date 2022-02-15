@@ -10,7 +10,7 @@ const Layout = ({ homeNavbar, children }) => (
     <Global
       styles={css`
         @font-face {
-          font-family: 'Lato';
+          font-family: 'Amatic SC';
           font-display: swap;
         }
 
@@ -20,11 +20,13 @@ const Layout = ({ homeNavbar, children }) => (
 
         h1, h2, h3, h4, h5, h6, span, div, strong {
           color: rgba(0,0,0,0.87);
+          font-family: 'Amatic SC';
         }
 
-        p, ul, li {
+        p, ul, li, input, textarea {
           color: ${theme.colors.blackMedium};
           line-height: 2.25rem;
+          font-family: 'Lato', sans-serif;
         }
 
         body {
@@ -38,13 +40,13 @@ const Layout = ({ homeNavbar, children }) => (
         }
 
         button {
-          font-family: 'Lato', sans-serif;
+          font-family: 'Amatic SC';
         }
       `}
     />
     <Navigation homeNavbar={homeNavbar} />
     <main>{children}</main>
-    <Footer />
+    <Footer logo="/logo-geen-vrijwilligers-probleem.svg" />
   </>
 );
 

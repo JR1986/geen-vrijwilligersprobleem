@@ -36,7 +36,7 @@ const Price = styled.div`
 
   h2 {
     margin: 0 0 48px;
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.black};
     padding: 24px;
     font-size: 32px;
     background-color: ${(props) => props.theme.colors.primary};
@@ -62,19 +62,11 @@ const PriceCard = ({ title, price, description }) => (
           sx={{
             color: `${theme.colors.black}`,
             width: '100%',
-            backgroundColor: `${theme.colors.white}`,
-            border: `2px solid ${theme.colors.primary}`,
+            backgroundColor: `${theme.colors.primary}`,
+            border: '2px dashed grey',
             cursor: 'pointer',
             height: '50px',
-            background: `linear-gradient(to right,  ${theme.colors.primary} 50%, white 50%)`,
-            backgroundSize: '200% 100%',
-            backgroundPosition: 'right bottom',
             borderRadius: 0,
-            transition: 'all .3s ease-out',
-            '&:hover': {
-              backgroundPosition: 'left bottom',
-              color: `${theme.colors.white}`,
-            },
           }}
           width={1}
           type="submit"

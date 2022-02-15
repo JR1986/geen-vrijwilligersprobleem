@@ -37,17 +37,25 @@ const NavLink = styled(Link)`
   && {
     margin: 0 40px;
     padding: 12px 0;
-    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    font-size: 13px;
+
+  ${(props) => (props.homeNavbar
+    ? `
+    && {
+     color: ${theme.colors.white}
+    }
+    `
+    : `
+    && {
+      color: ${theme.colors.black}
+    }
+    `
+  )
+}
+    font-size: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.primary};
-      transition: color 0.3s;
-    }
 
     &:hover:after {
       height: 1px;
@@ -67,17 +75,12 @@ const NavLink = styled(Link)`
       transition: height 0.3s, opacity 0.3s, transform 0.3s;
       transform: translateY(-10px);
     }
-
-    &[aria-current="page"] {
-      color: ${(props) => props.theme.colors.primary};
-    }
   }
 `;
 
 const StyledAppBar = styled(AppBar)`
   padding-left: 0;
   padding-right: 0;
-  margin: 0 auto;
 
   ${(props) => (props.homeNavbar
     ? `
@@ -112,10 +115,10 @@ const StyledToolbar = styled(Toolbar)`
     display: none;
     padding-left: 0;
     padding-right: 0;
-    justify-content: center;
 
   @media (min-width: 1024px) {
       display: flex;
+      justify-content: space-between;
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -129,25 +132,27 @@ const Navigation = ({ homeNavbar }) => (
         <StyledDrawer />
         <LogoContainerMobile>
           <img
-            src="/logo-geen-vrijwilligers-probleem-white.svg"
+            src={homeNavbar ? '/logo-geen-vrijwilligers-probleem-white.svg' : '/logo-geen-vrijwilligers-probleem.svg'}
             alt="Geen Vrijwilligersprobleem"
             width={130}
             height={130}
           />
         </LogoContainerMobile>
         <StyledToolbar>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/pakketten/">Pakketten</NavLink>
           <LogoContainer>
             <img
-              src="/logo-geen-vrijwilligers-probleem-white.svg"
+              src={homeNavbar ? '/logo-geen-vrijwilligers-probleem-white.svg' : '/logo-geen-vrijwilligers-probleem.svg'}
               alt="Geen Vrijwilligersprobleem"
               width={120}
               height={120}
             />
           </LogoContainer>
-          <NavLink to="/over-ons/">Over ons</NavLink>
-          <NavLink to="/contact/">Contact</NavLink>
+          <div>
+            <NavLink homeNavbar={homeNavbar} to="/">Home</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/pakketten/">Pakketten</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/over-geen-vrijwilligersprobleem/">Over Geen Vrijwilligersprobleem</NavLink>
+            <NavLink homeNavbar={homeNavbar} to="/contact/">Contact</NavLink>
+          </div>
         </StyledToolbar>
       </StyledAppBar>
     </div>

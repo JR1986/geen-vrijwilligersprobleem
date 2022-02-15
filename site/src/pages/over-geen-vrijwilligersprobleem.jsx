@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import SEO from '../components/Seo';
 import OverGeenVrijwilligersprobleem from '../utils/queries/overOns';
 import Page from '../Templates/Page';
+import Video from '../components/Video';
 
 const Container = styled.div`
     max-width: 700px;
@@ -32,6 +33,7 @@ const IndexPage = () => {
       >
         <Container>
           <p>{pageDescription}</p>
+          <Video />
         </Container>
       </Page>
     </Layout>

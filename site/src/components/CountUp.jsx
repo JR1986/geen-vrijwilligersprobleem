@@ -90,7 +90,7 @@ const Count = () => {
         <SpacingContainer />
         <FadeInSection>
           <CountContainer>
-            <h2>Aantal nieuwe leden:</h2>
+            <h2>Aantal verenigingen:</h2>
             <Number>
               {aantalNieuweLeden}
             </Number>

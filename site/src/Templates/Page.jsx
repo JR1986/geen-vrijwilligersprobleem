@@ -15,7 +15,7 @@ const HeroContainer = styled.div`
         padding: 16px;
         margin: 0;
         max-width: 1440px;
-        font-size: 28px;
+        font-size: 48px;
 
         @media (min-width: 1024px) {
             padding: 0 0 0 48px;
