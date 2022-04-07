@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     author: 'Jelmer Knossen',
+    siteUrl: 'https://geenvrijwilligersprobleem.nl',
   },
   plugins: [
     'gatsby-plugin-preact',
@@ -33,6 +34,7 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
