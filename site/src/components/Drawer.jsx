@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'gatsby';
 import Theme from '../utils/Theme';
 
@@ -75,7 +75,7 @@ export default function MobileDrawer({ homeNavbar }) {
     <Theme>
       {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon style={{ color: homeNavbar ? 'color: white' : 'color: black' }} /></StyledButton>
+          <StyledButton aria-label="Menu" onClick={toggleDrawer(anchor, true)}><MenuIcon color={homeNavbar ? 'white' : 'black'} /></StyledButton>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>

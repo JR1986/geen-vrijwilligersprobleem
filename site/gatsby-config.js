@@ -1,33 +1,34 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    author: 'Jelmer Knossen',
+    title: `Geen vrijwilligersprobleem`,
+    siteUrl: `https://geenvrijwilligersprobleem.nl`,
+    author: 'Jelmer Knossen'
   },
   plugins: [
-    'gatsby-plugin-preact',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/static`,
-      },
+  {
+    resolve: 'gatsby-source-datocms',
+    options: {
+      "apiToken": process.env.DATOCMS
+    }
+  },
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      footnotes: true,
+      gfm: true,
+      plugins: [],
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-source-datocms',
-      options: {
-        apiToken: '228a5af0d13392cf62bc951d69030c',
-        preview: false,
-        disableLiveReload: false,
-      },
+  },
+  "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      "name": "images",
+      "path": "./static/"
     },
-    'gatsby-plugin-emotion',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'static/logo-geen-vrijwilligers-probleem.svg',
-      },
-    },
-  ],
+    __key: "images"
+  }]
 };

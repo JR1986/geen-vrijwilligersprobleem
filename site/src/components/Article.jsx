@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Theme, { theme } from '../utils/Theme';
 import Form from './Form';
-import SEO from './Seo';
+import Seo from './Seo';
 import FadeInSection from '../utils/FadeInSection';
 import Triangle from './Triangle';
 import Video from './Video';
@@ -89,7 +89,7 @@ const FormContainer = styled.div`
   }
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   &&& {
     width: 100%;
   }
@@ -163,10 +163,15 @@ const HomeArticles = () => {
         succesverhaalDescription
         succesverhaal
         succesverhaalImage {
-            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
-                srcSet
-                ...GatsbyDatoCmsFluid
+          gatsbyImageData(
+            placeholder: BLURRED
+            sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px",
+            imgixParams: {
+              fm: "jpg",
+              auto: "compress",
+              fit:"crop"
             }
+          )
         }
         overOnsTitle
         overOnsDescription
@@ -175,13 +180,18 @@ const HomeArticles = () => {
         aanpakTitle
         aanpakDescription
         aanpakImage {
-            fluid(sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px", imgixParams: { fm: "jpg", auto: "compress", fit:"crop" }) {
-                srcSet
-                ...GatsbyDatoCmsFluid
+          gatsbyImageData(
+            placeholder: BLURRED
+            sizes: "(max-width: 599px) 100vw, (max-width: 1400px) 40vw, 580px",
+            imgixParams: { 
+              fm: "jpg",
+              auto: "compress", 
+              fit:"crop"
             }
+          )
         }
+      }
     }
-  }
 `);
 
   const {
@@ -193,7 +203,7 @@ const HomeArticles = () => {
       succesverhaal,
       succesverhaalDescription,
       succesverhaalImage: {
-        fluid: succesverhaalImage,
+        gatsbyImageData: succesverhaalImage,
       },
       overOnsTitle,
       overOnsDescription,
@@ -202,14 +212,14 @@ const HomeArticles = () => {
       aanpakTitle,
       aanpakDescription,
       aanpakImage: {
-        fluid: aanpakImage,
+        gatsbyImageData: aanpakImage,
       },
     },
   } = data;
 
   return (
     <Theme>
-      <SEO title={title} description={description} />
+      <Seo title={title} description={description} />
       <Background
         backgroundColor={theme.colors.white}
       >
@@ -229,7 +239,7 @@ const HomeArticles = () => {
         <FadeInSection>
           <ContentContainer flexDirection="row-reverse">
             <ImgBackground>
-              <StyledImg fluid={succesverhaalImage} />
+              <StyledImg image={succesverhaalImage} alt="Geen vrijwilligersprobleem hero" />
             </ImgBackground>
             <SpacingContainer />
             <TextContainer>
@@ -248,7 +258,7 @@ const HomeArticles = () => {
             </TextContainer>
             <SpacingContainer />
             <ImgBackground>
-              <StyledImg fluid={aanpakImage} />
+              <StyledImg image={aanpakImage} alt="Geen vrijwilligersprobleem hero"/>
             </ImgBackground>
           </ContentContainer>
         </FadeInSection>

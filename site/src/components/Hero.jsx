@@ -2,8 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { GatsbyImage } from "gatsby-plugin-image";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Theme from '../utils/Theme';
 import FadeInSection from '../utils/FadeInSection';
 
@@ -73,7 +73,7 @@ const Overlay = styled.div`
   top: 0;
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   &&& {
     position: static !important;
   }
@@ -157,7 +157,8 @@ const Drawer = () => {
   query MyQuery {
     datoCmsHome {
       heroImage {
-        fluid(
+        gatsbyImageData(
+          placeholder: BLURRED
           sizes: "(max-width: 599px) 85vw, (max-width: 719px) 70vw, (max-width: 839px) 60vw, (max-width: 1440) 50vw, 600px",
           imgixParams: {
             fm: "png",
@@ -166,9 +167,6 @@ const Drawer = () => {
             q:50,
           }
         )
-        {
-        ...GatsbyDatoCmsFluid
-        }
       }
       teaser
       teaserDescription
@@ -180,7 +178,7 @@ const Drawer = () => {
     <Theme>
       <FadeInSection>
         <ImageContainer>
-          <StyledImg fluid={data.datoCmsHome.heroImage.fluid} />
+          <StyledImg image={data.datoCmsHome.heroImage.gatsbyImageData} alt="Geen vrijwilligersprobleem hero"/>
           <DownIcon style={{ color: 'white' }} />
           <Overlay />
         </ImageContainer>

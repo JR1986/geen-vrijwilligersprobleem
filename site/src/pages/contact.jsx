@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import Form from '../components/Form';
 import ContactQuery from '../utils/queries/contact';
 import Page from '../Templates/Page';
@@ -14,20 +14,13 @@ const Container = styled.div`
     text-align: center;
 `;
 
-const Background = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
-  height: 250px;
-  width: 100%;
-  margin-top: -135px;
-`;
-
 const IndexPage = () => {
   const { contactTitle, contactDescription, seo: { title, description } } = ContactQuery();
 
   return (
     <Theme>
       <Layout>
-        <SEO title={title} description={description} />
+        <Seo title={title} description={description} />
         <Page
           heading={contactTitle}
         >

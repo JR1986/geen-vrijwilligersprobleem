@@ -3,18 +3,22 @@ import { graphql, useStaticQuery } from 'gatsby';
 export default function OverGeenVrijwilligersprobleem() {
   const data = useStaticQuery(
     graphql`
-        query overGeenVrijwilligersprobleem {
-        datoCmsOverGeenVrijwilligersprobleem {
-            pageHeader
-            pageDescription
-            seo {
-              title
-              description
+      query overGeenVrijwilligersprobleem {
+        allDatoCmsOverGeenVrijwilligersprobleem {
+          edges {
+            node {
+              pageDescription
+              pageHeader
+              seo {
+                title
+                description
+              }
             }
+          }
+        }
       }
-    }
-  `,
+    `,
   );
 
-  return data.datoCmsOverGeenVrijwilligersprobleem;
+  return data.allDatoCmsOverGeenVrijwilligersprobleem;
 }
