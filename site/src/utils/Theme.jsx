@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-export const theme = {
+export const theme = createTheme({
   colors: {
     primary: '#FFED00',
     secondary: '#fff',
@@ -15,7 +15,15 @@ export const theme = {
     secondaryBackground: '#f8f8f8',
     thirdBackground: '#EF476F',
   },
-};
+  palette: {
+    white: {
+      main: '#ffffff'
+    },
+    black: {
+      main: '#000000'
+    }
+  }
+});
 
 const Theme = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>

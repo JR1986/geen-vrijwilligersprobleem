@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import Page from '../Templates/Page';
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Card = styled.div`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Bedankt voor je bericht" />
+    <Seo title="Bedankt voor je bericht" />
     <Page
       heading="Bedankt!"
     >

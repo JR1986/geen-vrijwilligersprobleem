@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import OverGeenVrijwilligersprobleem from '../utils/queries/overOns';
 import Page from '../Templates/Page';
 import Video from '../components/Video';
 
 const Container = styled.div`
-    max-width: 700px;
     padding: 24px 16px;
 
     @media (min-width: 1024px) {
@@ -16,23 +15,26 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
+  console.log(OverGeenVrijwilligersprobleem().edges[0].node)
   const {
-    pageHeader,
-    pageDescription,
-    seo: {
-      title,
-      description,
-    },
-  } = OverGeenVrijwilligersprobleem();
+        pageHeader,
+        seo: {
+          title,
+          description,
+        },
+        pageDescription
+  } = OverGeenVrijwilligersprobleem().edges[0].node;
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <Seo title={title} description={description} />
       <Page
         heading={pageHeader}
       >
         <Container>
-          <p>{pageDescription}</p>
+          <div
+            dangerouslySetInnerHTML={{ __html: pageDescription }}
+          />
           <Video />
         </Container>
       </Page>

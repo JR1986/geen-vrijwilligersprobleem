@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { Box, Button } from 'rebass';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import Page from '../Templates/Page';
 import PakkettenQuery from '../utils/queries/pakketten';
 import Theme, { theme } from '../utils/Theme';
@@ -133,7 +133,7 @@ const IndexPage = () => {
   return (
     <Theme>
       <Layout>
-        <SEO title={title} description={description} />
+        <Seo title={title} description={description} />
         <Page
           heading={pageHeader}
         >

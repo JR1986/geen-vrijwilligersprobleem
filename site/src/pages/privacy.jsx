@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import PrivacyQuery from '../utils/queries/privacy';
 import Page from '../Templates/Page';
 
@@ -19,7 +19,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <Seo title={title} description={description} />
       <Page
         heading="Privacy Statement"
       >
