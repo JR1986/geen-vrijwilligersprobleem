@@ -32,6 +32,10 @@ const TextContainer = styled.div`
       color: ${(props) => props.theme.colors.blackMedium};
     }
 
+    li {
+      font-size: 18px;
+    }
+
     @media (min-width: 1024px) {
         margin: 0;
         padding: 0;
